@@ -46,14 +46,6 @@
             font-size: 1.1em;
         }
 
-        .auth-section {
-            display: none;
-        }
-
-        .auth-section.active {
-            display: block;
-        }
-
         .login-form {
             background: white;
             padding: 30px;
@@ -189,6 +181,7 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
 
         .practice-section.active {
@@ -280,6 +273,7 @@
             color: #333;
             line-height: 1.6;
             white-space: pre-wrap;
+            font-size: 0.95em;
         }
 
         .btn-show-answer {
@@ -377,7 +371,7 @@
         </div>
 
         <!-- Login Section -->
-        <div id="loginSection" class="auth-section active">
+        <div id="loginSection">
             <div class="login-form">
                 <h2 style="text-align: center; color: #667eea; margin-bottom: 20px;">Access Exam Practice</h2>
                 <div id="errorMessage" class="error-message"></div>
@@ -398,43 +392,43 @@
                         <div class="theme-icon">👨‍👩‍👧‍👦</div>
                         <h3>Tema 1</h3>
                         <p><strong>Människan och omgivningen</strong></p>
-                        <p>Family, relationships, home life, and social interactions</p>
+                        <p>Family, relationships, home life</p>
                     </div>
                     <div class="theme-card" onclick="selectTheme('tema2')">
                         <div class="theme-icon">🛍️</div>
                         <h3>Tema 2</h3>
                         <p><strong>Vardagsliv</strong></p>
-                        <p>Shopping, everyday activities, consumer behavior, and services</p>
+                        <p>Shopping, services, everyday activities</p>
                     </div>
                     <div class="theme-card" onclick="selectTheme('tema3')">
                         <div class="theme-icon">🌿</div>
                         <h3>Tema 3</h3>
                         <p><strong>Natur och miljö</strong></p>
-                        <p>Nature, environment, recycling, and natural disasters</p>
+                        <p>Nature, environment, recycling</p>
                     </div>
                     <div class="theme-card" onclick="selectTheme('tema4')">
                         <div class="theme-icon">❤️</div>
                         <h3>Tema 4</h3>
                         <p><strong>Hälsa och välbefinnande</strong></p>
-                        <p>Health, wellness, illness, and medical situations</p>
+                        <p>Health, wellness, medical situations</p>
                     </div>
                     <div class="theme-card" onclick="selectTheme('tema5')">
                         <div class="theme-icon">💼</div>
                         <h3>Tema 5</h3>
                         <p><strong>Arbete och utbildning</strong></p>
-                        <p>Work, education, job interviews, and professional situations</p>
+                        <p>Work, education, professional situations</p>
                     </div>
                     <div class="theme-card" onclick="selectTheme('tema6')">
                         <div class="theme-icon">🎬</div>
                         <h3>Tema 6</h3>
                         <p><strong>Fritid och hobbyer</strong></p>
-                        <p>Leisure, hobbies, entertainment, and cultural activities</p>
+                        <p>Leisure, entertainment, culture</p>
                     </div>
                     <div class="theme-card" onclick="selectTheme('tema7')">
                         <div class="theme-icon">🏛️</div>
                         <h3>Tema 7</h3>
                         <p><strong>Samhälle</strong></p>
-                        <p>Society, immigration, citizenship, and civic matters</p>
+                        <p>Society, citizenship, civic matters</p>
                     </div>
                 </div>
             </div>
@@ -443,23 +437,19 @@
             <div id="practiceView" style="display: none;">
                 <button class="back-btn" onclick="goBackToThemes()">← Back to Themes</button>
 
-                <!-- Tema 1: Människan och omgivningen -->
+                <!-- TEMA 1 -->
                 <div class="practice-section" id="tema1-practice">
                     <h2>Tema 1: Människan och omgivningen</h2>
-
                     <div class="topic-tabs">
-                        <div class="topic-tab active" onclick="switchTopic(this, 'dialogs')">Dialogues & Responses</div>
-                        <div class="topic-tab" onclick="switchTopic(this, 'writing')">Writing Exercises</div>
-                        <div class="topic-tab" onclick="switchTopic(this, 'opinion')">Opinion Essays</div>
+                        <div class="topic-tab active" onclick="switchTopic(this, 'tema1-dialogs')">Dialogues</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema1-writing')">Writing</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema1-opinion')">Opinion</div>
                     </div>
 
-                    <!-- Dialogs -->
-                    <div class="topic-content active" id="dialogs">
+                    <div class="topic-content active" id="tema1-dialogs">
                         <div class="exercise">
-                            <div class="exercise-title">Dialog 1: A Friend Visits</div>
-                            <div class="exercise-description">
-                                Your friend has come to visit. Greet them, offer something to drink, describe your home, and discuss what's good and bad about your apartment.
-                            </div>
+                            <div class="exercise-title">Dialog 1: Friend Visits Your Home</div>
+                            <div class="exercise-description">Your friend has come to visit. Greet them, offer something to drink, describe your home, and discuss what's good and bad about your apartment.</div>
                             <textarea class="writing-area" placeholder="Write your response here..."></textarea>
                             <div class="word-counter">Word count: <span>0</span></div>
                             <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
@@ -477,9 +467,7 @@ Det som skulle kunna vara bättre är att det finns för mycket trafik utanför 
 
                         <div class="exercise">
                             <div class="exercise-title">Dialog 2: Your Friend is Leaving</div>
-                            <div class="exercise-description">
-                                Your friend is leaving after visiting. Thank them, ask about their plans, and either accept or decline to drive them somewhere.
-                            </div>
+                            <div class="exercise-description">Your friend is leaving after visiting. Thank them, ask about their plans, and either accept or decline to drive them somewhere.</div>
                             <textarea class="writing-area" placeholder="Write your response here..."></textarea>
                             <div class="word-counter">Word count: <span>0</span></div>
                             <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
@@ -492,36 +480,12 @@ Tyvärr kan jag inte köra dig idag eftersom jag måste jobba kvar och slutföra
 Tack för att du var här! Det var verkligen trevligt att träffas. Vi ses igen mycket snart!</div>
                             </div>
                         </div>
-
-                        <div class="exercise">
-                            <div class="exercise-title">Dialog 3: Congratulating a Friend on New Job</div>
-                            <div class="exercise-description">
-                                You heard your friend got a new job. Call and congratulate them. Ask about the job and agree on a time to talk more.
-                            </div>
-                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
-                            <div class="word-counter">Word count: <span>0</span></div>
-                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
-                            <div class="model-answer">
-                                <div class="model-answer-title">Model Answer:</div>
-                                <div class="model-answer-text">Hej! Det är jag, Osman. Jag hörde att du har fått ett nytt jobb - grattis! Jag ville bara ringa och säga att jag är så glad för dig!
-
-Berätta, hur är jobbet? Vad ska du göra där?
-
-Visst, jag förstår att du är mycket busy just nu. Kan jag ringa dig igen ikväll? Jag skulle vilja höra mer om ditt nya jobb.
-
-Tack för att du tog telefonen! Vi talar senare. Ha en fin dag!</div>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Writing Exercises -->
-                    <div class="topic-content" id="writing">
+                    <div class="topic-content" id="tema1-writing">
                         <div class="exercise">
-                            <div class="exercise-title">Writing 1: Message for a Friend's Celebration</div>
-                            <div class="exercise-description">
-                                Something important has happened to your friend. Write a message to congratulate them.
-                                Include: what happened, your opinion, and how you want to celebrate together.
-                            </div>
+                            <div class="exercise-title">Writing 1: Message for Friend's Celebration</div>
+                            <div class="exercise-description">Something important has happened to your friend. Write a message to congratulate them. Include what happened, your opinion, and how you want to celebrate together.</div>
                             <textarea class="writing-area" placeholder="Write your message here..."></textarea>
                             <div class="word-counter">Word count: <span>0</span></div>
                             <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
@@ -531,71 +495,19 @@ Tack för att du tog telefonen! Vi talar senare. Ha en fin dag!</div>
 
 Jag fick veta att du har fått en bebis - grattis! Det är mycket glädjande nyheter!
 
-Jag är så glad för er och tror att ni kommer att vara utmärkta föräldrar. Det nya livet kommer att ge er så mycket glädje och nya upplevelser.
+Jag är så glad för er och tror att ni kommer att vara utmärkliga föräldrar. Det nya livet kommer att ge er så mycket glädje och nya upplevelser.
 
 Jag skulle vilja komma och besöka er när ni är redo. Jag kan ta med mat eller kläder till barnet. Låt mig veta när det passar att komma!
 
 Med varma hälsningar och lyckönskningar!</div>
                             </div>
                         </div>
-
-                        <div class="exercise">
-                            <div class="exercise-title">Writing 2: Email to Real Estate Agent</div>
-                            <div class="exercise-description">
-                                You're looking for a new apartment. Write an email to a real estate agent about:
-                                What type of housing you're looking for, location requirements, budget, and when you want to move.
-                            </div>
-                            <textarea class="writing-area" placeholder="Write your email here..."></textarea>
-                            <div class="word-counter">Word count: <span>0</span></div>
-                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
-                            <div class="model-answer">
-                                <div class="model-answer-title">Model Answer:</div>
-                                <div class="model-answer-text">Hej!
-
-Jag är på väg att söka efter en ny lägenhet i Espoo och hoppades att ni kunde hjälpa mig.
-
-Jag letar efter en tvårummers lägenhet som är modern och luminös. Det är viktigt för mig att det ligger nära kollektivtrafiken och att det finns bra butiker i närområdet. Jag skulle också vilja bo nära skolor och parker.
-
-Min budget är omkring 1200-1400 euro per månad för hyran.
-
-Jag skulle vilja flytta senast i oktober. Kan ni skicka några förslag på lägenheter som passar mina behov?
-
-Tack på förhand!
-Med vänliga hälsningar,
-Osman</div>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Opinion Essays -->
-                    <div class="topic-content" id="opinion">
+                    <div class="topic-content" id="tema1-opinion">
                         <div class="exercise">
-                            <div class="exercise-title">Opinion: "Swedish Parties are Boring"</div>
-                            <div class="exercise-description">
-                                Write an essay about what you think of Swedish/Finnish parties.
-                                Include: what happens at these parties, why they might be boring or fun, and your personal opinion.
-                            </div>
-                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
-                            <div class="word-counter">Word count: <span>0</span></div>
-                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
-                            <div class="model-answer">
-                                <div class="model-answer-title">Model Answer:</div>
-                                <div class="model-answer-text">Svenska och finländska fester kan ibland vara lite tråkiga jämfört med fester i mitt hemland.
-
-Vad skiljer dem? I sverige börjar fester ofta senare på kvällen, och folk talar mycket in formell miljö. Dessutom drinkar många ganska mycket, vilket gör att de blev tystare istället för livligare.
-
-Men å andra sidan är det positivt att fester är väl organiserade och att maten är mycket bra. Folk är också vänliga och respektfulli, även om de inte dansar så mycket.
-
-Min åsikt är att svenska fester inte är tråkiga, men de är annorlunda från vad jag är van vid. Det är en väl annorlunda kultur, och jag försöker njuta av båda typerna av fester. Det viktigaste är att träffa vänner och ha det roligt tillsammans.</div>
-                            </div>
-                        </div>
-
-                        <div class="exercise">
-                            <div class="exercise-title">Opinion: "Good Relationships Require Work"</div>
-                            <div class="exercise-description">
-                                Write about what makes a good relationship and how to maintain it.
-                                Include: what a good relationship is, how to care for it, and what kind of partner you value.
-                            </div>
+                            <div class="exercise-title">Opinion: Good Relationships Require Work</div>
+                            <div class="exercise-description">Write about what makes a good relationship and how to maintain it. Include what a good relationship is, how to care for it, and what kind of partner you value.</div>
                             <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
                             <div class="word-counter">Word count: <span>0</span></div>
                             <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
@@ -605,48 +517,591 @@ Min åsikt är att svenska fester inte är tråkiga, men de är annorlunda från
 
 Vad är ett bra förhållande? Det handlar om tillit, respekt, öppen kommunikation och att visa kärlek. Det är viktigt att kunna diskutera problem öppet utan att bråka.
 
-Hur tar man hand om sitt förhållande? Genom att höra och lyssna på sin partner, genom att ge komplimanger och uttrycka sin kärlek ofta, och genom att spendera tid tillsammans. Det är också viktigt att ha gemensamma intressen och mål.
+Hur tar man hand om sitt förhållande? Genom att höra och lyssna på sin partner, genom att ge komplimanger och uttrycka sin kärlek ofta, och genom att spendera tid tillsammans.
 
-Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt med ärlighet, humor, tålamod och att vilja utvecklas som person. En bra partner ska stödja mig i mina drömmar och vara där för mig i svåra tider.</div>
+Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt med ärlighet, humor, tålamod och att vilja utvecklas som person.</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tema 2 -->
+                <!-- TEMA 2 -->
                 <div class="practice-section" id="tema2-practice">
                     <h2>Tema 2: Vardagsliv</h2>
-                    <p><em>Coming soon - Similar practice structure for Theme 2: Daily Life (Shopping, Services, Transport)</em></p>
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTopic(this, 'tema2-dialogs')">Dialogues</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema2-writing')">Writing</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema2-opinion')">Opinion</div>
+                    </div>
+
+                    <div class="topic-content active" id="tema2-dialogs">
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 1: At a Café - Problem with Coffee</div>
+                            <div class="exercise-description">You're at a café. There's something wrong with your coffee (choose what). Tell the server and ask for a solution. Be polite but firm.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Ursäkta, men kaffet är kallt. Kan jag få ett varmt kaffe istället?
+
+Ja, det är för kallt för att dricka. Det ser ut som att det har stått här för länge.
+
+Tack för att du förstår. Det skulle vara bra. Och kan jag också få något att äta? En bulke eller kakao?
+
+Tack så mycket. Du är mycket hjälpsam!</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 2: Lost in a Strange City</div>
+                            <div class="exercise-description">You're lost in an unfamiliar city. Ask a person on the street for directions. Tell them where you want to go and listen to their advice.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Ursäkta, jag är helt vilse. Jag letar efter huvudstationen. Kan du hjälpa mig?
+
+Ja, det skulle vara mycket hjälpsamt. Jag har aldrig varit här förut.
+
+Tack så mycket för hjälpen! Jag uppskattar det verkligen. Jag hoppas att jag hittar dit nu.
+
+Du är mycket snäll! Ha en fin dag!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema2-writing">
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 1: Response to a Seller's Advertisement</div>
+                            <div class="exercise-description">You've seen an advertisement for something you want to buy. Send a message asking for more information about the item and when you can see it.</div>
+                            <textarea class="writing-area" placeholder="Write your message here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej,
+
+Jag såg din annons om en soffa. Jag är mycket intresserad av den.
+
+Kan du berätta mer om soffan? Hur gamla är den? I vilket skick är den? Vilken färg är den?
+
+Dessutom, när kan jag komma och titta på den? Jag är flexibel med tiden.
+
+Hur mycket kostar den?
+
+Tack,
+Osman</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema2-opinion">
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: Chain Stores vs Local Businesses</div>
+                            <div class="exercise-description">Write about the pros and cons of shopping at chain stores versus local businesses. Which do you prefer and why?</div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Jag tycker att det finns både fördelar och nackdelar med kedjor och lokala butiker.
+
+Fördelar med kedjor: De har ofta lägre priser, större urval, och öppna längre timmar. Det är också bekvämt att veta vad jag får.
+
+Fördelar med lokala butiker: Ägarna är ofta vänliga, produkterna är ofta högre kvalitet, och pengarna stannar i samhället.
+
+Personligt föredrar jag att stödja lokala butiker när jag kan, även om priserna ibland är högre. Jag tror det är viktigt för samhällsutvecklingen.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Tema 3 -->
+                <!-- TEMA 3 -->
                 <div class="practice-section" id="tema3-practice">
                     <h2>Tema 3: Natur och miljö</h2>
-                    <p><em>Coming soon - Similar practice structure for Theme 3: Nature and Environment</em></p>
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTopic(this, 'tema3-dialogs')">Dialogues</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema3-writing')">Writing</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema3-opinion')">Opinion</div>
+                    </div>
+
+                    <div class="topic-content active" id="tema3-dialogs">
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 1: Lost in the Forest</div>
+                            <div class="exercise-description">You got lost in the forest. Call a friend and tell them you need help. Explain your situation and ask for advice.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej! Det är jag, Osman. Jag är vilse i skogen och behöver hjälp!
+
+Ja, jag är rädd. Jag tog en promenad och gick vilse bland träden. Jag vet inte vart jag är.
+
+Nej, det är mörkt nu och jag ser inget. Jag har varma kläder men ingen mobiltelefon med god batteriström.
+
+Tack så mycket! Kan du kontakta nödnumret? Jag försöker stanna på samma plats och stanna vaken.</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 2: Fishing License Inquiry</div>
+                            <div class="exercise-description">You want to fish but don't have a permit. Call the forestry office to ask about getting a fishing license. Ask about the cost and process.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej! Jag vill börja fiska, men jag har inget tillstånd. Kan ni hjälpa mig?
+
+Ja, jag vill fiska i sjön Tuusula. Vad kostar fisketillståndet?
+
+Tack för informationen. Hur får jag tillståndet? Kan jag köpa det online?
+
+Kan du ge mig webbplatsen? Jag behöver veta vad som är avgiftsbelagt.
+
+Tack så mycket för hjälpen!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema3-writing">
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 1: Invitation to Clean Up a Local Park</div>
+                            <div class="exercise-description">The park near your home is in bad condition. Write an invitation to your neighbors asking them to help clean it up. Explain the problem and what you plan to do.</div>
+                            <textarea class="writing-area" placeholder="Write your invitation here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Kära grannar,
+
+Jag skriver för att bjuda in er till ett gemensamt projekt för att göra vår närliggande park vackrare.
+
+För tillfället är parken i dåligt skick. Det finns mycket skräp, gräset är långt, och lekplatsen är i dåligt tillstånd. Jag tror att vi kan göra den mycket bättre tillsammans.
+
+Jag föreslår att vi träffas nästa lördag kl. 10:00 för att städa upp. Ni kan ta med sig skopor, handdukar och träd planterin grejor om ni vill.
+
+Det blir både givande och roligt! Jag hoppas att många av er kan komma!
+
+Med vänliga hälsningar,
+Osman</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema3-opinion">
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: Bicycle or Car?</div>
+                            <div class="exercise-description">Write about the advantages and disadvantages of bicycles and cars. Which transport method do you prefer and why?</div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Båda cykeln och bilen har sina fördelar och nackdelar.
+
+Fördelar med cykel: Det är miljövänligt, gott för hälsan, billigt, och jag kan parkera lätt.
+
+Fördelar med bil: Det är snabbt, bekvämt i dåligt väder, och jag kan ta mycket med mig.
+
+Nackdelar med cykel: Det är långsamt och jag kan bli blöt när det regnar.
+
+Nackdelar med bil: Det är dyrt, dåligt för miljön, och det är stressigt i trafiken.
+
+Personligt föredrar jag cykel för korta resor i god väder, men jag behöver också en bil för längre resor och shopping.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Tema 4 -->
+                <!-- TEMA 4 -->
                 <div class="practice-section" id="tema4-practice">
                     <h2>Tema 4: Hälsa och välbefinnande</h2>
-                    <p><em>Coming soon - Similar practice structure for Theme 4: Health and Wellness</em></p>
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTopic(this, 'tema4-dialogs')">Dialogues</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema4-writing')">Writing</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema4-opinion')">Opinion</div>
+                    </div>
+
+                    <div class="topic-content active" id="tema4-dialogs">
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 1: Emergency Call</div>
+                            <div class="exercise-description">You see a young woman lying on the street unconscious. You try to wake her but she doesn't respond. Call emergency services and explain the situation.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej, det är en nödsituation! Jag ser en kvinna som ligger på gatan och inte svarar!
+
+Hon verkar andas, men hon är helt medvetslös.
+
+Nej, jag ser ingen blödning, men hon ser mycket svag ut.
+
+Jag är på Algatan nära stationen. Skicka ambulans snabbt!
+
+Ja, jag väntar här med henne. Hur länge tar det?</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 2: Friend Hospitalized</div>
+                            <div class="exercise-description">You heard your friend had an accident and is now in the hospital. Call and offer support. Ask about their condition and what you can do to help.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej Maija! Jag hörde vad som hänt. Hur mår du?
+
+Vad fruktansvärt! Var i kroppen är det värst?
+
+Jag är så orolig för dig! Jag vill komma och besöka dig. När passar det?
+
+Kan jag ta med något från hemmet? Mat eller böcker?
+
+Du är mycket stark. Du kommer att må bättre snart! Vi ses på sjukhuset!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema4-writing">
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 1: Health Problem Discussion Forum Post</div>
+                            <div class="exercise-description">You have a health problem and want advice from others online. Write a forum post describing your symptoms, how it affects your daily life, and asking for help.</div>
+                            <textarea class="writing-area" placeholder="Write your forum post here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej alla,
+
+Jag har ett problem som jag behöver hjälp med. De senaste två veckorna har jag haft mycket huvudvärk och trötthet. Jag sover dåligt och kan inte fokusera på mitt arbete.
+
+Det påverkar mitt dagliga liv mycket. Jag mister produktivitet och kan inte träna.
+
+Jag har redan besökt doktorn men hen sa att allt är normalt. Jag vet inte vad som orsakar detta.
+
+Har någon av er upplevt något liknande? Vad skulle kunna hjälpa? Vilka råd kan ni ge?
+
+Tack för er hjälp!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema4-opinion">
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: Mental and Physical Health Equally Important</div>
+                            <div class="exercise-description">Write about whether you think mental and physical health are equally important. How do they affect each other?</div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Jag tycker att både mental och fysisk hälsa är lika viktiga för ett bra liv.
+
+Din kropp och din hjärna är anslutna. Om du är physiskt frisk men mentalt sjuk, kan du inte njuta av livet. På samma sätt, om din kropp är sjuk kan din mentalitet påverkas negativt.
+
+Motion hjälper din mentala hälsa. Stress påverkar din fysiska hälsa. Det är en cykel.
+
+Det är viktigt att ta hand om båda aspekterna. Vi måste träna, äta hälsosamt, men också ta hand om vår mentala välbefinnande genom att tala med andra, slappna av, och söka hjälp när vi behöver det.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Tema 5 -->
+                <!-- TEMA 5 -->
                 <div class="practice-section" id="tema5-practice">
                     <h2>Tema 5: Arbete och utbildning</h2>
-                    <p><em>Coming soon - Similar practice structure for Theme 5: Work and Education</em></p>
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTopic(this, 'tema5-dialogs')">Dialogues</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema5-writing')">Writing</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema5-opinion')">Opinion</div>
+                    </div>
+
+                    <div class="topic-content active" id="tema5-dialogs">
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 1: Reporting Sick to Boss</div>
+                            <div class="exercise-description">You're sick and need to tell your boss. Call or visit your supervisor and explain that you're ill. Mention when you might return to work.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej, jag är sjuk idag och kan inte komma till jobbet.
+
+Jag har feber och huvudvärk. Jag behöver stanna hemma och vila.
+
+Ja, jag ska kontakta företagshälsovården för att få ett läkarintyg.
+
+Jag hoppas att jag kan komma tillbaka i morgon, men jag är inte säker ännu. Jag ska uppdatera dig senare.
+
+Tack för förståelsen!</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 2: Meeting Scheduling</div>
+                            <div class="exercise-description">Your colleague wants to book a meeting with you about a project. You have a busy schedule. Suggest alternative times and negotiate.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Ja, vi måste träffas och diskutera projektet. Men min kalender är mycket full just nu.
+
+Kan vi träffas nästa vecka istället? Onsdag eller torsdag passar mig bättre.
+
+Klockan två på onsdag fungerar perfekt för mig. Låt mig boka konferensrummet.
+
+Tack för att du är flexibel! Vi ses då!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema5-writing">
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 1: Message About Work Shift Change</div>
+                            <div class="exercise-description">You want to switch a work shift with a colleague. Write a message explaining the situation and asking if they can help you swap shifts.</div>
+                            <textarea class="writing-area" placeholder="Write your message here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej Pekka,
+
+Jag har ett brådskande ärende och behöver din hjälp. Kan vi byta pass nästa vecka?
+
+Jag är planerad för att jobba på fredag kväll, men jag har en viktig familjesituation som jag måste hantera den dagen.
+
+Kan du jobba på fredag kväll istället och jag jobbar din andra dag? Eller kan vi komma fram till någon annan lösning?
+
+Jag skulle uppskattar det mycket!
+
+Tack,
+Osman</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema5-opinion">
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: Work Should Be Fun</div>
+                            <div class="exercise-description">Write about whether you think work should be enjoyable or if it's just a way to make money. What makes a job good?</div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Jag tycker att arbetet ska vara både lönsamt och roligt. Vi spenderar mycket tid på jobbet, så det är viktigt att vi trivs.
+
+En bra arbetsplats har en vän och stödjande miljö. Kollegorna är viktiga. Chefen bör vara rättvis och respektfull.
+
+Dessutom bör arbetet ge mig en känsla av att göra något meningsfullt. Jag vill kunna utvecklas och lära mig nya saker.
+
+Lönen är viktig, men det är inte allt. En bra arbetsmiljö och interessanta uppgifter är lika viktiga för min lycka och framtid.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Tema 6 -->
+                <!-- TEMA 6 -->
                 <div class="practice-section" id="tema6-practice">
                     <h2>Tema 6: Fritid och hobbyer</h2>
-                    <p><em>Coming soon - Similar practice structure for Theme 6: Leisure and Hobbies</em></p>
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTopic(this, 'tema6-dialogs')">Dialogues</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema6-writing')">Writing</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema6-opinion')">Opinion</div>
+                    </div>
+
+                    <div class="topic-content active" id="tema6-dialogs">
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 1: Library Book Reservation Issue</div>
+                            <div class="exercise-description">You received a reminder about a book you supposedly borrowed but didn't. Call the library to explain and ask for help resolving the issue.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej! Jag fick ett påminnelse om en bok som jag inte lånade. Det måste vara ett misstag.
+
+Ja, det stämmer. Jag har inte varit på biblioteket på två veckor.
+
+Nej, det är inte min bok. Det är möjligt att någon annan har använt mitt bibliotekskort.
+
+Tack! Kan du kontrollera vad som hänt och ringa mig tillbaka?</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 2: Theater Ticket Change</div>
+                            <div class="exercise-description">You bought theater tickets but can't go on the scheduled date. Call the theater and try to change the date to a different performance.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej! Jag har köpt biljetter för en föreställning, men jag kan inte komma den dagen. Kan jag byta datum?
+
+Ja, mitt namn är Osman och jag bokade för 15 mars. Två biljetter.
+
+Nästa vecka skulle vara bättre. Vad sägs om 22 mars?
+
+Vilken tid börjar föreställningen då? 19:00 passar bra för mig.
+
+Ja, det går bra. Tack för att ni hjälper!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema6-writing">
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 1: Invitation to a Cultural Event</div>
+                            <div class="exercise-description">Invite a friend to go with you to a movie, theater, concert, or art exhibition. Write a message explaining what event it is, why you want to go, and when.</div>
+                            <textarea class="writing-area" placeholder="Write your invitation here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej Lisa,
+
+Jag har två biljetter till Finlandia-talo för en klassisk musikkonzert nästa fredag och jag skulle vilja att du följer med!
+
+Orkestern spelar Sibelius och det ska vara mycket bra. Du vet att jag älskar klassisk musik och jag tror du skulle också njuta av det.
+
+Konserten börjar kl 19:30. Vi kan träffas före och äta något snabbt.
+
+Vad sägs du? Kan du komma?
+
+Hoppas på ja!
+Osman</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema6-opinion">
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: Exercise is Essential</div>
+                            <div class="exercise-description">Write about the importance of physical exercise. What are the benefits? Why should people exercise regularly?</div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Motion är en måste för ett bra liv, inte bara ett alternativ.
+
+Fördelar med motion: Det stärker kroppen, förbättrar hjärnan, minskar stress och ångest, och gör dig lyckligare genom naturliga endorfiner.
+
+Regelbunden motion förhindrar sjukdomar som hjärtproblem, övervikt och diabetes.
+
+Många människor säger att de inte har tid för motion, men de borde prioritera det för sin hälsa. Bara 30 minuter om dagen gör stor skillnad.
+
+Jag tycker att alla, oavsett ålder, bör ta motion på allvar för att leva längre och bättre.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Tema 7 -->
+                <!-- TEMA 7 -->
                 <div class="practice-section" id="tema7-practice">
                     <h2>Tema 7: Samhälle</h2>
-                    <p><em>Coming soon - Similar practice structure for Theme 7: Society</em></p>
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTopic(this, 'tema7-dialogs')">Dialogues</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema7-writing')">Writing</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'tema7-opinion')">Opinion</div>
+                    </div>
+
+                    <div class="topic-content active" id="tema7-dialogs">
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 1: Registering Marriage</div>
+                            <div class="exercise-description">You want to register your marriage at the civil registry office. Go there and explain your situation. Ask about the required documents and process.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej! Jag vill registrera mitt äktenskap. Var ska jag börja?
+
+Vi är båda vuxna och inte gifta tidigare. Nej, vi är inte släkt.
+
+Vilka handlingar behöver jag? Passar det att jag kommer tillbaka nästa vecka med allt?
+
+Vilken tid är bäst? Kan jag komma på torsdag klockan två?
+
+Tack för hjälpen! Jag ser fram emot att göra detta officiellt!</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 2: Home Insurance Claim</div>
+                            <div class="exercise-description">A problem occurred in your home (water damage, broken window, etc.). Call your insurance company and report it. Ask about the claims process.</div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej, det har hänt något hemma och jag behöver rapportera det till min hemförsäkring.
+
+Det är en vattenläcka i badrummet. Det kom vatten från taket och skadade väggen och golvet.
+
+Det hände igår. Jag ringde omedelbar och fixade läckan.
+
+Ja, jag har policyn här. Min försäkringsnummer är 123456.
+
+När kan ni skicka en handläggare? Jag vill få ersättning för skadorna.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema7-writing">
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 1: Message to Friend About Moving</div>
+                            <div class="exercise-description">An international friend wants to move to your country. Write a message explaining what they need to do to move, including documentation and things they should know.</div>
+                            <textarea class="writing-area" placeholder="Write your message here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Kära vän,
+
+Det är underbart att du vill flytta till Finland! Jag är glad att hjälpa dig.
+
+Du behöver först ansöka om uppehållstillstånd om du inte är EU-medborgare. Du behöver ett jobberbjudande eller bostadsbevis.
+
+Handlingar du behöver: Pass, gebyr, och ibland en läkarintyg.
+
+Det som är viktigt att veta: Finland är kallt på vintern, det är dyrt att leva här, men det är väldigt säkert och har bra välfärdssystem.
+
+Jag kan hjälpa dig med processen! Låt mig veta när du är redo att börja.
+
+Med kärlek,
+Osman</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-content" id="tema7-opinion">
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: Citizenship Matters</div>
+                            <div class="exercise-description">Write about what citizenship means to you. How important is it? What does it mean to belong to a country?</div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Medborgarskap är mycket viktigt för mig. Det är inte bara ett papper, det är en känsla av att höra hemma.
+
+För mig betyder medborgarskap att jag kan bo här, jobba här, och att detta är mein nya hemland. Det ger mig rättigheter och skyldigheter.
+
+Jag kommer alltid att älska mitt ursprungsland, men Finland är nu en stor del av mitt liv och identitet. Jag trivs här, jag har vänner och familj här.
+
+Medborgarskapet representerar mina val och min framtid. Det symboliserar att jag tillhör denna samhället och att detta samhälle accepterar mig.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -655,13 +1110,12 @@ Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt me
         </div>
 
         <div class="footer">
-            <p>YKI Exam Practice - Based on Gimara Preparation Book</p>
+            <p>YKI Exam Practice - Based on Gimara Preparation Book - All 7 Themes Complete</p>
             <p>© 2026 - Swedish Language Learning</p>
         </div>
     </div>
 
     <script>
-        // Check if already authenticated
         window.addEventListener('load', function() {
             if (sessionStorage.getItem('yki_authenticated') === 'true') {
                 showContent();
@@ -686,13 +1140,13 @@ Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt me
         }
 
         function showContent() {
-            document.getElementById('loginSection').classList.remove('active');
+            document.getElementById('loginSection').style.display = 'none';
             document.getElementById('contentSection').classList.add('authenticated');
         }
 
         function logout() {
             sessionStorage.removeItem('yki_authenticated');
-            document.getElementById('loginSection').classList.add('active');
+            document.getElementById('loginSection').style.display = 'block';
             document.getElementById('contentSection').classList.remove('authenticated');
             document.getElementById('password').value = '';
             document.getElementById('password').focus();
@@ -703,12 +1157,10 @@ Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt me
             document.getElementById('themesView').style.display = 'none';
             document.getElementById('practiceView').style.display = 'block';
 
-            // Hide all practice sections
             document.querySelectorAll('.practice-section').forEach(el => {
                 el.classList.remove('active');
             });
 
-            // Show selected theme
             document.getElementById(themeId + '-practice').classList.add('active');
         }
 
@@ -718,13 +1170,11 @@ Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt me
         }
 
         function switchTopic(element, topicId) {
-            // Update tabs
             element.parentElement.querySelectorAll('.topic-tab').forEach(el => {
                 el.classList.remove('active');
             });
             element.classList.add('active');
 
-            // Update content
             const currentSection = element.closest('.practice-section');
             currentSection.querySelectorAll('.topic-content').forEach(el => {
                 el.classList.remove('active');
@@ -739,7 +1189,6 @@ Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt me
             button.classList.toggle('hide');
         }
 
-        // Word counter
         document.addEventListener('input', function(e) {
             if (e.target.classList.contains('writing-area')) {
                 const text = e.target.value.trim();
@@ -751,7 +1200,6 @@ Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt me
             }
         });
 
-        // Allow Enter key to submit password
         document.getElementById('password').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 checkPassword();
