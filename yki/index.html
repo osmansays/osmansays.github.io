@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
     <title>YKI Study Materials</title>
     <style>
         * {
@@ -42,6 +44,84 @@
             color: #666;
             margin-bottom: 40px;
             font-size: 1.1em;
+        }
+
+        /* Login Form Styles */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        .form-group input {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .login-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #d32f2f;
+            display: none;
+            margin-bottom: 15px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Content Styles (Hidden until login) */
+        .content {
+            display: none;
+        }
+
+        .content.authenticated {
+            display: block;
         }
 
         .files-list {
@@ -87,6 +167,25 @@
             opacity: 0.9;
         }
 
+        .logout-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            color: #666;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .logout-btn:hover {
+            background: #e8e8e8;
+            border-color: #999;
+        }
+
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -123,27 +222,95 @@
         <h1>📚 YKI Study Materials</h1>
         <p class="subtitle">Swedish Language Learning Resources</p>
 
-        <div class="files-list">
-            <a href="1to6.html" class="file-link">
-                <div class="file-icon">📖</div>
-                <div class="file-info">
-                    <div class="file-name">Levels 1-6</div>
-                    <div class="file-desc">YKI Swedish language materials for levels 1 through 6</div>
-                </div>
-            </a>
+        <!-- Login Section -->
+        <div id="loginSection" class="login-form">
+            <div id="errorMessage" class="error-message"></div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    autocomplete="off"
+                >
+            </div>
+            <button class="login-btn" onclick="checkPassword()">Access Materials</button>
+        </div>
 
-            <a href="6toend.html" class="file-link">
-                <div class="file-icon">📗</div>
-                <div class="file-info">
-                    <div class="file-name">Level 6 to End</div>
-                    <div class="file-desc">Advanced YKI Swedish language materials from level 6 onwards</div>
-                </div>
-            </a>
+        <!-- Content Section (Hidden until authenticated) -->
+        <div id="contentSection" class="content">
+            <div class="files-list">
+                <a href="1to6.html" class="file-link">
+                    <div class="file-icon">📖</div>
+                    <div class="file-info">
+                        <div class="file-name">Levels 1-6</div>
+                        <div class="file-desc">YKI Swedish language materials for levels 1 through 6</div>
+                    </div>
+                </a>
+
+                <a href="6toend.html" class="file-link">
+                    <div class="file-icon">📗</div>
+                    <div class="file-info">
+                        <div class="file-name">Level 6 to End</div>
+                        <div class="file-desc">Advanced YKI Swedish language materials from level 6 onwards</div>
+                    </div>
+                </a>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
 
         <div class="footer">
             <p>YKI Study Materials &nbsp;•&nbsp; Swedish Language Learning</p>
         </div>
     </div>
+
+    <script>
+        // Check if already authenticated
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('yki_authenticated') === 'true') {
+                showContent();
+            }
+        });
+
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'MyVoip338!';
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (password === correctPassword) {
+                sessionStorage.setItem('yki_authenticated', 'true');
+                showContent();
+                errorMessage.classList.remove('show');
+            } else {
+                errorMessage.textContent = 'Incorrect password. Please try again.';
+                errorMessage.classList.add('show');
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+            }
+        }
+
+        function showContent() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('contentSection').classList.add('authenticated');
+        }
+
+        function logout() {
+            sessionStorage.removeItem('yki_authenticated');
+            document.getElementById('loginSection').style.display = 'flex';
+            document.getElementById('contentSection').classList.remove('authenticated');
+            document.getElementById('password').value = '';
+            document.getElementById('password').focus();
+        }
+
+        // Allow Enter key to submit password
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('password').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
