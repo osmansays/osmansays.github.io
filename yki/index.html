@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YKI Study Materials</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .files-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .file-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .file-icon {
+            font-size: 2em;
+            margin-right: 20px;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .file-desc {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .file-link {
+                padding: 15px;
+            }
+
+            .file-icon {
+                font-size: 1.5em;
+                margin-right: 15px;
+            }
+
+            .file-name {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 YKI Study Materials</h1>
+        <p class="subtitle">Swedish Language Learning Resources</p>
+
+        <div class="files-list">
+            <a href="1to6.html" class="file-link">
+                <div class="file-icon">📖</div>
+                <div class="file-info">
+                    <div class="file-name">Levels 1-6</div>
+                    <div class="file-desc">YKI Swedish language materials for levels 1 through 6</div>
+                </div>
+            </a>
+
+            <a href="6toend.html" class="file-link">
+                <div class="file-icon">📗</div>
+                <div class="file-info">
+                    <div class="file-name">Level 6 to End</div>
+                    <div class="file-desc">Advanced YKI Swedish language materials from level 6 onwards</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>YKI Study Materials &nbsp;•&nbsp; Swedish Language Learning</p>
+        </div>
+    </div>
+</body>
+</html>
