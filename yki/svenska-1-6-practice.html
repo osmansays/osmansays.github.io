@@ -1,0 +1,1811 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Svenska 1–6 · Practice</title>
+<meta name="description" content="Interactive practice for Swedish Lessons 1–6 (YKI prep)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%239b1f45%22/><text x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22 font-weight=%22bold%22>S</text></svg>">
+<style>:root{
+  --bg:#faf6f4; --card:#ffffff; --card2:#f6f0ee; --ink:#211a1d; --mute:#6f6569; --line:#eadfe2;
+  --brand:#9b1f45; --brand2:#c2335f; --brandsoft:#f8e3ea;
+  --ok:#23845a; --oksoft:#dff3e8; --bad:#cf3c3c; --badsoft:#fbe3e1; --warn:#b7791f; --warnsoft:#fbf0d9;
+  --en:#2f6fb5; --ensoft:#deebf8; --ett:#b8860b; --ettsoft:#fbf0d2;
+  /* sentence slot colours (same everywhere) */
+  --sF:#f6d7e1; --sFi:#7a1535;
+  --sV:#9b1f45; --sVi:#ffffff;
+  --sS:#d9e7f7; --sSi:#1d4f8a;
+  --sN:#e6ddf6; --sNi:#553094;
+  --sV2:#fbe7c2; --sV2i:#7a5410;
+  --sO:#d8efdf; --sOi:#1e6b40;
+  --sP:#e9e9ec; --sPi:#44444c;
+  --shadow:0 1px 2px rgba(40,10,20,.06),0 4px 14px rgba(40,10,20,.06);
+  --r:16px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17131a; --card:#221c25; --card2:#2a2330; --ink:#f3edf1; --mute:#b3a8b0; --line:#3a3040;
+  --brand:#e0527d; --brand2:#f07a9d; --brandsoft:#3b1f2b;
+  --ok:#4cc38a; --oksoft:#173528; --bad:#ff6b6b; --badsoft:#3d1f22; --warn:#e6b450; --warnsoft:#3a2f18;
+  --en:#6aa8f0; --ensoft:#1c2c40; --ett:#e3b440; --ettsoft:#3a3016;
+  --sF:#4a2233; --sFi:#ffc9da; --sV:#e0527d; --sVi:#1a0d12; --sS:#1f3350; --sSi:#b8d6ff;
+  --sN:#33284d; --sNi:#d8c8ff; --sV2:#4a3914; --sV2i:#ffe0a3; --sO:#1d3b2a; --sOi:#b4ecc9; --sP:#33333b; --sPi:#dadae2;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#17131a; --card:#221c25; --card2:#2a2330; --ink:#f3edf1; --mute:#b3a8b0; --line:#3a3040;
+  --brand:#e0527d; --brand2:#f07a9d; --brandsoft:#3b1f2b;
+  --ok:#4cc38a; --oksoft:#173528; --bad:#ff6b6b; --badsoft:#3d1f22; --warn:#e6b450; --warnsoft:#3a2f18;
+  --en:#6aa8f0; --ensoft:#1c2c40; --ett:#e3b440; --ettsoft:#3a3016;
+  --sF:#4a2233; --sFi:#ffc9da; --sV:#e0527d; --sVi:#1a0d12; --sS:#1f3350; --sSi:#b8d6ff;
+  --sN:#33284d; --sNi:#d8c8ff; --sV2:#4a3914; --sV2i:#ffe0a3; --sO:#1d3b2a; --sOi:#b4ecc9; --sP:#33333b; --sPi:#dadae2;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.55 "Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer}
+input{font:inherit;color:inherit}
+a{color:var(--brand)}
+.wrap{max-width:980px;margin:0 auto;padding:18px 16px 120px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.top h1{font-size:22px;margin:0;font-weight:900;letter-spacing:-.01em;flex:1;display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo{width:36px;height:36px;border-radius:11px;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:18px;font-weight:900}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:800;font-size:15px;white-space:nowrap}
+.iconbtn{border:1px solid var(--line);background:var(--card);border-radius:12px;width:40px;height:40px;display:grid;place-items:center;font-size:18px}
+.iconbtn:hover{border-color:var(--brand)}
+h2{font-size:26px;margin:6px 0 4px;letter-spacing:-.01em;font-weight:900}
+h3{font-size:19px;margin:0 0 8px;font-weight:800}
+.mute{color:var(--mute)}
+.small{font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+@media (max-width:420px){.g2{grid-template-columns:1fr}}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;padding:12px 20px;font-weight:800;background:var(--brand);color:#fff;box-shadow:0 3px 0 rgba(0,0,0,.18);transition:transform .08s,filter .15s}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.18)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:0 2px 0 var(--line)}
+.btn.ok{background:var(--ok)}
+.btn.big{padding:16px 26px;font-size:19px;border-radius:16px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.spacer{flex:1}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:linear-gradient(0deg,var(--card),var(--card));border-left:6px solid var(--brand)}
+.hero .num{font-size:44px;font-weight:900;line-height:1;color:var(--brand)}
+@media (max-width:640px){.hero{grid-template-columns:1fr}}
+
+/* lesson cards */
+.lcard{position:relative;cursor:pointer;display:flex;gap:14px;align-items:center;transition:transform .12s,border-color .12s}
+.lcard:hover{transform:translateY(-3px);border-color:var(--brand)}
+.lnum{width:52px;height:52px;border-radius:14px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:900;font-size:24px;flex:none}
+.lcard .t{font-weight:900;font-size:18px;line-height:1.2}
+.lcard .d{font-size:14px;color:var(--mute);line-height:1.35;margin-top:3px}
+.stars{font-size:15px;letter-spacing:2px;margin-top:6px}
+.stars .off{opacity:.22;filter:grayscale(1)}
+.ring{flex:none}
+.ring text{font-weight:900;fill:var(--ink)}
+
+/* tools */
+.tool{cursor:pointer;display:flex;gap:12px;align-items:center;padding:14px 16px}
+.tool:hover{border-color:var(--brand)}
+.tool .ic{font-size:28px}
+.tool b{display:block;font-size:16px}
+.tool span{font-size:13.5px;color:var(--mute);line-height:1.3;display:block}
+
+/* heatmap */
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,14px);gap:3px;overflow-x:auto;padding-bottom:4px}
+.heat i{width:14px;height:14px;border-radius:3px;background:var(--card2);display:block}
+.heat i[data-l="1"]{background:color-mix(in srgb,var(--ok) 30%,var(--card2))}
+.heat i[data-l="2"]{background:color-mix(in srgb,var(--ok) 55%,var(--card2))}
+.heat i[data-l="3"]{background:color-mix(in srgb,var(--ok) 80%,var(--card2))}
+.heat i[data-l="4"]{background:var(--ok)}
+.heat i.today{outline:2px solid var(--brand);outline-offset:1px}
+
+/* tabs */
+.tabs{display:flex;gap:6px;background:var(--card2);padding:5px;border-radius:14px;margin:12px 0 18px;width:max-content;max-width:100%}
+.tabs button{border:0;background:transparent;padding:9px 18px;border-radius:10px;font-weight:800;color:var(--mute)}
+.tabs button.on{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+
+/* level rows */
+.level{margin-bottom:22px}
+.lvhead{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.lvbadge{font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.lv1{background:var(--oksoft);color:var(--ok)}
+.lv2{background:var(--warnsoft);color:var(--warn)}
+.lv3{background:var(--brandsoft);color:var(--brand)}
+.lv4{background:var(--ink);color:var(--bg)}
+.mode{cursor:pointer;padding:14px;display:flex;flex-direction:column;gap:4px;min-height:118px;transition:transform .12s,border-color .12s}
+.mode:hover{transform:translateY(-2px);border-color:var(--brand)}
+.mode .ic{font-size:30px;line-height:1}
+.mode b{font-size:16px}
+.mode span{font-size:13.5px;color:var(--mute);line-height:1.3}
+.mode .best{margin-top:auto;font-size:12.5px;font-weight:800;color:var(--ok)}
+
+/* learn content */
+.learn section{margin:0 0 18px}
+.learn h3{display:flex;align-items:center;gap:10px}
+.learn h3 .n{background:var(--brand);color:#fff;border-radius:999px;font-size:13px;padding:2px 9px}
+.box{border-radius:12px;padding:12px 14px;margin:10px 0;border-left:5px solid}
+.box b.h{display:block;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:2px}
+.box.star{background:var(--sN);border-color:#7b52c7;color:var(--ink)}
+.box.hook{background:var(--brandsoft);border-color:var(--brand)}
+.box.tip{background:var(--warnsoft);border-color:var(--warn)}
+.box.info{background:var(--ensoft);border-color:var(--en)}
+.box.ok{background:var(--oksoft);border-color:var(--ok)}
+.sv{color:var(--brand);font-weight:800;cursor:pointer;border-bottom:2px dotted color-mix(in srgb,var(--brand) 45%,transparent)}
+.sv:hover{background:var(--brandsoft)}
+.say-hint{font-size:13px;color:var(--mute)}
+table.t{width:100%;border-collapse:collapse;font-size:15.5px;margin:8px 0}
+table.t th{background:var(--brand);color:#fff;text-align:left;padding:8px 10px;font-weight:800}
+table.t th:first-child{border-top-left-radius:10px}table.t th:last-child{border-top-right-radius:10px}
+table.t td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t tr:nth-child(even) td{background:color-mix(in srgb,var(--card2) 55%,transparent)}
+.tscroll{overflow-x:auto}
+.pairs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pairs>div{background:var(--card2);border-radius:10px;padding:8px 12px}
+.ex{display:flex;justify-content:space-between;gap:12px;padding:7px 2px;border-bottom:1px dashed var(--line)}
+.ex i{color:var(--mute);text-align:right}
+@media (max-width:560px){.ex{flex-direction:column;gap:0}.ex i{text-align:left}}
+
+/* vowel tiles */
+.vowels{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.vowel{background:var(--card2);border-radius:14px;padding:12px;text-align:center;cursor:pointer;border:2px solid transparent;position:relative}
+.vowel:hover{border-color:var(--brand)}
+.vowel .L{font-size:44px;font-weight:900;color:var(--brand);line-height:1.1}
+.vowel .m{font-size:13.5px}
+.vowel .w{font-size:13.5px;color:var(--mute)}
+.vowel .lips{position:absolute;top:6px;right:8px;font-size:18px}
+
+/* sentence slots */
+.slots{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.slot{display:flex;flex-direction:column;align-items:center;gap:2px}
+.slot .w{padding:8px 12px;border-radius:10px;font-weight:800;font-size:17px;white-space:nowrap}
+.slot .lab{font-size:10.5px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.r-F .w{background:var(--sF);color:var(--sFi)} .r-V .w{background:var(--sV);color:var(--sVi)}
+.r-S .w{background:var(--sS);color:var(--sSi)} .r-N .w{background:var(--sN);color:var(--sNi)}
+.r-V2 .w{background:var(--sV2);color:var(--sV2i)} .r-O .w{background:var(--sO);color:var(--sOi)}
+.r-P .w{background:var(--sP);color:var(--sPi)}
+.slotline{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.slotline .en{color:var(--mute);font-style:italic;font-size:14.5px;margin-left:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px}
+.legend .slot .w{padding:4px 10px;font-size:13px}
+.flipdemo{transition:opacity .25s}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:5px 11px;border-radius:999px;background:var(--card2);font-weight:700;font-size:14.5px;cursor:pointer}
+.chip.ett{background:var(--ettsoft);color:var(--ett)}
+.chip.en{background:var(--ensoft);color:var(--en)}
+.bar75{display:flex;border-radius:10px;overflow:hidden;font-weight:900;color:#fff;font-size:14px;margin:8px 0}
+.bar75 div{padding:8px 12px}
+
+/* vocab list */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.vitem{background:var(--card2);border-radius:12px;padding:9px 12px;display:flex;gap:10px;align-items:center;cursor:pointer;border:2px solid transparent}
+.vitem:hover{border-color:var(--brand)}
+.vitem .e{font-size:24px;width:30px;text-align:center;flex:none}
+.vitem .s{font-weight:800;line-height:1.2}
+.vitem .m{font-size:13.5px;color:var(--mute);line-height:1.2}
+.hideen .vitem .m{filter:blur(5px)}
+.hideen .vitem:hover .m{filter:none}
+.lvdot{width:8px;height:8px;border-radius:50%;flex:none;margin-left:auto;background:var(--line)}
+.lvdot[data-b="1"],.lvdot[data-b="2"]{background:var(--warn)}
+.lvdot[data-b="3"],.lvdot[data-b="4"]{background:color-mix(in srgb,var(--ok) 60%,var(--warn))}
+.lvdot[data-b="5"],.lvdot[data-b="6"]{background:var(--ok)}
+
+/* session */
+.sbar{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.segs{flex:1;display:flex;gap:3px;height:12px}
+.segs i{flex:1;border-radius:6px;background:var(--card2)}
+.segs i.ok{background:var(--ok)} .segs i.bad{background:var(--bad)} .segs i.cur{background:var(--brand2);animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.5}}
+.stage{max-width:720px;margin:0 auto}
+.qtype{font-size:12.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
+.prompt{font-size:28px;font-weight:900;line-height:1.25;margin:0 0 6px}
+.prompt .emo{font-size:54px;display:block;line-height:1.1;margin-bottom:6px}
+.sub{color:var(--mute);margin-bottom:18px}
+.opts{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;padding:15px 16px;border-radius:14px;border:2px solid var(--line);background:var(--card);font-weight:800;font-size:18px;box-shadow:0 3px 0 var(--line);transition:transform .06s}
+.opt:hover:not(:disabled){border-color:var(--brand)}
+.opt:active{transform:translateY(2px)}
+.opt .k{width:26px;height:26px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--mute);flex:none}
+.opt.right{border-color:var(--ok);background:var(--oksoft);box-shadow:0 3px 0 var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--badsoft);box-shadow:0 3px 0 var(--bad);animation:shake .35s}
+.opt:disabled{cursor:default}
+.opts.binary{grid-template-columns:1fr 1fr}
+.opts.binary .opt{justify-content:center;font-size:30px;padding:26px}
+.opt.enb{color:var(--en)} .opt.ettb{color:var(--ett)}
+@keyframes shake{20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@keyframes pop{0%{transform:scale(.9)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
+.gap{display:inline-block;min-width:90px;border-bottom:3px solid var(--brand);text-align:center;color:var(--brand);padding:0 6px}
+.gap.filled{border-color:var(--ok);color:var(--ok);animation:pop .3s}
+.sentence{font-size:26px;font-weight:800;line-height:1.5;margin:4px 0 20px}
+
+/* audio button */
+.play{width:96px;height:96px;border-radius:50%;border:0;background:var(--brand);color:#fff;font-size:40px;box-shadow:0 5px 0 rgba(0,0,0,.2);margin:6px auto 12px;display:grid;place-items:center}
+.play:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.say{border:0;background:var(--brandsoft);color:var(--brand);border-radius:10px;padding:4px 9px;font-size:16px;vertical-align:middle}
+.no-voice .say,.no-voice .needs-voice{display:none!important}
+
+/* input */
+.inp{width:100%;font-size:24px;font-weight:800;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--card);outline:none}
+.inp:focus{border-color:var(--brand)}
+.inp.right{border-color:var(--ok);background:var(--oksoft)} .inp.wrong{border-color:var(--bad);background:var(--badsoft);animation:shake .35s}
+.keys{display:flex;gap:8px;margin:10px 0}
+.keys button{border:1px solid var(--line);background:var(--card);border-radius:10px;width:48px;height:44px;font-size:20px;font-weight:900}
+.keys button:hover{border-color:var(--brand)}
+.diff span{padding:1px 4px;border-radius:5px;margin-right:3px;display:inline-block}
+.diff .g{background:var(--oksoft);color:var(--ok)} .diff .x{background:var(--badsoft);color:var(--bad);text-decoration:line-through} .diff .m{background:var(--warnsoft);color:var(--warn)}
+
+/* flash */
+.flash{perspective:1200px;height:300px;cursor:pointer;margin-bottom:18px}
+.flash .inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flash.flipped .inner{transform:rotateY(180deg)}
+.flash .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:var(--card);border:2px solid var(--line);box-shadow:var(--shadow)}
+.flash .back{transform:rotateY(180deg);border-color:var(--brand)}
+.flash .emo{font-size:70px;line-height:1.1}
+.flash .word{font-size:34px;font-weight:900;line-height:1.2}
+.flash .ex2{margin-top:10px;color:var(--mute);font-size:15px}
+.gtag{font-size:13px;font-weight:900;padding:3px 10px;border-radius:999px;margin-top:8px}
+.gtag.en{background:var(--ensoft);color:var(--en)} .gtag.ett{background:var(--ettsoft);color:var(--ett)}
+.rate{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.rate button{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:12px 6px;font-weight:900;box-shadow:0 3px 0 var(--line)}
+.rate button small{display:block;font-weight:700;color:var(--mute);font-size:12px}
+.rate .r0{color:var(--bad)} .rate .r1{color:var(--warn)} .rate .r2{color:var(--ok)} .rate .r3{color:var(--en)}
+
+/* match */
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcol{display:flex;flex-direction:column;gap:10px}
+.mt{padding:14px 12px;border-radius:14px;border:2px solid var(--line);background:var(--card);font-weight:800;font-size:17px;box-shadow:0 3px 0 var(--line);min-height:58px}
+.mt.sel{border-color:var(--brand);background:var(--brandsoft)}
+.mt.done{border-color:var(--ok);background:var(--oksoft);opacity:.45;pointer-events:none;animation:pop .3s}
+.mt.no{border-color:var(--bad);background:var(--badsoft);animation:shake .35s}
+
+/* sort */
+.buckets{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));margin-top:16px}
+.bucket{border:2px dashed var(--line);border-radius:16px;padding:10px;min-height:150px;background:var(--card);display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:border-color .15s,transform .1s}
+.bucket:hover{border-color:var(--brand);transform:translateY(-2px)}
+.bucket .bh{font-weight:900;text-align:center;padding:8px;border-radius:10px;font-size:16px}
+.bucket .bh small{display:block;font-weight:700;font-size:12px;opacity:.8}
+.bucket .in{font-size:13.5px;padding:3px 8px;border-radius:8px;background:var(--card2);animation:pop .25s}
+.bucket.hint{border-color:var(--ok);border-style:solid;background:var(--oksoft)}
+.bucket.nope{border-color:var(--bad);animation:shake .35s}
+.sortcard{text-align:center;font-size:30px;font-weight:900;padding:24px;border-radius:20px;background:var(--card);border:2px solid var(--brand);box-shadow:var(--shadow);animation:pop .25s}
+.sortcard small{display:block;font-size:15px;color:var(--mute);font-weight:700}
+.b-c1{background:var(--ensoft);color:var(--en)} .b-c2{background:var(--ettsoft);color:var(--ett)}
+.b-c3{background:var(--oksoft);color:var(--ok)} .b-c4{background:var(--brandsoft);color:var(--brand)}
+.b-c5{background:var(--sN);color:var(--sNi)} .b-c6{background:var(--sP);color:var(--sPi)}
+
+/* build */
+.ansarea{min-height:74px;border:2px dashed var(--line);border-radius:16px;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--card);margin:10px 0}
+.ansarea.right{border-color:var(--ok);border-style:solid;background:var(--oksoft)}
+.ansarea.wrong{border-color:var(--bad);border-style:solid;animation:shake .35s}
+.bank{display:flex;flex-wrap:wrap;gap:8px;min-height:56px;margin:12px 0}
+.tile{padding:10px 15px;border-radius:12px;border:2px solid var(--line);background:var(--card);font-weight:800;font-size:18px;box-shadow:0 3px 0 var(--line);animation:pop .2s}
+.tile:hover{border-color:var(--brand)}
+.colored .tile{border-color:transparent}
+.colored .tile.r-F{background:var(--sF);color:var(--sFi)} .colored .tile.r-V{background:var(--sV);color:var(--sVi)}
+.colored .tile.r-S{background:var(--sS);color:var(--sSi)} .colored .tile.r-N{background:var(--sN);color:var(--sNi)}
+.colored .tile.r-V2{background:var(--sV2);color:var(--sV2i)} .colored .tile.r-O{background:var(--sO);color:var(--sOi)}
+.colored .tile.r-P{background:var(--sP);color:var(--sPi)}
+.punct{font-size:24px;font-weight:900;color:var(--mute)}
+
+/* verbs */
+.vpipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.vstep{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px}
+.vstep label{display:block;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.vstep .given{font-size:22px;font-weight:900;padding:8px 2px}
+.vstep input{width:100%;font-size:20px;font-weight:800;border:0;border-bottom:3px solid var(--line);background:transparent;padding:6px 2px;outline:none}
+.vstep input:focus{border-color:var(--brand)}
+.vstep.right{border-color:var(--ok);background:var(--oksoft)} .vstep.wrong{border-color:var(--bad);background:var(--badsoft)}
+.vstep .fix{font-size:14px;font-weight:800;color:var(--ok);margin-top:4px}
+
+/* feedback sheet */
+.fb{position:fixed;left:0;right:0;bottom:0;padding:18px 16px 22px;transform:translateY(110%);transition:transform .25s ease;z-index:30;border-top:3px solid}
+.fb.show{transform:none}
+.fb.good{background:var(--oksoft);border-color:var(--ok)}
+.fb.bad{background:var(--badsoft);border-color:var(--bad)}
+.fb .in{max-width:720px;margin:0 auto;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fb .msg{flex:1;min-width:220px}
+.fb .ttl{font-size:21px;font-weight:900}
+.fb.good .ttl{color:var(--ok)} .fb.bad .ttl{color:var(--bad)}
+.fb .ans{font-size:19px;font-weight:800;margin-top:2px}
+.fb .why{font-size:14.5px;margin-top:4px;color:var(--ink);opacity:.85}
+.fb .btn{min-width:150px}
+.fb.good .btn{background:var(--ok)} .fb.bad .btn{background:var(--bad)}
+
+/* summary */
+.score{font-size:64px;font-weight:900;line-height:1}
+.missed{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.missed div{background:var(--card2);border-radius:10px;padding:8px 12px;display:flex;justify-content:space-between;gap:10px}
+
+/* speed */
+.timer{height:10px;border-radius:5px;background:var(--card2);overflow:hidden;margin-bottom:24px}
+.timer i{display:block;height:100%;background:var(--brand);transition:width .2s linear}
+.speedcard{text-align:center;padding:30px 16px}
+.speedcard .w{font-size:40px;font-weight:900}
+.speedcard .eq{font-size:22px;color:var(--mute);margin:6px 0}
+.speedcard .m{font-size:28px;font-weight:800}
+.tf{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.tf button{font-size:26px;padding:20px;border-radius:18px;font-weight:900;border:2px solid var(--line);background:var(--card);box-shadow:0 4px 0 var(--line)}
+.tf .no{color:var(--bad)} .tf .yes{color:var(--ok)}
+.flashok{animation:pop .25s;border-color:var(--ok)!important}
+.flashbad{animation:shake .35s;border-color:var(--bad)!important}
+
+/* misc */
+.toast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:700;z-index:50;box-shadow:var(--shadow);max-width:90vw;font-size:15px}
+.kbd{display:inline-block;border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:0 6px;font-size:12px;font-weight:800;background:var(--card)}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+.confetti i{position:absolute;top:-20px;width:10px;height:14px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.cheat td:first-child{font-weight:900;color:var(--brand);white-space:nowrap}
+.foot{margin-top:30px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:14px}
+.search{width:100%;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);margin-bottom:10px}
+.barrow{display:flex;align-items:center;gap:10px;margin:6px 0}
+.barrow .lbl{width:84px;font-weight:800;font-size:14px}
+.barrow .track{flex:1;height:14px;border-radius:7px;background:var(--card2);overflow:hidden}
+.barrow .fill{height:100%;background:var(--ok);border-radius:7px}
+.barrow .v{width:44px;text-align:right;font-weight:800;font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+@media (max-width:560px){.top{gap:8px}.top h1{font-size:17px;white-space:nowrap}.top h1 .logo{width:30px;height:30px;font-size:15px}.pill{padding:5px 9px;font-size:13px}.iconbtn{width:36px;height:36px}.prompt{font-size:23px}.sentence{font-size:21px}.slot .w{padding:6px 9px;font-size:15px}.lcard{padding:14px}}
+.vstep label{text-transform:none;letter-spacing:0;font-size:13px}
+</style></head>
+<body><main class="wrap" id="app"><p>Loading…</p></main>
+<noscript><p style="padding:20px">This practice app needs JavaScript turned on.</p></noscript>
+<script>/* ================= CONTENT DATA (from "Swedish — Lessons 1 to 6" handbook) ================= */
+const LESSONS = [
+  {n:1, t:'Sounds & introducing yourself', d:'9 vowels, long vs short, sound changes', date:'23 Jun'},
+  {n:2, t:'Greetings, family & questions', d:'Pronouns, family, vad/var/när, the Golden Rule', date:'25 Jun'},
+  {n:3, t:'Verbs, helper verbs & inte', d:'Present, command, infinitive, kan/måste/vill/ska', date:'26 Jun'},
+  {n:4, t:'Sentence map, en / ett', d:'Word order, gärna, hinner & orkar, birthdays', date:'30 Jun'},
+  {n:5, t:'Jobs & free time', d:'Jag jobbar som…, brukar, gärna, time phrases', date:'2 Jul'},
+  {n:6, t:'Past tense, plurals & more', d:'Preteritum, SOM, adjectives, hem/hemma, plurals', date:'3–10 Jul'}
+];
+
+/* Vocabulary: "swedish | english | emoji"  (en/ett read from the article) */
+const VOCAB_RAW = {
+1:`hej | hello | 👋
+jag heter | my name is | 🏷️
+jag bor i | I live in | 📮
+jag kommer från | I come from | 🧭
+jag talar | I speak | 🗣️
+och | and | ➕
+lite | a little | 🤏
+finska | Finnish (language) | 🇫🇮
+svenska | Swedish (language) | 🇸🇪
+engelska | English (language) | 🇬🇧
+arabiska | Arabic (language) | ع
+spanska | Spanish (language) | 🇪🇸
+bra | good | 👍
+ja | yes | 🙆
+en bok | a book | 📕
+gul | yellow | 🟡
+en by | a village | 🛖
+simmar | swim | 🏊
+ler | smile | 😊
+en ö | an island | 🏝️
+ett äpple | an apple | 🍎
+från | from | ⬅️
+går | go, walk | 🚶
+ett tak | a roof, a ceiling | 🏚️
+tack | thank you | 🙏
+ful | ugly | 🙈
+full | full | 🫙
+gratis | free of charge | 🆓
+grattis | congratulations | 🥳
+ett kafé | a café | 🫖
+kaffe | coffee | ☕
+ett glas | a glass | 🥛
+en glass | an ice cream | 🍦
+ger | give | 🎁
+gör | do, make | 🛠️
+gillar | like | ❤️
+ett kylskåp | a fridge | 🧊
+köper | buy | 🛒
+en tjej | a girl | 👧
+en tjuv | a thief | 🦹
+en skjorta | a shirt | 👕
+sjuk | sick | 🤒
+en kurs | a course | 📘
+ett djur | an animal | 🐾
+ett ljus | a light, a candle | 💡
+hjälp | help | 🆘
+solen skiner | the sun is shining | ☀️`,
+2:`Vad heter du? | What's your name? | ❓
+Varifrån kommer du? | Where are you from? | 🌍
+din | your | 🫴
+rosa | pink | 🩷
+hår | hair | 💇
+men | but | ✋
+nu | now | 🟢
+Hur mår du? | How are you (feeling)? | 🙂
+Hur är det? | How's it going? | 👋
+Toppen! | Awesome! | 🤩
+Jag mår bra. | I'm fine. | 😊
+Så där. | So-so. | 😐
+Jag är trött. | I'm tired. | 🥱
+Jag är sjuk. | I'm sick. | 🤒
+Och du? | And you? | 🔁
+jag | I | 🙋
+du | you (one person) | 👉
+han | he | 👨
+hon | she | 👩
+hen | he or she (neutral) | 🧑
+vi | we | 🫂
+ni | you (more people) | 👥
+de | they (say "dom") | 👪
+en vän | a friend | 🫶
+en pojke | a boy | 👦
+en flicka | a girl | 👧
+sambo | living together with a partner | 🧑‍🤝‍🧑
+gift | married | 💍
+en man | a husband, a man | 🤵
+en fru | a wife | 👰
+ett barn | a child | 🧒
+en son | a son | 👦
+en dotter | a daughter | 👧
+en bror | a brother | 👬
+en syster | a sister | 👭
+mamma | mum | 👩
+pappa | dad | 👨
+en familj | a family | 👨‍👩‍👧‍👦
+stor | big | 🐘
+liten | small | 🐭
+ny | new | ✨
+min | my | 🙋
+inte | not, don't | 🚫
+vad | what | ❓
+var | where | 📍
+när | when | ⏰
+varför | why | 🤔
+hur | how | ❔
+hur mycket | how much | ⚖️
+hur många | how many | 🔢
+vatten | water | 💧
+te | tea | 🍵
+jus | juice | 🧃
+mjölk | milk | 🥛
+dricker | drink | 🥤
+äter | eat | 🍽️
+Helsingfors | Helsinki | 🏙️
+Esbo | Espoo | 🌲
+Tammerfors | Tampere | 🏞️
+Hur gammal är du? | How old are you? | 👴`,
+3:`en fråga | a question | ❓
+frågar | ask | 🙋
+mat | food | 🍲
+en affär / en butik | a store | 🏪
+en mataffär | a grocery store | 🥕
+ursäkta | excuse me | 🙇
+ligger | lies, is located | 📍
+utan | without | 🚫
+fett | fat | 🧈
+säljer | sell | 💰
+en säljare | a seller | 🧑‍💼
+bröd | bread | 🍞
+Den är slut. | We're out of it. | 📭
+vanlig | regular, usual | 📏
+smakar | taste | 👅
+samma som | the same as | 🟰
+Jag vet inte. | I don't know. | 🤷
+nästa vecka | next week | 📅
+snabbt | quickly | 🐇
+långsamt | slowly | 🐢
+en trädgård | a garden | 🌷
+grillar | grill | 🍢
+snälla | please | 🥺
+lagar mat | cook | 🧑‍🍳
+kan | can | 💪
+måste | must, have to | ❗
+vill | want | 💫
+ska | will, going to | ➡️
+jobbar | work | 🧑‍💻
+talar | speak | 🗣️
+spelar | play (sport, games, music) | ⚽
+kommer | come | 🏃
+har | have | 🤲
+mår | feel | 🌡️
+bor | live | 🛏️
+tränar | train, work out | 🏋️
+pluggar | study | ✏️`,
+4:`mycket | very, much | 📈
+hela natten | the whole night | 🌙
+sover | sleep | 😴
+klara provet | pass the exam | ✅
+ge upp | give up | 🏳️
+sen | late | ⌛
+blir | become | 🦋
+skjutsa mig | give me a lift | 🚕
+vet | know | 🧠
+Oroa dig inte! | Don't worry! | 😌
+Jag har allt under kontroll. | I have everything under control. | 🎛️
+ofta | often | 🔁
+alltid | always | ♾️
+kanske | maybe | 🤞
+gärna | gladly, like to | 😍
+hinner | have (enough) time to | ⏱️
+orkar | have the energy to | 🔋
+just nu | right now | 👇
+matte | maths | ➗
+ett prov | a test, an exam | 📝
+imorgon | tomorrow | 🌅
+ikväll | tonight | 🌃
+idag | today | 🔆
+bakar | bake | 🧁
+en kaka | a cake | 🍰
+en födelsedag | a birthday | 🎂
+fyller år | has a birthday | 🎈
+en önskelista | a wishlist | 📜
+snart | soon | 🔜
+får | get, receive | 📥
+löparskor | running shoes | 👟
+ett jobb | a job | 💼
+ett arbete | work, a job | 🏗️
+ett mejl | an email | 📧
+ett problem | a problem | ⚠️
+ett dokument | a document | 📄
+ett möte | a meeting | 🗓️
+ett kontor | an office | 🖥️
+ett team | a team | 👥
+ett företag | a company | 🏭
+ett projekt | a project | 📊
+ett schema | a schedule | 🗒️
+ett kort | a card | 💳
+ett program | a program | 💾
+ett nummer | a number | #️⃣
+ett fel | a mistake | ❌
+ett sätt | a way | 🛤️
+ett paket | a parcel | 📦
+ett pass | a passport | 🛂
+ett papper | a paper | 📃
+ett brev | a letter | ✉️
+ett meddelande | a message | 💬
+ett land | a country | 🗺️
+ett område | an area | 📐
+ett hem | a home | 🏡
+ett hus | a house | 🏠
+ett rum | a room | 🚪
+ett kök | a kitchen | 🍳
+ett huvud | a head | 👤
+ett liv | a life | 🌿
+ett språk | a language | 🔤
+en dator | a computer | 💻
+ett spel | a game | 🎲
+ett datorspel | a video game | 🎮
+en barnbok | a children's book | 📚
+en språkkurs | a language course | 🎓
+en bil | a car | 🚗`,
+5:`jag jobbar som | I work as | 💼
+lärare | teacher | 👩‍🏫
+läkare | doctor | 👨‍⚕️
+sjuksköterska | nurse | 🩺
+servitör | waiter | 🍽️
+entreprenör | entrepreneur | 🚀
+advokat | lawyer | ⚖️
+ingenjör | engineer | 👷
+designer | designer | 🎨
+forskare | researcher | 🔬
+banktjänsteman | bank clerk | 🏦
+taxiförare | taxi driver | 🚕
+polis | police officer | 👮
+chef | manager, boss | 👔
+skådespelare | actor | 🎭
+kock | chef, cook | 👨‍🍳
+bonde | farmer | 🚜
+programmerare | programmer | 👨‍💻
+på distans | remotely | 🌐
+hemifrån | from home | 🏠
+ibland | sometimes | 🌗
+i stan | downtown | 🌆
+en stad | a city | 🌇
+betyg | grades | 🅰️
+en erfarenhet | an experience | 🎖️
+lär mig | learn (I learn) | 🧑‍🎓
+beskriva | describe | 🖊️
+arbetsam | hard-working | 🐝
+en lön | a salary | 💶
+mellan | between | ↔️
+Det låter bra. | That sounds good. | 👌
+om | about | ℹ️
+deltid | part time | 🕐
+heltid | full time | 🕘
+ledig | free (from work) | 😎
+semester | holiday, vacation | 🧳
+en termin | a school term | 🏫
+åker till havet | go to the sea | 🌊
+solar | sunbathe | 🌞
+badar | bathe, swim outdoors | 🏖️
+åker till fjällen | go to the mountains | 🏔️
+vandrar i skogen | hike in the woods | 🥾
+åker skidor | ski | ⛷️
+reser utomlands | travel abroad | ✈️
+går på museer | go to museums | 🏛️
+sitter på kaféer | sit in cafés | ☕
+promenerar | go for a walk | 🚶‍♀️
+stannar hemma | stay home | 🛋️
+går på bio | go to the cinema | 🎬
+läser | read | 📖
+vilar | rest | 🛌
+fikar | have coffee & something sweet | 🥐
+lyssnar på musik | listen to music | 🎧
+tittar på film | watch films | 🍿
+leker | play (kids, animals) | 🧸
+åker | go (by vehicle) | 🚌
+brukar | usually | 🔄
+på morgonen | in the morning | 🌄
+på eftermiddagen | in the afternoon | 🌤️
+på kvällen | in the evening | 🌆
+på helgen | at the weekend | 🎉
+på fritiden | in my free time | 🪁
+då och då | now and then | 〰️
+såklart | of course | 💯
+varje år | every year | 📆
+hela tiden | the whole time | ⏲️
+där | there | 👉
+eller | or | 🔀
+spännande | exciting | 🎢`,
+6:`När jag blir stor | When I grow up | 🌱
+intresserad av | interested in | 🧐
+mode | fashion | 👗
+till exempel | for example | 🔍
+en tidning | a newspaper, a magazine | 📰
+så | so | ➡️
+prova | try (out) | 🧪
+lätt | easy | 🪶
+lat | lazy | 🦥
+svår | difficult | 🧗
+skriver | write | ✍️
+trött på | tired of | 😒
+byta jobb | switch jobs | 🔄
+träffar | meet | 🤝
+träffas | meet each other | 👋
+letar efter | look for | 🔎
+en lägenhet | an apartment | 🏢
+på landet | in the countryside | 🌾
+tycker | think (opinion) | 💭
+hoppas | hope | 🤞
+hoppar | jump | 🦘
+kommer överens | come to an agreement | 🤝
+sträng | strict | 📏
+hittar | find | 🎯
+Jag förstår. | I understand. | 💡
+igår | yesterday | 🌒
+förra veckan | last week | ⬅️
+förra året | last year | ⏮️
+för en vecka sedan | a week ago | 🕰️
+därför | that's why, therefore | ∴
+eftersom | because, since | 🔗
+Jag är stolt över | I am proud of | 🏅
+firar | celebrate | 🎊
+skickar | send | 📤
+en inbjudan | an invitation | 💌
+glad | happy | 😄
+en granne | a neighbour | 🏘️
+klagar på | complain about | 😤
+lämnar tillbaka | return (a thing) | ↩️
+senare | later | ⏩
+tidigare | earlier | ⏪
+frukost | breakfast | 🥣
+lunch | lunch | 🥪
+middag | dinner | 🍝
+en dagbok | a diary | 📓
+hemlig | secret | 🤫
+börjar | start | 🏁
+älskar | love (verb) | 💕
+kärlek | love (noun) | 💞
+otroligt | unbelievably | 😲
+vacker | beautiful | 🌸
+viktig | important | ⭐
+direkt | immediately | ⚡
+ingenting | nothing | 🕳️
+borde | should | ☝️
+en sanning | a truth | ✔️
+besviken på | disappointed in | 😞
+arg på | angry at | 😠
+dessutom | moreover, on top of that | ➕
+bokar bord | book a table | 🍽️
+väntar på | wait for | ⏳
+kommer i tid | come on time | ⌚
+Det handlar om | It's about | 📖
+tillsammans | together | 🫂
+ärlig | honest | 😇
+mysig | cosy | 🕯️
+snäll | kind, nice | 🤗
+visar | show | 👀
+ljuger | lie (tell a lie) | 🤥
+en kram | a hug | 🤗
+en vana | a habit | 🔁
+snygg | good-looking | 😎
+säger | say | 💬
+svarar | answer, reply | ↪️
+utsökt | delicious | 🤤
+gott | tasty | 😋
+bygger | build | 🧱
+lagar | fix | 🔧
+en julklapp | a Christmas present | 🎁
+apelsiner | oranges | 🍊
+det finns | there is, there are | 👁️
+på nätet | online | 🌐
+också | also | ➕
+en sak | a thing | 🧩
+tjäna | earn | 💵
+rolig | fun | 🥳
+tråkig | boring | 🥱
+dyr | expensive | 💎
+billig | cheap | 🏷️
+gammal | old | 👴
+hungrig | hungry | 🍔
+hemma | at home (no movement) | 🏠
+hem | (to) home | 🏠`
+};
+
+/* Sentences: roles  F=1st place · V=verb · S=subject · N=inte/adverb · V2=verb 2 · O=object · P=place/time
+   format:  english | chunk:R / chunk:R / ... | alternative;alternative   (end punctuation kept on last line) */
+const SENT_RAW = {
+1:`My name is Osman. | Jag:F / heter:V / Osman:O .
+I live in Finland. | Jag:F / bor:V / i Finland:P .
+I come from Finland. | Jag:F / kommer:V / från Finland:P .
+I speak English and a little Swedish. | Jag:F / talar:V / engelska och lite svenska:O .
+I am buying a fridge in China. | Jag:F / köper:V / ett kylskåp:O / i Kina:P . | I Kina köper jag ett kylskåp
+The sun is shining. | Solen:F / skiner:V .`,
+2:`What's your name? | Vad:F / heter:V / du:S ?
+Where do you live? | Var:F / bor:V / du:S ?
+Where are you from? | Varifrån:F / kommer:V / du:S ?
+I am tired. | Jag:F / är:V / trött:O .
+I am married. | Jag:F / är:V / gift:O .
+I have a wife and two kids. | Jag:F / har:V / en fru och två barn:O .
+How many children do you have? (to a couple) | Hur många barn:F / har:V / ni:S ?
+Do you like coffee? | Gillar:V / du:S / kaffe:O ?
+Do you drink water? | Dricker:V / du:S / vatten:O ?
+My mum drinks water. | Min mamma:F / dricker:V / vatten:O .
+When do we have lunch? | När:F / har:V / vi:S / lunch:O ?
+How old are you? | Hur gammal:F / är:V / du:S ?
+How much does a pizza cost? | Hur mycket:F / kostar:V / en pizza:S ?
+I have a big family. | Jag:F / har:V / en stor familj:O .
+Why are you eating pizza? | Varför:F / äter:V / du:S / pizza:O ?`,
+3:`He studies Swedish. | Han:F / pluggar:V / svenska:O .
+He does not study Finnish. | Han:F / pluggar:V / inte:N / finska:O .
+I want to have a car. | Jag:F / vill:V / ha:V2 / en bil:O .
+I don't want to eat pizza. | Jag:F / vill:V / inte:N / äta:V2 / pizza:O .
+Tonight we will eat pizza. | Ikväll:F / ska:V / vi:S / äta:V2 / pizza:O . | Vi ska äta pizza ikväll
+Tonight we will not eat pizza. | Ikväll:F / ska:V / vi:S / inte:N / äta:V2 / pizza:O . | Vi ska inte äta pizza ikväll
+Tomorrow we are going to cook. | Imorgon:F / ska:V / vi:S / laga:V2 / mat:O . | Vi ska laga mat imorgon
+Today Anna is not coming. | Idag:F / kommer:V / Anna:S / inte:N . | Anna kommer inte idag
+I want to read a book. | Jag:F / vill:V / läsa:V2 / en bok:O .
+Shall we eat pizza tonight? | Ska:V / vi:S / äta:V2 / pizza:O / ikväll:P ?
+I'm not going to work tomorrow. | Jag:F / ska:V / inte:N / jobba:V2 / imorgon:P . | Imorgon ska jag inte jobba
+She can eat pizza. | Hon:F / kan:V / äta:V2 / pizza:O .
+Can you drink milk? | Kan:V / du:S / dricka:V2 / mjölk:O ?
+I must work. | Jag:F / måste:V / jobba:V2 .
+Don't eat! | Ät:V / inte:N !
+Come to Finland! | Kom:V / till Finland:P !
+Drink water! | Drick:V / vatten:O !`,
+4:`Tonight I'm going to bake a cake. | Ikväll:F / ska:V / jag:S / baka:V2 / en kaka:O . | Jag ska baka en kaka ikväll
+I don't have time to study. | Jag:F / hinner:V / inte:N / plugga:V2 .
+I don't have the energy to train. | Jag:F / orkar:V / inte:N / träna:V2 .
+Tomorrow my friend is coming to Finland. | Imorgon:F / kommer:V / min vän:S / till Finland:P . | Min vän kommer till Finland imorgon
+Right now Anna is studying maths. | Just nu:F / pluggar:V / Anna:S / matte:O . | Anna pluggar matte just nu
+Tomorrow she has a test. | Imorgon:F / har:V / hon:S / ett prov:O . | Hon har ett prov imorgon
+Anna likes to play football. | Anna:F / spelar:V / gärna:N / fotboll:O .
+My mum always bakes a cake for my birthday. | Min mamma:F / bakar:V / alltid:N / en kaka:O / till min födelsedag:P .
+In Finland we drink a lot of coffee every day. | I Finland:F / dricker:V / vi:S / mycket kaffe:O / varje dag:P .
+Next week my mum is not coming to Finland. | Nästa vecka:F / kommer:V / min mamma:S / inte:N / till Finland:P .
+When is Anna coming home? | När:F / ska:V / Anna:S / komma:V2 / hem:P ?
+Shall we go to a restaurant tonight? | Ska:V / vi:S / gå:V2 / på en restaurang:O / ikväll:P ?
+My birthday is in August. | Jag:F / fyller:V / år:O / i augusti:P . | I augusti fyller jag år
+I'm turning 30 in August. | Jag:F / fyller:V / 30:O / i augusti:P . | I augusti fyller jag 30`,
+5:`I work as a teacher. | Jag:F / jobbar:V / som lärare:O .
+I work as an engineer at a company. | Jag:F / jobbar:V / som ingenjör:O / på ett företag:P .
+I usually work from home on Fridays. | Jag:F / brukar:V / jobba:V2 / hemifrån:P / på fredagar:P . | På fredagar brukar jag jobba hemifrån
+I like to drink coffee. | Jag:F / dricker:V / gärna:N / kaffe:O .
+At the weekend I usually rest. | På helgen:F / brukar:V / jag:S / vila:V2 . | Jag brukar vila på helgen
+I usually play video games at the weekend. | Jag:F / brukar:V / spela:V2 / datorspel:O / på helgen:P . | På helgen brukar jag spela datorspel
+We usually eat pizza in the evening. | Vi:F / brukar:V / äta:V2 / pizza:O / på kvällen:P . | På kvällen brukar vi äta pizza
+In the morning I play video games. | På morgonen:F / spelar:V / jag:S / datorspel:O . | Jag spelar datorspel på morgonen
+He likes to listen to music. | Han:F / lyssnar:V / gärna:N / på musik:O .
+Sometimes I work from home. | Ibland:F / jobbar:V / jag:S / hemifrån:P . | Jag jobbar ibland hemifrån
+I work as a programmer at a company. | Jag:F / jobbar:V / som programmerare:O / på ett företag:P .
+I am on holiday next week. | Jag:F / är:V / på semester:O / nästa vecka:P . | Nästa vecka är jag på semester
+The children play in the park. | Barnen:F / leker:V / i parken:P .
+I work remotely. | Jag:F / jobbar:V / på distans:P .`,
+6:`I talked with the manager yesterday. | Jag:F / pratade:V / med chefen:O / igår:P . | Igår pratade jag med chefen
+I worked at Nokia last year. | Jag:F / jobbade:V / på Nokia:P / förra året:P . | Förra året jobbade jag på Nokia
+I cooked yesterday evening. | Jag:F / lagade:V / mat:O / igår kväll:P . | Igår kväll lagade jag mat
+I ordered Chinese food last week. | Jag:F / beställde:V / kinesisk mat:O / förra veckan:P . | Förra veckan beställde jag kinesisk mat
+We went on holiday to Italy last year. | Vi:F / åkte:V / på semester:O / till Italien:P / förra året:P . | Förra året åkte vi på semester till Italien
+I bought the car which I liked. | Jag:F / köpte:V / bilen:O / som jag gillade:O .
+I lived on Gamlagatan last year. | Jag:F / bodde:V / på Gamlagatan:P / förra året:P . | Förra året bodde jag på Gamlagatan
+I saw Anna at the restaurant last week. | Jag:F / såg:V / Anna:O / på restaurangen:P / förra veckan:P . | Förra veckan såg jag Anna på restaurangen
+I ate a pizza yesterday evening. | Jag:F / åt:V / en pizza:O / igår kväll:P . | Igår kväll åt jag en pizza
+I have a friend who plays football. | Jag:F / har:V / en vän:O / som spelar fotboll:O .
+I have a friend who lives in Sweden. | Jag:F / har:V / en vän:O / som bor i Sverige:O .
+I work from home today. | Jag:F / jobbar:V / hemifrån:P / idag:P . | Idag jobbar jag hemifrån
+I am at home. | Jag:F / är:V / hemma:P .
+The job is fun. | Jobbet:F / är:V / roligt:O .
+This book is new. | Den här boken:F / är:V / ny:O .
+That house is old. | Det där huset:F / är:V / gammalt:O .
+That's why I'm ordering food. | Därför:F / beställer:V / jag:S / mat:O .
+On top of that, it was cheap. | Dessutom:F / var:V / den:S / billig:O .
+She has two dogs in the apartment. | Hon:F / har:V / två hundar:O / i lägenheten:P .
+I had many meetings at work yesterday. | Jag:F / hade:V / många möten:O / på jobbet:P / igår:P . | Igår hade jag många möten på jobbet
+Doctors have many problems. | Läkare:F / har:V / många problem:O .
+Anna's friends ate many hamburgers yesterday. | Annas vänner:F / åt:V / många hamburgare:O / igår:P .
+Today I woke up late. | Idag:F / vaknade:V / jag:S / sent:P . | Jag vaknade sent idag`
+};
+
+/* Fill-the-gap: lesson | sentence with ___ | answer | wrong options (,) | english | why */
+const CLOZE_RAW = `1 | ___ för kaffet! | Tack | Tak | Thank you for the coffee! | Double consonant = short vowel: tack. "tak" (long a) is a roof.
+1 | Jag ___ i Finland. | bor | heter,talar | I live in Finland. | bor = live
+1 | Jag ___ Osman. | heter | bor,kommer | My name is Osman. | heter = am called
+1 | Jag talar engelska ___ lite svenska. | och | men,från | I speak English and a little Swedish. | och = and (say "ok")
+1 | Ett ___ vatten, tack. | glas | glass | A glass of water, please. | Single s = long vowel: glas (a glass). glass = ice cream.
+1 | Barnen äter ___. | glass | glas | The kids are eating ice cream. | Double s = short vowel: glass = ice cream.
+1 | ___ på födelsedagen! | Grattis | Gratis | Happy birthday! | Double t = short vowel: grattis = congratulations. gratis = free.
+1 | Kaffet är ___ idag. | gratis | grattis | The coffee is free today. | Single t = long vowel: gratis = free of charge.
+1 | Jag kommer ___ Finland. | från | i,till | I come from Finland. | kommer från = come from
+2 | Hur ___ du? | mår | heter,bor | How are you feeling? | Hur mår du? = How are you (feeling)?
+2 | ___ bor du? | Var | Vad,När | Where do you live? | VAR = where (place)
+2 | ___ heter du? | Vad | Var,Hur | What's your name? | VAD = what
+2 | ___ kommer Anna? | När | Vad,Hur | When is Anna coming? | NÄR = when (time)
+2 | ___ dricker du mjölk? Du är laktosintolerant! | Varför | Var,När | Why do you drink milk? You are lactose intolerant! | VARFÖR = why
+2 | Hur ___ barn har ni? | många | mycket,gammal | How many children do you have? | många = many (you can count them)
+2 | Hur ___ kaffe dricker du? | mycket | många,gammal | How much coffee do you drink? | mycket = much (you can't count it)
+2 | ___ (they) bor i Esbo. | De | Vi,Ni | They live in Espoo. | de = they (say "dom")
+2 | Jag mår bra. Och ___? | du | jag,han | I'm fine. And you? | Och du? = And you?
+2 | ___ du pizza? | Gillar | Gillade,Gilla | Do you like pizza? | Yes/no question: the verb comes FIRST.
+2 | Min mamma ___ vatten. | dricker | dricka,drick | My mum drinks water. | Present tense ends in -r. Verb in 2nd position.
+3 | Jag vill ___ en bil. | ha | har,att ha | I want to have a car. | vill needs a 2nd verb in the infinitive: vill ha.
+3 | Hon kan ___ pizza. | äta | äter,åt | She can eat pizza. | After kan/måste/vill/ska → infinitive (äta).
+3 | Jag måste ___. | jobba | jobbar,jobbade | I must work. | After måste → infinitive.
+3 | Jag ska ___ svenska ikväll. | plugga | pluggar,pluggade | I'm going to study Swedish tonight. | ska + infinitive = future plan.
+3 | Jag vill ___ äta pizza. | inte | ofta,alltid | I don't want to eat pizza. | inte sits between the helper verb and the infinitive.
+3 | Mjölk är ___. | slut | vanlig,samma | We're out of milk. | Den är slut = we're out of it ("it is end").
+3 | Du är trött? ___ på semester! | Gå | Går,Gick | You're tired? Go on holiday! | Command form = present minus -r: går → Gå!
+3 | Du har huvudvärk? ___ vatten! | Drick | Dricker,Dricka | You have a headache? Drink water! | ER-verb command: dricker → Drick!
+3 | Det är så varmt här! ___ till Finland! | Kom | Kommer,Komma | It's so hot here! Come to Finland! | kommer → Kom!
+3 | ___ du dricka vin? | Kan | Kunde,Kanske | Can you drink wine? | Yes/no question: the helper verb goes first.
+3 | Jag ___ hjälpa Anna efter skolan. | ska | vill ha,har | I'm going to help Anna after school. | ska = future plan
+4 | Ikväll ___ jag baka en kaka. | ska | jag,inte | Tonight I'm going to bake a cake. | Time first → verb 2nd → subject after it.
+4 | Jag ___ inte plugga mer. (no energy) | orkar | hinner,kan | I don't have the energy to study more. | orkar = do I have the ENERGY? 🔋
+4 | Jag ___ inte gå till butiken. (no time) | hinner | orkar,vill | I don't have time to go to the store. | hinner = do I have the TIME? ⏱️
+4 | Anna spelar ___ fotboll. | gärna | brukar,måste | Anna likes to play football. | gärna = like to. It sits where inte sits.
+4 | Jag ___ år i augusti. | fyller | har,blir | My birthday is in August. | fyller år = "fill years" = have a birthday
+4 | Imorgon ___ min vän till Finland. | kommer | min vän,inte | Tomorrow my friend is coming to Finland. | The verb is glued to slot 2 — the subject hops behind it.
+4 | Just nu ___ Anna matte. | pluggar | Anna,plugga | Right now Anna is studying maths. | Start anywhere — but keep the verb 2nd.
+4 | Min mamma bakar ___ en kaka till min födelsedag. | alltid | alltid inte,gärna inte | My mum always bakes a cake for my birthday. | alltid (always) sits in the inte-slot.
+4 | När ___ du år? | fyller | har,är | When is your birthday? | När fyller du år?
+5 | Jag jobbar som ___. | lärare | en lärare,ett lärare | I work as a teacher. | No en/ett with professions!
+5 | Jag jobbar ___ en skola. | på | i,till | I work at a school. | PÅ goes with institutions.
+5 | Jag ___ jobba hemifrån på fredagar. | brukar | gärna,orkar | I usually work from home on Fridays. | brukar + infinitive = usually
+5 | Jag dricker ___ kaffe. | gärna | brukar,alltid inte | I like to drink coffee. | gärna = like to — where inte goes.
+5 | Barnen ___ i parken. | leker | spelar,brukar | The children play in the park. | leker = kids & animals playing freely.
+5 | Jag ___ fotboll. | spelar | leker,åker | I play football. | spelar = sports, games, instruments.
+5 | Vi ___ till havet med bil. | åker | går,leker | We go to the sea by car. | åker = by transport. går = on foot.
+5 | Jag ___ till jobbet. Det är nära! | går | åker,brukar | I walk to work. It's close! | går = on foot.
+5 | På helgen ___ jag vila. | brukar | vilar,gärna | At the weekend I usually rest. | Time first → verb (brukar) 2nd.
+5 | Vi går på bio ___ fikar på ett kafé. | eller | där,men | We go to the cinema or have a coffee in a café. | eller = or
+5 | Jag åker till Italien. ___ kan jag äta mycket pizza. | Där | Eller,Hur | I'm going to Italy. There I can eat a lot of pizza. | där = there. Där first → verb 2nd: Där kan jag…
+5 | Jag jobbar som programmerare ___ ett företag. | på | i,som | I work as a programmer at a company. | på + institution
+5 | Jag spelar datorspel ___ morgonen. | på | i,till | I play video games in the morning. | på morgonen = in the morning
+6 | Jag jobbar ___ idag. | hemifrån | hemma,hem | I work from home today. | Moving AWAY from home → hemifrån.
+6 | Jag är ___ idag. | hemma | hem,hemifrån | I am at home today. | Nobody is moving → hemma.
+6 | När kommer Anna ___? | hem | hemma,hemifrån | When is Anna coming home? | Moving TOWARDS home → hem.
+6 | Jag har en vän ___ spelar fotboll. | som | vad,att | I have a friend who plays football. | som = who / which / that
+6 | Jag jobbar ___ programmerare. | som | på,att | I work as a programmer. | som = as / like
+6 | Jag har ett ___ jobb. | nytt | ny,nya | I have a new job. | ETT-word → adjective + t. ny → nytt.
+6 | Jobbet är ___. | roligt | rolig,roliga | The job is fun. | jobbet is an ETT-word → + t, even after "är".
+6 | Det är en ___ film. | rolig | roligt,roliga | It's a fun film. | EN-word → nothing happens to the adjective.
+6 | ___ här restaurangen är populär. | Den | Det,De | This restaurant is popular. | EN-word → den här + definite noun.
+6 | ___ där huset är gammalt. | Det | Den,De | That house is old. | ETT-word → det där + definite noun.
+6 | Jag ___ en bok igår. (läser) | läste | läsade,läsde | I read a book yesterday. | Läs! ends in S (PocKeTS) → -te: läste.
+6 | Jag ___ bilen igår. (köper) | köpte | köpade,köpde | I bought the car yesterday. | Köp! ends in P (PocKeTS) → -te: köpte.
+6 | Jag ___ i Esbo förra året. (bor) | bodde | bode,borde | I lived in Espoo last year. | Short R-verb: Bo! + dde → bodde.
+6 | Jag ___ till skolan igår. (går) | gick | gådde,gåde | I went to school yesterday. | Strong verb — learn by heart: går → gick.
+6 | Jag ___ med chefen igår. (pratar) | pratade | pratte,pratde | I talked with the manager yesterday. | AR-verb: Prata! + de → pratade.
+6 | Vi väntar ___ bussen. | på | i,till | We're waiting for the bus. | vänta PÅ — certain verbs take på.
+6 | Jag åker ___ Spanien. | till | på,i | I'm going to Spain. | TILL = movement towards.
+6 | Jag bor ___ Finland. | i | på,till | I live in Finland. | I = in (countries, cities).
+6 | Jag fick ett datorspel ___ present. | i | på,till | I got a video game as a present. | få ___ i present
+6 | Jag har många ___. (en vän) | vänner | väner,vänar | I have many friends. | Group 3 exception: en vän → vänner.
+6 | Jag är hungrig och ___ beställer jag mat. | därför | eftersom,dessutom | I'm hungry and that's why I'm ordering food. | därför → the VERB comes next.
+6 | Jag beställer mat ___ jag är hungrig. | eftersom | därför,dessutom | I'm ordering food because I'm hungry. | eftersom = because (never start "därför att").
+6 | ___ bil är röd. (Anna's) | Annas | Anna's,Annases | Anna's car is red. | Genitive: just add -s. No apostrophe!
+6 | Jag är trött ___ pizza. | på | av,med | I am tired of pizza. | trött PÅ = tired of
+6 | Jag vill ___ jobb. | byta | byter,bytte | I want to switch jobs. | vill + infinitive`;
+
+/* Sound detective (lesson 1) */
+const SOUNDS = [
+  {w:'gillar', q:'How do you say the G in', a:'like Y (yoghurt)', o:['like G (go)','like SH','silent'], why:'G + soft vowel (Y I E Ö Ä) → "y": yillar'},
+  {w:'gör', q:'How do you say the G in', a:'like Y (yoghurt)', o:['like G (go)','like TJ (ciao)','silent'], why:'G + Ö → "y": yör'},
+  {w:'ger', q:'How do you say the G in', a:'like Y (yoghurt)', o:['like G (go)','like SH','like TJ (ciao)'], why:'G + E → "y": yer'},
+  {w:'Sverige', q:'How do you say the G in', a:'like Y (yoghurt)', o:['like G (go)','like SH','silent'], why:'G + E → "y": Sverye'},
+  {w:'gul', q:'How do you say the G in', a:'like G (go)', o:['like Y (yoghurt)','like SH','silent'], why:'U is a hard vowel → G stays hard.'},
+  {w:'Kina', q:'How do you say the K in', a:'like TJ (ciao)', o:['like K (kite)','like SH','silent'], why:'K + I → soft "tj" (تش)'},
+  {w:'köper', q:'How do you say the K in', a:'like TJ (ciao)', o:['like K (kite)','like Y (yoghurt)','silent'], why:'K + Ö → soft "tj"'},
+  {w:'kylskåp', q:'How do you say the K in', a:'like TJ (ciao)', o:['like K (kite)','like SH','like Y (yoghurt)'], why:'K + Y → soft "tj"'},
+  {w:'kaffe', q:'How do you say the K in', a:'like K (kite)', o:['like TJ (ciao)','like SH','silent'], why:'A is a hard vowel → K stays hard.'},
+  {w:'skiner', q:'How do you say the SK in', a:'like SH', o:['like SK (sky)','like TJ (ciao)','like Y (yoghurt)'], why:'SK + I → "sh": shiner'},
+  {w:'skola', q:'How do you say the SK in', a:'like SK (sky)', o:['like SH','like TJ (ciao)','silent'], why:'O is a hard vowel → SK stays "sk".'},
+  {w:'sjuk', q:'How do you say the SJ in', a:'like SH', o:['like SJ (s + y)','like TJ (ciao)','like Y (yoghurt)'], why:'SJ is ALWAYS "sh" (ش)'},
+  {w:'skjorta', q:'How do you say the SKJ in', a:'like SH', o:['like SK (sky)','like TJ (ciao)','like Y (yoghurt)'], why:'SKJ is ALWAYS "sh"'},
+  {w:'tjej', q:'How do you say the TJ in', a:'like TJ (ciao)', o:['like T (top)','like SH','like Y (yoghurt)'], why:'TJ is always the soft "tj" sound'},
+  {w:'kurs', q:'How do you say the RS in', a:'like SH', o:['like R + S','like TJ (ciao)','silent'], why:'RS → a sharp, front "sh": kush'},
+  {w:'hjälp', q:'Which letter is silent in', a:'H', o:['J','L','P'], why:'HJ at the start: the H is silent → "yelp"'},
+  {w:'djur', q:'Which letter is silent in', a:'D', o:['J','U','R'], why:'DJ at the start: the D is silent → "yoor"'},
+  {w:'ljus', q:'Which letter is silent in', a:'L', o:['J','U','S'], why:'LJ at the start: the L is silent → "yoos"'},
+  {w:'tak / tack', q:'Which one means "thank you"?', a:'tack', o:['tak'], why:'Short vowel + double consonant: tack.'},
+  {w:'ful / full', q:'Which one means "ugly"?', a:'ful', o:['full'], why:'Long vowel + single consonant: ful.'},
+  {w:'kafé / kaffe', q:'Which one is the drink?', a:'kaffe', o:['kafé'], why:'Double f = short a: kaffe = coffee. kafé = café.'},
+  {w:'Y · U · Ö', q:'What do these three vowels need?', a:'round, pushed-out lips', o:['a big smile','a wide-open mouth'], why:'Y, U, Ö all need round lips. Say ي and round your lips → Y.'},
+  {w:'Å', q:'Which sound is Å?', a:'the "real" O, like "or"', o:['open E like "bed"','like "ooh" in boots'], why:'Å = English "or" (أو)'},
+  {w:'Ä', q:'Which sound is Ä?', a:'open E, like "bed"', o:['the "real" O, like "or"','E with round lips'], why:'Ä = mouth for A, but say E'},
+  {w:'Ö', q:'Which sound is Ö?', a:'E with round lips', o:['open E, like "bed"','"ooh" like in boots'], why:'Ö = mouth for O, but say E. No Arabic sound!'}
+];
+
+/* Sort games: id | lesson | title | buckets | items */
+const SORTS = [
+  {id:'long', l:1, t:'Long or short vowel?', b:[['L','Long vowel','1 consonant after','c3'],['S','Short vowel','double consonant','c4']],
+   i:[['tak','L'],['tack','S'],['ful','L'],['full','S'],['glas','L'],['glass','S'],['kafé','L'],['kaffe','S'],['gratis','L'],['grattis','S'],['mamma','S'],['simmar','S'],['bok','L'],['bra','L']]},
+  {id:'soft', l:1, t:'Soft or hard sound?', b:[['H','Hard','G / K / SK stay','c1'],['S','Soft','y · tj · sh','c4']],
+   i:[['gillar','S'],['gul','H'],['ger','S'],['gör','S'],['Kina','S'],['kaffe','H'],['köper','S'],['kylskåp','S'],['skiner','S'],['skola','H'],['glas','H'],['Sverige','S'],['kurs','H'],['sjuk','S']]},
+  {id:'pron', l:2, t:'One person or more?', b:[['1','One person','singular','c1'],['M','More people','plural','c2']],
+   i:[['jag','1'],['du','1'],['han','1'],['hon','1'],['hen','1'],['vi','M'],['ni','M'],['de','M']]},
+  {id:'qw', l:2, t:'Which question word?', b:[['vad','VAD','what','c1'],['var','VAR','where','c3'],['när','NÄR','when','c2'],['hur','HUR','how','c4']],
+   i:[['What is your name?','vad'],['Where do you live?','var'],['When is lunch?','när'],['How old are you?','hur'],['What are you eating?','vad'],['Where do you eat?','var'],['When is Anna coming?','när'],['How much is a pizza?','hur'],['What are you drinking?','vad'],['How many kids?','hur']]},
+  {id:'mood', l:2, t:'How are you? Good or bad?', b:[['G','😊 Good','bra','c3'],['M','😐 So-so','så där','c2'],['B','😞 Bad','dåligt','c4']],
+   i:[['Toppen!','G'],['Jag mår bra.','G'],['Det är bra.','G'],['Så där.','M'],['Ganska dåligt.','B'],['Jag är sjuk.','B'],['Jag är trött.','B']]},
+  {id:'vgroup', l:3, t:'Which verb group?', b:[['AR','AR-verbs','Jobba!','c1'],['ER','ER-verbs','Ät!','c2'],['R','R-verbs','Bo!','c3']],
+   i:[['jobbar','AR'],['gillar','AR'],['talar','AR'],['spelar','AR'],['simmar','AR'],['äter','ER'],['dricker','ER'],['köper','ER'],['kommer','ER'],['har','R'],['går','R'],['mår','R'],['bor','R'],['gör','R']]},
+  {id:'help', l:3, t:'Which helper verb?', b:[['kan','KAN','can','c1'],['måste','MÅSTE','must','c4'],['vill','VILL','want','c3'],['ska','SKA','will / going to','c2']],
+   i:[['I can swim.','kan'],['I must work.','måste'],['I want to study Swedish.','vill'],['We are going to eat pizza tonight.','ska'],['She can eat pizza.','kan'],['Do you have to train?','måste'],['Do you want to eat pizza?','vill'],['Shall we go to a restaurant?','ska']]},
+  {id:'enett', l:4, t:'EN or ETT?', b:[['en','EN','≈ 75% of words','c1'],['ett','ETT','≈ 25% of words','c2']],
+   i:[['bok','en'],['barn','ett'],['dator','en'],['spel','ett'],['kurs','en'],['språk','ett'],['jobb','ett'],['möte','ett'],['bil','en'],['kontor','ett'],['företag','ett'],['kaka','en'],['hus','ett'],['äpple','ett'],['vän','en'],['mejl','ett'],['födelsedag','en'],['problem','ett'],['kök','ett'],['stad','en'],['land','ett'],['barnbok','en'],['datorspel','ett'],['språkkurs','en'],['kylskåp','ett'],['prov','ett'],['paket','ett'],['familj','en']]},
+  {id:'hinorka', l:4, t:'Time or energy?', b:[['hinner','⏱️ HINNER','time','c1'],['orkar','🔋 ORKAR','energy','c3']],
+   i:[['I don\'t have time to go to the store.','hinner'],['I don\'t have the energy to study more.','orkar'],['Do we have time to go to the museum?','hinner'],['I can\'t be bothered to train.','orkar'],['You\'ll make it!','hinner'],['I don\'t have the strength to talk to the boss.','orkar']]},
+  {id:'spelek', l:5, t:'spelar or leker?', b:[['spelar','⚽ SPELAR','sports, games, music','c1'],['leker','🧸 LEKER','kids & animals','c2']],
+   i:[['___ fotboll','spelar'],['___ datorspel','spelar'],['___ gitarr','spelar'],['___ med min katt','leker'],['___ med mitt barn','leker'],['Barnen ___ i parken','leker'],['___ tennis','spelar'],['Hunden ___','leker']]},
+  {id:'gaaker', l:5, t:'går or åker?', b:[['går','🚶 GÅR','on foot','c3'],['åker','🚌 ÅKER','by transport','c1']],
+   i:[['___ till Spanien','åker'],['___ till havet med bil','åker'],['___ på bio (nearby)','går'],['___ skidor','åker'],['___ till jobbet (5 min walk)','går'],['___ till fjällen','åker'],['___ på museer in town','går'],['___ tåg till Tammerfors','åker']]},
+  {id:'fritid', l:5, t:'Where do you do it?', b:[['sea','🌊 At the sea','','c1'],['mtn','🏔️ Mountains','','c3'],['abr','✈️ Abroad','','c2'],['home','🛋️ At home','','c4']],
+   i:[['solar','sea'],['badar i havet','sea'],['åker skidor','mtn'],['vandrar i skogen','mtn'],['reser utomlands','abr'],['äter lokalmat','abr'],['sitter på kaféer','abr'],['stannar hemma','home'],['vilar','home'],['spelar datorspel','home'],['läser en bok','home']]},
+  {id:'hem', l:6, t:'hem, hemma or hemifrån?', b:[['hemma','🏠 HEMMA','at home, no movement','c3'],['hem','➡️🏠 HEM','towards home','c1'],['hemifrån','🏠➡️ HEMIFRÅN','from home','c2']],
+   i:[['Jag jobbar ___.','hemifrån'],['Jag är ___ idag.','hemma'],['Jag åker ___.','hem'],['När kommer Anna ___?','hem'],['Är du ___ imorgon?','hemma'],['Jag har pizza ___.','hemma'],['Hinner du åka ___?','hem'],['Han ringer ___.','hemifrån']]},
+  {id:'past', l:6, t:'Which past-tense ending?', b:[['ade','-ADE','AR-verbs','c1'],['de','-DE','ER-verbs','c3'],['te','-TE','PocKeTS','c2'],['dde','-DDE','short R-verbs','c4'],['st','STRONG','by heart','c5']],
+   i:[['pratar','ade'],['lyssnar','ade'],['jobbar','ade'],['gillar','ade'],['ringer','de'],['beställer','de'],['läser','te'],['köper','te'],['åker','te'],['bor','dde'],['mår','dde'],['går','st'],['äter','st'],['skriver','st'],['sover','st'],['är','st'],['ser','st']]},
+  {id:'plural', l:6, t:'Which plural group?', b:[['1','1 · -OR','en-word ending in -a','c1'],['2','2 · -AR','Nordic, 1 syllable','c3'],['3','3 · -ER','foreign, stress at back','c2'],['4','4 · -N','ett-word + vowel','c4'],['5','5 · no change','ett + consonant, -are','c5']],
+   i:[['en flicka','1'],['en kvinna','1'],['en skola','1'],['en kaka','1'],['en blomma','1'],['en bil','2'],['en hund','2'],['en pojke','2'],['en tidning','2'],['en cykel','2'],['en banan','3'],['en tomat','3'],['en mobil','3'],['en biljett','3'],['ett möte','4'],['ett äpple','4'],['ett konto','4'],['ett jobb','5'],['ett hus','5'],['ett problem','5'],['en läkare','5'],['en hamburgare','5']]},
+  {id:'prep', l:6, t:'på, i or till?', b:[['på','PÅ','institutions, on, some verbs','c1'],['i','I','in, periods of time','c3'],['till','TILL','movement, for someone','c2']],
+   i:[['___ jobbet','på'],['lyssna ___ musik','på'],['vänta ___','på'],['arg ___','på'],['___ Finland','i'],['___ augusti','i'],['åka ___ Spanien','till'],['laga mat ___ familjen','till'],['köpa en present ___ Anna','till'],['___ Gamlagatan','på'],['få ___ present','i'],['___ landet','på']]}
+];
+
+/* Verbs: present | command | infinitive | past | english | group(ar,er,te,r,st) | lesson3? */
+const VERBS_RAW = `jobbar | Jobba | jobba | jobbade | work | ar | 3
+gillar | Gilla | gilla | gillade | like | ar | 3
+talar | Tala | tala | talade | speak | ar | 3
+spelar | Spela | spela | spelade | play | ar | 3
+simmar | Simma | simma | simmade | swim | ar | 3
+pratar | Prata | prata | pratade | talk | ar | 6
+lyssnar | Lyssna | lyssna | lyssnade | listen | ar | 6
+lagar | Laga | laga | lagade | cook, fix | ar | 6
+pluggar | Plugga | plugga | pluggade | study | ar | 3
+tränar | Träna | träna | tränade | train | ar | 3
+äter | Ät | äta | åt | eat | st | 3
+dricker | Drick | dricka | drack | drink | st | 3
+köper | Köp | köpa | köpte | buy | te | 3
+kommer | Kom | komma | kom | come | st | 3
+läser | Läs | läsa | läste | read | te | 6
+åker | Åk | åka | åkte | go (by vehicle) | te | 6
+ringer | Ring | ringa | ringde | call | er | 6
+beställer | Beställ | beställa | beställde | order | er | 6
+har | Ha | ha | hade | have | r | 3
+går | Gå | gå | gick | go, walk | st | 3
+mår | Må | må | mådde | feel | r | 3
+bor | Bo | bo | bodde | live | r | 3
+gör | Gör | göra | gjorde | do | st | 3
+är | Var | vara | var | am, is, are | st | 6
+ser | Se | se | såg | see | st | 6
+skriver | Skriv | skriva | skrev | write | st | 6
+sover | Sov | sova | sov | sleep | st | 6
+säger | Säg | säga | sa | say | st | 6
+vet | Vet | veta | visste | know | st | 6
+blir | Bli | bli | blev | become | st | 6
+får | Få | få | fick | get | st | 6
+tar | Ta | ta | tog | take | st | 6`;
+
+/* Nouns for word-form drills (lesson 6): noun | definite | plural | group | english */
+const NOUNS_RAW = `en bok | boken | böcker | x | a book
+en flicka | flickan | flickor | 1 | a girl
+ett jobb | jobbet | jobb | 5 | a job
+ett möte | mötet | möten | 4 | a meeting
+ett kafé | kaféet | kaféer | x | a café
+ett museum | museet | museer | x | a museum
+en bil | bilen | bilar | 2 | a car
+en restaurang | restaurangen | restauranger | 3 | a restaurant
+ett hus | huset | hus | 5 | a house
+ett äpple | äpplet | äpplen | 4 | an apple
+en skola | skolan | skolor | 1 | a school
+ett barn | barnet | barn | 5 | a child
+en film | filmen | filmer | 3 | a film
+ett företag | företaget | företag | 5 | a company
+en lägenhet | lägenheten | lägenheter | 3 | an apartment
+en kvinna | kvinnan | kvinnor | 1 | a woman
+en hund | hunden | hundar | 2 | a dog
+en pojke | pojken | pojkar | 2 | a boy
+en tidning | tidningen | tidningar | 2 | a newspaper
+en banan | bananen | bananer | 3 | a banana
+en tomat | tomaten | tomater | 3 | a tomato
+en mobil | mobilen | mobiler | 3 | a mobile phone
+en biljett | biljetten | biljetter | 3 | a ticket
+ett konto | kontot | konton | 4 | an account
+ett problem | problemet | problem | 5 | a problem
+en kaka | kakan | kakor | 1 | a cake
+en fråga | frågan | frågor | 1 | a question
+en katt | katten | katter | 3 | a cat
+en vän | vännen | vänner | 3 | a friend
+en läkare | läkaren | läkare | 5 | a doctor`;
+
+const ADJ = [['rolig','roligt','fun'],['tråkig','tråkigt','boring'],['dyr','dyrt','expensive'],['billig','billigt','cheap'],['gammal','gammalt','old'],['ny','nytt','new'],['stor','stort','big'],['liten','litet','small'],['viktig','viktigt','important'],['snygg','snyggt','good-looking']];
+const ADJ_NOUNS = [['en','film'],['ett','jobb'],['en','restaurang'],['ett','kafé'],['en','butik'],['ett','hus'],['en','bil'],['ett','möte'],['en','vän'],['ett','företag'],['en','stad'],['ett','land'],['en','fest'],['ett','projekt'],['en','person']];
+
+const PROPER = ['Anna','Osman','Finland','Kina','Nokia','Sverige','Italien','Spanien','Gamlagatan','Annas','Esbo','Thea','Ali','Helsingfors'];
+const ROLE = {F:'1st place',V:'VERB',S:'subject',N:'inte / adverb',V2:'verb 2',O:'object',P:'place / time'};
+
+/* ================= LEARN PAGES (visual rule cards) ================= */
+function parseChunks(str){
+  return str.split(' / ').map(c=>{c=c.trim();const i=c.lastIndexOf(':');return {t:c.slice(0,i),r:c.slice(i+1)}});
+}
+function slotsHTML(chunks,labels=true){
+  return `<div class="slots">${chunks.map(c=>`<div class="slot r-${c.r}"><span class="w">${esc(c.t)}</span>${labels?`<span class="lab">${ROLE[c.r]}</span>`:''}</div>`).join('')}</div>`;
+}
+function SL(str,en,punct='.'){
+  const ch=parseChunks(str); const txt=ch.map(c=>c.t).join(' ')+punct;
+  return `<div class="slotline">${slotsHTML(ch)}<button class="say" data-say="${esc(txt)}" title="Listen">🔊</button><span class="en">${esc(en)}</span></div>`;
+}
+const S_=t=>`<b class="sv">${esc(t)}</b>`;
+function EX(sv,en){return `<div class="ex"><span>${S_(sv)}</span><i>${esc(en)}</i></div>`}
+function BOX(kind,head,body){return `<div class="box ${kind}"><b class="h">${head}</b>${body}</div>`}
+function SEC(n,title,body){return `<section class="card"><h3><span class="n">${n}</span>${title}</h3>${body}</section>`}
+function legendHTML(){return `<div class="legend">${Object.keys(ROLE).map(r=>`<div class="slot r-${r}"><span class="w">${ROLE[r]}</span></div>`).join('')}</div>`}
+
+const LEARN = {
+1:()=>[
+SEC('1.1','Introducing yourself',
+ EX('Hej! Jag heter Osman.','Hello! My name is Osman.')+EX('Jag bor i Finland.','I live in Finland.')+EX('Jag kommer från ___.','I come from ___.')+EX('Jag talar engelska och lite svenska.','I speak English and a little Swedish.')+
+ `<p class="small mute">Languages are always written with a small letter: ${['finska','svenska','engelska','arabiska','spanska','persiska','ryska'].map(S_).join(' · ')}</p>`+
+ BOX('info','Tiny words','<b>och</b> = and — say "ok" or just "o" · <b>lite</b> = a little — say "leeteh"')),
+SEC('1.2','The 9 vowels — tap a tile to hear it',
+ `<div class="vowels">${[
+  ['A','back of the throat','long آ, deep','bra · ja'],['O','"ooh" like in boots','long و as in نور','bok · bor'],['U','straw in your mouth','و, lips far forward','gul',1],
+  ['Y','mouth for U, say I','ي with round lips','kyla · by',1],['I','like "cheese"','long ي as in دين','simmar'],['E','smile to say it','ي with a big smile','ler'],
+  ['Ö','mouth for O, say E','no Arabic sound','ö · öra',1],['Ä','mouth for A, say E','"e" in "bed"','äpple'],['Å','the "real" O','أو — English "or"','från · går']
+ ].map(v=>`<div class="vowel" data-say="${v[3].split(' · ')[0]}">${v[4]?'<span class="lips" title="round lips">👄</span>':''}<div class="L">${v[0]}</div><div class="m">${v[1]}</div><div class="w">${v[2]}</div><div class="w"><b>${v[3]}</b></div></div>`).join('')}</div>`+
+ BOX('star','Note for Arabic speakers','Arabic has 3 vowel sounds — Swedish has 9. The hard ones are <b>Y, U, Ö</b> (👄): they all need <b>round, pushed-out lips</b>. Say ي and slowly round your lips → that is <b>Y</b>.')),
+SEC('1.3','Long or short? One letter changes the meaning',
+ BOX('star','Star rule','<b>Long vowel + 1 consonant</b> · <b>short vowel + 2 consonants</b>')+
+ `<div class="pairs">${[['tak','roof','tack','thank you'],['ful','ugly','full','full'],['gratis','free','grattis','congrats!'],['kafé','café','kaffe','coffee'],['glas','a glass','glass','ice cream']].map(p=>`<div>🐢 ${S_(p[0])} <span class="mute small">${p[1]}</span></div><div>⚡ ${S_(p[2])} <span class="mute small">${p[3]}</span></div>`).join('')}</div>`+
+ BOX('hook','Memory hook','Double letter = <b>short and quick</b> ⚡ (ta<b>ck</b>, ma<b>mm</b>a). Single letter = <b>long and slow</b> 🐢 (t<b>aa</b>k).')),
+SEC('1.4','Sound changes: G, K, SK before soft vowels',
+ `<p>The <b>soft vowels</b> ${['Y','I','E','Ö','Ä'].map(x=>`<span class="chip en">${x}</span>`).join(' ')} change the letter before them. Think "Gordon" vs "George".</p>
+ <div class="tscroll"><table class="t"><tr><th>Letters</th><th>Sound</th><th>Examples</th></tr>
+ <tr><td><b>G</b> + Y I E Ö Ä</td><td>"y" (ي)</td><td>${S_('ger')} · ${S_('gör')} · ${S_('Sverige')} · ${S_('gillar')}</td></tr>
+ <tr><td><b>K</b> + Y I E Ö Ä</td><td>"tj" like ciao (تش)</td><td>${S_('kylskåp')} · ${S_('Kina')} · ${S_('köper')}</td></tr>
+ <tr><td><b>TJ</b> always</td><td>"tj"</td><td>${S_('tjej')} · ${S_('tjuv')}</td></tr>
+ <tr><td><b>SK</b> + Y I E Ö Ä</td><td>"sh" (ش)</td><td>${S_('Solen skiner.')}</td></tr>
+ <tr><td><b>SKJ · SJ</b> always</td><td>"sh"</td><td>${S_('skjorta')} · ${S_('sjuk')}</td></tr>
+ <tr><td><b>RS</b></td><td>sharp "sh"</td><td>${S_('kurs')} · ${S_('mars')}</td></tr>
+ <tr><td><b>HJ · DJ · LJ</b> at the start</td><td>1st letter silent</td><td>${S_('hjälp')} · ${S_('djur')} · ${S_('ljus')}</td></tr></table></div>`+
+ BOX('tip','Try it 3 times',S_('Jag köper ett kylskåp i Kina.')+' — practise the "tj" sound.'))
+],
+2:()=>[
+SEC('2.1','How are you?',
+ `<div class="row small mute">Ask: ${S_('Hur mår du?')} (feeling) · ${S_('Hur är det?')} (how's it going)</div>
+ <div class="grid g4" style="margin-top:10px">${[['🤩','Toppen!','Awesome!'],['😊','Jag mår bra.','I\'m fine.'],['😐','Så där.','So-so.'],['🥱','Jag är trött.','I\'m tired.'],['🤒','Jag är sjuk.','I\'m sick.'],['🔁','Och du?','And you?']].map(m=>`<div class="vowel" data-say="${m[1]}"><div style="font-size:38px">${m[0]}</div><b>${m[1]}</b><div class="w">${m[2]}</div></div>`).join('')}</div>`),
+SEC('2.2','Personal pronouns',
+ `<div class="pairs"><div><b>One person</b></div><div><b>More people</b></div>
+ <div>🙋 ${S_('jag')} I</div><div>🫂 ${S_('vi')} we</div><div>👉 ${S_('du')} you</div><div>👥 ${S_('ni')} you (all)</div>
+ <div>👨 ${S_('han')} he · 👩 ${S_('hon')} she</div><div>👪 ${S_('de')} they — say "dom"</div><div>🧑 ${S_('hen')} he or she</div><div></div></div>`),
+SEC('2.3','Family',
+ `<div class="vgrid">${[['👨‍👩‍👧‍👦','en familj','a family'],['🤵','en man','a husband'],['👰','en fru','a wife'],['💍','gift','married'],['🧑‍🤝‍🧑','sambo','living together'],['🧒','ett barn','a child'],['👦','en son','a son'],['👧','en dotter','a daughter'],['👬','en bror','a brother'],['👭','en syster','a sister'],['👩','mamma','mum'],['👨','pappa','dad'],['🫶','en vän','a friend']].map(v=>`<div class="vitem" data-say="${v[1]}"><span class="e">${v[0]}</span><div><div class="s">${v[1]}</div><div class="m">${v[2]}</div></div></div>`).join('')}</div>`+
+ BOX('info','Thea\'s model text','Hej, jag heter Thea. Jag bor i Wien. Jag har en liten familj. Jag har en mamma och en syster.')+
+ BOX('star','Your turn','Hej, jag heter ___. Jag bor i Esbo. Jag har en stor familj. Jag är gift. Jag har en fru och ___ barn.')),
+SEC('2.4','Question words',
+ `<div class="grid g3">${[['❓','VAD','what','Vad heter du?'],['📍','VAR','where','Var bor du?'],['⏰','NÄR','when','När har vi lunch?'],['🤔','VARFÖR','why','Varför äter du pizza?'],['❔','HUR','how','Hur gammal är du?'],['🔢','HUR MÅNGA / MYCKET','how many / much','Hur många barn har ni?']].map(q=>`<div class="vowel" data-say="${q[3]}" style="text-align:left"><div style="font-size:30px">${q[0]} <b style="color:var(--brand)">${q[1]}</b></div><div class="w">${q[2]}</div><div><b>${q[3]}</b></div></div>`).join('')}</div>`+
+ BOX('hook','No "-ing" form in Swedish!','<b>Jag äter</b> = I eat AND I am eating. One present tense for both.')),
+SEC('2.5','⭐ THE GOLDEN RULE: the verb is always 2nd',
+ legendHTML()+
+ SL('Jag:F / dricker:V / vatten:O','I drink water.')+SL('Min mamma:F / dricker:V / vatten:O','My mum drinks water.')+SL('Vad:F / heter:V / du:S','What\'s your name?','?')+SL('Var:F / bor:V / du:S','Where do you live?','?')+
+ `<p class="small">The verb is the 2nd <i>idea</i>, not always the 2nd word — "Min mamma" is one idea.</p>`+
+ BOX('tip','Exception: yes / no questions → verb FIRST','')+SL('Gillar:V / du:S / pizza:O','Do you like pizza?','?')+SL('Dricker:V / du:S / vatten:O','Do you drink water?','?')+
+ BOX('star','Note for Arabic speakers','Arabic often starts with the verb. In a Swedish statement the verb must be <b>2nd</b>: Ahmed <b>dricker</b> vatten. Only yes/no questions start with the verb — like Arabic questions with هل.'))
+],
+3:()=>[
+SEC('3.1','Verbs: one form for every person',
+ BOX('star','Star rule','A Swedish verb <b>never changes for the person</b>: jag jobbar, du jobbar, hon jobbar, vi jobbar… Present ends in <b>-r</b>.')+
+ `<div class="tscroll"><table class="t"><tr><th>Group</th><th>Present (-r)</th><th>Command (drop -r / -er)</th><th>Infinitive (after kan, vill…)</th></tr>
+ <tr><td><b>AR</b></td><td>${S_('jobbar')} ${S_('gillar')} ${S_('talar')}</td><td>${S_('Jobba!')} ${S_('Gilla!')} ${S_('Tala!')}</td><td>= same as command (ends in A)</td></tr>
+ <tr><td><b>ER</b></td><td>${S_('äter')} ${S_('dricker')} ${S_('köper')} ${S_('kommer')}</td><td>${S_('Ät!')} ${S_('Drick!')} ${S_('Köp!')} ${S_('Kom!')}</td><td>command + A → ${S_('äta')} ${S_('dricka')} ${S_('köpa')} ${S_('komma')}</td></tr>
+ <tr><td><b>R</b></td><td>${S_('har')} ${S_('går')} ${S_('mår')} ${S_('bor')} ${S_('gör')}</td><td>${S_('Ha!')} ${S_('Gå!')} ${S_('Bo!')} ${S_('Gör!')}</td><td>= same as command · except gör → ${S_('göra')}</td></tr></table></div>`+
+ BOX('hook','See the pattern','<b>dricker</b> → cut <b>-er</b> → <b>Drick!</b> → add <b>a</b> → <b>dricka</b>. The infinitive always ends in a vowel.')+
+ `<h3 style="margin-top:12px">Give advice with the command form</h3>`+EX('Det är så varmt här i Spanien! → Kom till Finland!','It\'s so hot here! → Come to Finland!')+EX('Jag har huvudvärk. → Drick vatten!','I have a headache. → Drink water!')+EX('Jag är trött. → Gå på semester!','I\'m tired. → Go on holiday!')),
+SEC('3.2','Helper verbs + infinitive',
+ `<div class="grid g4">${[['💪','KAN','can','Hon kan äta pizza.'],['❗','MÅSTE','must','Jag måste jobba.'],['💫','VILL','want','Jag vill plugga svenska.'],['➡️','SKA','will / going to','Vi ska äta pizza ikväll.']].map(q=>`<div class="vowel" data-say="${q[3]}" style="text-align:left"><div style="font-size:26px">${q[0]} <b style="color:var(--brand)">${q[1]}</b></div><div class="w">${q[2]}</div><div class="small"><b>${q[3]}</b></div></div>`).join('')}</div>`+
+ SL('Jag:F / vill:V / plugga:V2 / svenska:O','I want to study Swedish.')+SL('Hon:F / kan:V / äta:V2 / pizza:O','She can eat pizza.')+SL('Vi:F / ska:V / äta:V2 / pizza ikväll:O','We\'re going to eat pizza tonight.')+
+ BOX('hook','VILL needs a second verb!','English: "I want a car." Swedish: <b>Jag vill ha en bil.</b> (I want to HAVE a car) — never "Jag vill en bil" ✗')),
+SEC('3.3','INTE — making it negative',
+ BOX('star','Star rule','<b>inte</b> comes once you have seen <b>both the verb and the subject</b>. With a helper verb, inte sits <b>between</b> the helper and the infinitive.')+
+ SL('Jag:F / vill:V / inte:N / äta:V2 / pizza:O','I don\'t want to eat pizza.')+SL('Han:F / pluggar:V / inte:N / finska:O','He doesn\'t study Finnish.')+SL('Ikväll:F / ska:V / vi:S / inte:N / äta:V2 / pizza:O','Tonight we won\'t eat pizza.')+SL('Idag:F / kommer:V / Anna:S / inte:N','Today Anna isn\'t coming.')+SL('Ät:V / inte:N','Don\'t eat!','!'))
+],
+4:()=>[
+SEC('4.1','The sentence-building map',
+ legendHTML()+`<p class="small mute">Slot 1 holds ONE idea: a person, a place or a time. Then the verb. Then the rest in this order.</p>`+
+ SL('Jag:F / vill:V / inte:N / äta:V2 / choklad:O / idag:P','I don\'t want to eat chocolate today.')+
+ SL('Min mamma:F / bakar:V / alltid:N / en kaka:O / till min födelsedag:P','My mum always bakes a cake for my birthday.')+
+ SL('I Finland:F / dricker:V / vi:S / mycket kaffe:O / varje dag:P','In Finland we drink a lot of coffee every day.')+
+ SL('Nästa vecka:F / kommer:V / min mamma:S / inte:N / till Finland:P','Next week my mum isn\'t coming to Finland.')+
+ SL('När:F / ska:V / Anna:S / komma:V2 / hem:P','When is Anna coming home?','?')+
+ SL('Ska:V / vi:S / gå:V2 / på en restaurang:O / ikväll:P','Shall we go to a restaurant tonight?','?')),
+SEC('4.2','Start anywhere — but keep the verb 2nd',
+ `<p>Press the button and watch the subject <b>hop behind the verb</b>.</p><div id="flipdemo" class="flipdemo"></div><button class="btn ghost" data-act="flipdemo">🔄 Move the time to the front</button>`+
+ BOX('hook','Memory hook','The verb is <b>glued to slot 2</b>. When a time or place goes first, the subject hops behind the verb: <b>Ikväll ska jag</b>…')+
+ `<h3 style="margin-top:12px">gärna = gladly / like to — it goes where inte goes</h3>`+
+ SL('Anna:F / spelar:V / gärna:N / fotboll:O','Anna likes to play football.')+SL('Jag:F / tränar:V / gärna:N','I like to train.')),
+SEC('4.3','hinner ⏱️ & orkar 🔋',
+ `<div class="pairs"><div><div style="font-size:34px">⏱️</div><b>HINNER</b> = do I have the TIME?<br>${S_('Jag hinner inte gå till butiken.')}<br>${S_('Du hinner!')} <span class="mute small">You\'ll make it!</span></div>
+ <div><div style="font-size:34px">🔋</div><b>ORKAR</b> = do I have the ENERGY?<br>${S_('Jag orkar inte plugga mer.')}<br>${S_('Jag orkar inte.')}</div></div>`+
+ BOX('hook','Both are helper verbs','They are followed by an infinitive: hinner inte <b>plugga</b>, orkar inte <b>träna</b>.')),
+SEC('4.4','Noun gender: en or ett?',
+ `<div class="bar75"><div style="flex:75;background:var(--en)">EN · 75%</div><div style="flex:25;background:var(--ett)">ETT · 25%</div></div>
+ <p>Learn every noun <b>with</b> its little word. If you must guess — guess <b>en</b>.</p>`+
+ BOX('star','Compound-word trick','When two nouns join, the <b>LAST</b> word decides:<br><span class="chip ett">ett barn</span> + <span class="chip en">en bok</span> → <span class="chip en">en barn<u>bok</u></span><br><span class="chip en">en dator</span> + <span class="chip ett">ett spel</span> → <span class="chip ett">ett dator<u>spel</u></span><br><span class="chip ett">ett språk</span> + <span class="chip en">en kurs</span> → <span class="chip en">en språk<u>kurs</u></span>')+
+ `<h3 style="margin-top:12px">The ETT list — learn these; almost everything else is EN</h3><div class="chips">${'jobb arbete mejl problem dokument möte kontor team företag projekt schema kort program nummer fel sätt paket pass papper brev prov meddelande land område hem hus rum kök kylskåp huvud barn kafé liv äpple djur språk'.split(' ').map(w=>`<span class="chip ett" data-say="ett ${w}">ett ${w}</span>`).join('')}</div>`+
+ BOX('star','Note for Arabic speakers','Swedish en/ett does not follow masculine/feminine (بنت is feminine, but <b>ett barn</b>). Just learn en/ett with each word.')),
+SEC('4.5','Birthdays 🎂',
+ EX('Jag fyller år i augusti.','My birthday is in August. ("I fill years")')+EX('Jag fyller 30 i augusti.','I\'m turning 30 in August.')+EX('Min födelsedag är i augusti.','My birthday is in August.')+EX('När fyller du år?','When is your birthday?'))
+],
+5:()=>[
+SEC('5.1','Jobs — Jag jobbar som …',
+ BOX('hook','No en / ett with professions!','Jag jobbar som <b>lärare</b> ✓ — never "som en lärare" ✗. Same with är: Jag är <b>ingenjör</b>.')+
+ `<div class="vgrid">${VOCAB.filter(v=>v.l===5&&v.job).map(v=>`<div class="vitem" data-say="${esc(v.sv)}"><span class="e">${v.e}</span><div><div class="s">${esc(v.sv)}</div><div class="m">${esc(v.en)}</div></div></div>`).join('')}</div>`+
+ `<h3 style="margin-top:14px">Jag jobbar PÅ ___ = I work at ___ (PÅ + institution)</h3><div class="chips">${['på en skola','på en bank','på Nokia','på ett företag','på en restaurang','på ett universitet','på ett sjukhus','på ett kontor'].map(w=>`<span class="chip" data-say="${w}">${w}</span>`).join('')}</div>`+
+ EX('Jag jobbar på distans.','I work remotely.')+EX('Jag jobbar hemifrån.','I work from home.')+
+ BOX('star','Your turn','Jag heter ___. Jag jobbar som programmerare på ett företag. Ibland jobbar jag hemifrån.')+
+ BOX('tip','Tongue-twister for the SJ sound','<span class="sv">Sju sköna sjuksköterskor sköter sjuttiosju sjösjuka sjömän.</span> — say it slowly, then faster!')),
+SEC('5.2','Fritid — free time & holidays',
+ `<div class="grid g4">${[['🌊 At the sea',['åker till havet','solar','badar i havet']],['🏔️ Mountains',['åker till fjällen','vandrar i skogen','åker skidor']],['✈️ Abroad',['reser utomlands','går på museer','sitter på kaféer','äter lokalmat','promenerar']],['🛋️ At home',['stannar hemma','spelar datorspel','läser en bok','vilar','fikar']],['✨ Other',['går en kurs','tränar på gymmet','lyssnar på musik','tittar på filmer','går på bio']]].map(c=>`<div class="vowel" style="text-align:left;cursor:default"><b>${c[0]}</b>${c[1].map(w=>`<div>${S_(w)}</div>`).join('')}</div>`).join('')}</div>`+
+ `<div class="pairs" style="margin-top:10px"><div>🚶 <b>går</b> = on foot<br>🚌 <b>åker</b> = by transport</div><div>⚽ <b>spelar</b> = sports, games, instruments<br>🧸 <b>leker</b> = kids & animals playing</div></div>`+
+ EX('Jag är ledig.','I am free (from work).')+EX('Jag har semester i vecka 29.','I have a holiday in week 29.')),
+SEC('5.3','gärna & brukar',
+ `<div class="pairs"><div>😍 <b>GÄRNA</b> = like to<br><span class="small mute">sits where INTE goes</span></div><div>🔄 <b>BRUKAR</b> = usually<br><span class="small mute">helper verb + infinitive</span></div></div>`+
+ SL('Jag:F / spelar:V / gärna:N / datorspel:O','I like to play video games.')+SL('Jag:F / brukar:V / träna:V2 / på gymmet:O / på morgonen:P','I usually train at the gym in the morning.')+SL('På semester:F / brukar:V / han:S / åka:V2 / till Spanien:P','On holiday he usually goes to Spain.')),
+SEC('5.4','Time stamps',
+ `<div class="chips">${[['på morgonen','in the morning'],['på eftermiddagen','in the afternoon'],['på kvällen','in the evening'],['på helgen','at the weekend'],['på fritiden','in my free time'],['då och då','now and then'],['ibland','sometimes'],['såklart','of course'],['varje år','every year'],['hela tiden','the whole time']].map(w=>`<span class="chip" data-say="${w[0]}" title="${w[1]}">${w[0]} <span class="mute small">· ${w[1]}</span></span>`).join('')}</div>`+
+ SL('Jag:F / spelar:V / datorspel:O / på morgonen:P','I play video games in the morning.')+SL('På morgonen:F / spelar:V / jag:S / datorspel:O','Time first → verb 2nd, subject after it!')+
+ BOX('tip','DÄR = there · ELLER = or','Jag åker på semester till Italien. <b>Där kan jag</b> gå på museer. · Vi går på bio <b>eller</b> fikar på ett kafé.'))
+],
+6:()=>[
+SEC('6.1','Genitive -s: Sara\'s = Saras',
+ BOX('info','Easier than English','Just add <b>-s</b> — no apostrophe! '+S_('Annas bil')+' · '+S_('Peters jobb')+' · '+S_('Finlands nationaldag')+'. Name already ends in s? No extra s: Max mamma.')+
+ EX('Jag är trött på pizza.','I am tired of pizza. (trött PÅ)')+EX('Jag vill byta jobb.','I want to switch jobs. (att byta = to switch)')+
+ BOX('tip','Free verbs: -ERA','International verbs ending in <b>-era</b> are easy AR-verbs: programmera, kommunicera, rekommendera, parkera, organisera… (past: -erade)')),
+SEC('6.2','"the …" is glued to the END',
+ `<div class="tscroll"><table class="t"><tr><th>a / an</th><th>the</th><th>Rule</th></tr>
+ <tr><td>en bok</td><td>${S_('bok')}<b style="color:var(--en)">en</b></td><td>EN-word + en</td></tr>
+ <tr><td>en flicka</td><td>${S_('flicka')}<b style="color:var(--en)">n</b></td><td>EN-word ending in a vowel + n</td></tr>
+ <tr><td>ett jobb</td><td>${S_('jobb')}<b style="color:var(--ett)">et</b></td><td>ETT-word + et</td></tr>
+ <tr><td>ett möte</td><td>${S_('möte')}<b style="color:var(--ett)">t</b></td><td>ETT-word ending in a vowel + t</td></tr>
+ <tr><td>ett kafé · ett museum</td><td>${S_('kaféet')} · ${S_('museet')}</td><td>irregular!</td></tr></table></div>`+
+ BOX('star','Note for Arabic speakers','Arabic glues ال to the START (الكتاب). Swedish glues "the" to the END: bok<b>en</b>.')+
+ EX('Jag hade en tuff dag på jobbet.','I had a tough day at work.')+EX('Jag måste parkera bilen.','I have to park my car. (Swedish says "the car")')),
+SEC('6.3','Adjectives copy the noun',
+ BOX('star','Star rule','<b>EN-word:</b> nothing happens. <b>ETT-word: + T</b> — even after "är".')+
+ `<div class="tscroll"><table class="t"><tr><th>Adjective</th><th>EN-word</th><th>ETT-word (+t)</th></tr>${[['rolig','fun','en rolig film','ett roligt jobb'],['tråkig','boring','en tråkig film','ett tråkigt möte'],['dyr','expensive','en dyr restaurang','ett dyrt kafé'],['billig','cheap','en billig butik','ett billigt hus'],['gammal','old','en gammal bil','ett gammalt hus'],['ny','new','en ny vän','ett nytt jobb'],['stor','big','en stor fest','ett stort företag'],['liten','small','en liten stad','ett litet land'],['viktig','important','en viktig person','ett viktigt projekt']].map(a=>`<tr><td><b>${a[0]}</b> <span class="mute small">${a[1]}</span></td><td style="background:var(--ensoft)">${S_(a[2])}</td><td style="background:var(--ettsoft)">${S_(a[3])}</td></tr>`).join('')}</table></div>`+
+ BOX('hook','Memory hook','The adjective copies the noun\'s "ett" and adds a <b>t</b>: e<b>tt</b> rolig<b>t</b> jobb. Jobbet är rolig<b>t</b>.')),
+SEC('6.4','SOM — two jobs',
+ `<div class="pairs"><div><b>SOM = as / like</b><br>${S_('Jag jobbar som programmerare.')}</div><div><b>SOM = who / which / that</b><br>${S_('Jag har en syster som fyller år idag.')}</div></div>`+
+ EX('Jag har en vän som spelar fotboll.','I have a friend who plays football.')+EX('Jag har en bil som kommer från Sverige.','I have a car that comes from Sweden.')+EX('Jag har en son som spelar datorspel.','I have a son who plays video games.')),
+SEC('6.5','Preteritum — the past tense',
+ `<div class="chips">${[['igår','yesterday'],['förra veckan','last week'],['förra månaden','last month'],['förra året','last year'],['för en vecka sedan','a week ago']].map(w=>`<span class="chip" data-say="${w[0]}">${w[0]} <span class="mute small">· ${w[1]}</span></span>`).join('')}</div>`+
+ BOX('star','Build the past: BASE (command form) + DE','Prata! → prata<b>de</b> · Ring! → ring<b>de</b> · Bo! → bo<b>dde</b>. If the base ends in <b>P, K, T, S</b> ("PocKeTS") → <b>-te</b>: köp<b>te</b>, läs<b>te</b>.')+
+ `<div class="tscroll"><table class="t"><tr><th>Group</th><th>Present → Command</th><th>Past</th></tr>
+ <tr><td>1 · AR</td><td>pratar → Prata!</td><td style="background:var(--oksoft)">${S_('pratade')} · ${S_('spelade')} · ${S_('jobbade')}</td></tr>
+ <tr><td>2 · ER</td><td>ringer → Ring!</td><td style="background:var(--oksoft)">${S_('ringde')} · ${S_('beställde')}</td></tr>
+ <tr><td>2 · PocKeTS</td><td>läser → Läs! · köper → Köp!</td><td style="background:var(--oksoft)">${S_('läste')} · ${S_('köpte')} · ${S_('åkte')}</td></tr>
+ <tr><td>3 · R</td><td>bor → Bo!</td><td style="background:var(--oksoft)">${S_('bodde')} · ${S_('mådde')}</td></tr>
+ <tr><td>4 · strong</td><td>learn by heart</td><td style="background:var(--oksoft)">är→var · går→gick · gör→gjorde · ser→såg · tar→tog · får→fick · har→hade · äter→åt · skriver→skrev · sover→sov · kommer→kom · dricker→drack · vet→visste · blir→blev · säger→sa</td></tr></table></div>`+
+ SL('Jag:F / pratade:V / med chefen:O / igår:P','I talked with the manager yesterday.')+SL('Förra året:F / åkte:V / vi:S / till Italien:P','Last year we went to Italy.')+
+ BOX('tip','Homework: diary 3× a week — in the past tense','Idag vaknade jag sent. Jag var ledig så jag sov längre. På eftermiddagen spelade jag spel och på kvällen åt jag pizza.')),
+SEC('6.6','hem · hemma · hemifrån',
+ `<div class="grid g3">${[['🏠','HEMMA','at home — nobody moves','Jag är hemma idag.'],['➡️🏠','HEM','towards home','När kommer Anna hem?'],['🏠➡️','HEMIFRÅN','away from home','Jag jobbar hemifrån.']].map(q=>`<div class="vowel" data-say="${q[3]}"><div style="font-size:34px">${q[0]}</div><b style="color:var(--brand)">${q[1]}</b><div class="w">${q[2]}</div><div class="small"><b>${q[3]}</b></div></div>`).join('')}</div>`+
+ BOX('hook','Memory hook','Is anybody <b>moving</b>? No → <b>hemma</b>. Yes, towards home → <b>hem</b>. Away from home → <b>hemifrån</b>.')),
+SEC('6.7','Prepositions: på · i · till',
+ `<div class="tscroll"><table class="t"><tr><th></th><th>Used for</th><th>Examples</th></tr>
+ <tr><td><b>PÅ</b></td><td>institutions, ON, some verbs, feelings, streets</td><td>${S_('på jobbet')} · ${S_('lyssna på')} · ${S_('vänta på')} · ${S_('arg på')} · ${S_('på Gamlagatan')} · ${S_('på landet')}</td></tr>
+ <tr><td><b>I</b></td><td>IN, periods of time</td><td>${S_('i Finland')} · ${S_('i augusti')} · ${S_('få i present')}</td></tr>
+ <tr><td><b>TILL</b></td><td>movement, FOR someone</td><td>${S_('åka till Spanien')} · ${S_('laga mat till familjen')} · ${S_('en present till Anna')}</td></tr></table></div>`+
+ BOX('tip','Careful!','på morgonen = in the morning · på kvällen = in the evening · <b>imorgon</b> = tomorrow · <b>ikväll</b> = tonight')),
+SEC('6.8','this & that: den här · den där',
+ `<div class="pairs"><div style="background:var(--ensoft)"><b>EN-word</b><br>${S_('den här restaurangen')} this<br>${S_('den där bilen')} that</div><div style="background:var(--ettsoft)"><b>ETT-word</b><br>${S_('det här kaféet')} this<br>${S_('det där huset')} that</div></div>`+
+ BOX('hook','Note','After den här / det där the noun is <b>definite</b> (restaurang<b>en</b>, hus<b>et</b>): Det där huset är gammal<b>t</b>.')),
+SEC('6.9','Plurals: 5 groups',
+ `<div class="tscroll"><table class="t"><tr><th>Group</th><th>Which nouns?</th><th>Examples</th></tr>
+ <tr><td><b>1 · -or</b></td><td>EN-words ending in -a</td><td>flicka → ${S_('flickor')} · kaka → ${S_('kakor')} · skola → ${S_('skolor')}</td></tr>
+ <tr><td><b>2 · -ar</b></td><td>Nordic EN-words, 1 syllable, -ing</td><td>bil → ${S_('bilar')} · hund → ${S_('hundar')} · tidning → ${S_('tidningar')}</td></tr>
+ <tr><td><b>3 · -er</b></td><td>foreign EN-words, stress at the back</td><td>banan → ${S_('bananer')} · tomat → ${S_('tomater')} · mobil → ${S_('mobiler')}</td></tr>
+ <tr><td><b>4 · -n</b></td><td>ETT-words ending in a vowel</td><td>möte → ${S_('möten')} · äpple → ${S_('äpplen')}</td></tr>
+ <tr><td><b>5 · no change</b></td><td>ETT + consonant, EN-words in -are</td><td>${S_('jobb')} · ${S_('hus')} · ${S_('problem')} · ${S_('läkare')}</td></tr></table></div>`+
+ BOX('tip','Group 3 exceptions','katt → katter · sak → saker · vän → <b>vänner</b> · chef → chefer · museum → museer · kafé → kaféer')+
+ `<div class="pairs"><div><b>mycket</b> = much (can't count)<br>${S_('mycket vatten')}</div><div><b>många</b> = many (can count)<br>${S_('många vänner')}</div></div>`),
+SEC('6.10','Because: därför · eftersom · dessutom',
+ SL('Därför:F / beställer:V / jag:S / mat:O','That\'s why I\'m ordering food.')+
+ EX('Jag beställer mat eftersom jag är hungrig.','I\'m ordering food because I\'m hungry.')+
+ BOX('hook','Därför + VERB','Därför is a time/place-like first idea → the verb comes next. Don\'t start with "därför att" — use <b>eftersom</b>.')+
+ SL('Dessutom:F / var:V / den:S / billig:O','On top of that, it was cheap.')+
+ BOX('tip','DESSUTOM','You cannot start a sentence with "också" — use <b>Dessutom</b>, then the verb.'))
+]};
+
+const FLIPDEMO = [
+  ['Anna:F / pluggar:V / matte:O / just nu:P','Just nu:F / pluggar:V / Anna:S / matte:O'],
+  ['Jag:F / ska:V / baka:V2 / en kaka:O / ikväll:P','Ikväll:F / ska:V / jag:S / baka:V2 / en kaka:O'],
+  ['Min vän:F / kommer:V / till Finland:P / imorgon:P','Imorgon:F / kommer:V / min vän:S / till Finland:P']
+];
+
+const CHEAT = [
+ ['Vowels','Y, U, Ö need round lips · Å = "or" · Ä = "bed"','by · gul · ö · går · äpple'],
+ ['Long / short','double consonant = short vowel','tak / tack · glas / glass'],
+ ['Sound changes','G, K, SK + Y I E Ö Ä → y, tj, sh · SJ/SKJ/TJ always · RS = sh · HJ/DJ/LJ: 1st letter silent','gillar · Kina · skiner · kurs · hjälp'],
+ ['Pronouns','jag du han hon hen vi ni de','De (dom) bor i Esbo.'],
+ ['Questions','vad var när varför hur (hur mycket / många)','Hur gammal är du?'],
+ ['Golden Rule','verb in 2nd position; yes/no questions start with the verb','Idag kommer Anna. · Gillar du pizza?'],
+ ['Verb forms','present -r · command (base) · infinitive (ends in a vowel)','dricker · Drick! · dricka'],
+ ['Helper verbs','kan måste vill ska hinner orkar brukar + infinitive','Jag vill ha en bil.'],
+ ['inte','after the verb and subject; before the 2nd verb','Jag vill inte äta.'],
+ ['gärna','where inte goes = like to','Jag dricker gärna te.'],
+ ['en / ett','75% en · last word decides compounds','ett barn → en barnbok'],
+ ['Jobs','no en/ett · på + institution','Jag jobbar som lärare på en skola.'],
+ ['Genitive','just add -s','Annas bil'],
+ ['Definite','en → -en/-n · ett → -et/-t','boken · flickan · jobbet · mötet'],
+ ['Adjectives','EN: – · ETT: +t (also after är)','ett roligt jobb · Jobbet är roligt.'],
+ ['SOM','as / like · who / which / that','en vän som heter Ali'],
+ ['Past tense','base + de · PocKeTS → te · group 3 → dde · strong verbs by heart','pratade · köpte · bodde · åt'],
+ ['Past time','igår · förra veckan · för … sedan','för en vecka sedan'],
+ ['Home','hemma (at) · hem (to) · hemifrån (from)','Jag jobbar hemifrån.'],
+ ['Prepositions','på (institutions, on, verbs) · i (in, time) · till (movement, for someone)','vänta på · i augusti · till Anna'],
+ ['this / that','den här / det här · den där / det där + definite noun','det här huset'],
+ ['Plurals','1 -or · 2 -ar · 3 -er · 4 -n · 5 no change','flickor · bilar · tomater · äpplen · hus'],
+ ['Because','Därför + VERB · eftersom + clause','Därför beställer jag mat.']
+];
+
+'use strict';
+/* ================= UTILITIES ================= */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=a=>a[Math.random()*a.length|0];
+const sample=(a,n)=>shuffle(a).slice(0,n);
+const uniq=a=>[...new Set(a)];
+const dayNum=(d=new Date())=>Math.floor((d.getTime()-d.getTimezoneOffset()*6e4)/864e5);
+const norm=s=>String(s).toLowerCase().replace(/[.,!?"“”'’…:;()]/g,' ').replace(/\s+/g,' ').trim();
+const deacc=s=>s.replace(/[åä]/g,'a').replace(/ö/g,'o').replace(/é/g,'e');
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+function lev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=Array.from({length:n+1},(_,i)=>i);for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+function toast(msg,ms=2600){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),ms)}
+const PRAISE=['Bra jobbat!','Snyggt!','Perfekt!','Toppen!','Rätt!','Jättebra!','Utmärkt!'];
+
+/* ================= PARSE DATA ================= */
+const JOBS=new Set('lärare läkare sjuksköterska servitör entreprenör advokat ingenjör designer forskare banktjänsteman taxiförare polis chef skådespelare kock bonde programmerare'.split(' '));
+const VOCAB=[];(()=>{const seen=new Set();
+  for(const l of Object.keys(VOCAB_RAW)){for(const line of VOCAB_RAW[l].split('\n')){const p=line.split('|').map(s=>s.trim());if(p.length<2)continue;
+    const k=p[0].toLowerCase();if(seen.has(k))continue;seen.add(k);
+    const g=/^en /.test(p[0])?'en':/^ett /.test(p[0])?'ett':null;
+    VOCAB.push({sv:p[0],en:p[1],e:p[2]||'🔹',l:+l,g,job:JOBS.has(p[0]),key:'v:'+p[0]});}}})();
+const SENTS=[];(()=>{for(const l of Object.keys(SENT_RAW)){SENT_RAW[l].split('\n').forEach((line,i)=>{const p=line.split(' | ');if(p.length<2)return;
+    let body=p[1].trim(),punct='.';const last=body.slice(-1);if('.?!'.includes(last)){punct=last;body=body.slice(0,-1).trim()}
+    const chunks=parseChunks(body);const sv=chunks.map(c=>c.t).join(' ');
+    const alts=p[2]?p[2].split(';').map(s=>s.trim()).filter(Boolean):[];
+    SENTS.push({l:+l,en:p[0].trim(),chunks,sv,punct,alts,key:`s:${l}:${i}`});});}})();
+const CLOZE=CLOZE_RAW.split('\n').map((line,i)=>{const p=line.split(' | ').map(s=>s.trim());return {l:+p[0],q:p[1],a:p[2],o:p[3].split(',').map(s=>s.trim()),en:p[4],why:p[5],key:'c:'+i}});
+const VERBS=VERBS_RAW.split('\n').map(line=>{const p=line.split('|').map(s=>s.trim());return {pres:p[0],imp:p[1],inf:p[2],past:p[3],en:p[4],grp:p[5],l:+p[6]}});
+const NOUNS=NOUNS_RAW.split('\n').map(line=>{const p=line.split('|').map(s=>s.trim());return {sv:p[0],g:p[0].split(' ')[0],w:p[0].split(' ').slice(1).join(' '),def:p[1],pl:p[2],grp:p[3],en:p[4]}});
+const PAST_WHY={ar:'AR-verb: base + de (Prata! → pratade)',er:'ER-verb: base + de (Ring! → ringde)',te:'PocKeTS: the base ends in P, K, T or S → -te (Köp! → köpte)',r:'Short R-verb: base + dde (Bo! → bodde)',st:'Strong verb — learn it by heart'};
+const PL_WHY={'1':'Group 1: EN-word ending in -a → -or','2':'Group 2: Nordic EN-word → -ar','3':'Group 3: foreign word, stress at the back → -er','4':'Group 4: ETT-word ending in a vowel → -n','5':'Group 5: no change','x':'Irregular — learn by heart'};
+
+/* ================= STORAGE & SPACED REPETITION ================= */
+const SKEY='svenska-1-6.v1';
+function freshState(){return {v:1,items:{},xp:0,days:{},best:{},stars:{},speed:0,auto:true,theme:''}}
+let S=(()=>{try{const r=JSON.parse(localStorage.getItem(SKEY));if(r&&r.v===1)return Object.assign(freshState(),r)}catch(e){}return freshState()})();
+function save(){try{localStorage.setItem(SKEY,JSON.stringify(S))}catch(e){}}
+const IV=[0,1,2,4,7,14,30];
+function rec(key,res){ /* res: 0 wrong · 1 hard/hinted · 2 good · 3 easy */
+  if(!key)return;const t=dayNum();const it=S.items[key]||(S.items[key]={b:0,d:t,r:0,w:0});
+  if(res===0){it.w++;it.b=Math.max(0,it.b-2);it.d=t}
+  else{it.r++;if(res===1){it.d=t+1}else{it.b=Math.min(6,it.b+(res===3?2:1));it.d=t+IV[it.b]}}
+  it.t=t;S.days[t]=(S.days[t]||0)+1;S.xp+=res?10:3;
+}
+const box=key=>(S.items[key]||{}).b||0;
+const seen=key=>!!S.items[key];
+const isDue=key=>seen(key)&&S.items[key].d<=dayNum();
+function streak(){let t=dayNum(),n=0;if(!S.days[t])t--;while(S.days[t]){n++;t--}return n}
+
+/* ================= SPEECH ================= */
+const Speech={voice:null,ok:false,warned:false,
+  init(){if(!('speechSynthesis' in window)){document.body.classList.add('no-voice');return}
+    const load=()=>{const vs=speechSynthesis.getVoices();this.voice=vs.find(v=>/^sv[-_]SE/i.test(v.lang))||vs.find(v=>/^sv/i.test(v.lang))||null;this.ok=!!this.voice;document.body.classList.toggle('no-voice',!this.ok&&vs.length>0)};
+    load();speechSynthesis.onvoiceschanged=load;},
+  say(text,rate=.9){if(!('speechSynthesis' in window))return;const t=String(text).replace(/_{2,}/g,'…').replace(/[🔊]/g,'');
+    if(!this.ok&&!this.warned){this.warned=true;toast('No Swedish voice found — in Chrome/Edge it usually works. On Windows: Settings → Time & language → Speech → add Swedish.',5000)}
+    speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='sv-SE';if(this.voice)u.voice=this.voice;u.rate=rate;speechSynthesis.speak(u);}
+};
+const autoSay=t=>{if(S.auto&&Speech.ok)Speech.say(t)};
+
+/* ================= CATALOG (every practisable item) ================= */
+const SORTITEMS=[];SORTS.forEach(s=>s.i.forEach(([t,b])=>SORTITEMS.push({set:s,t,b,l:s.l,key:`so:${s.id}:${t}`})));
+const FORMS=[];
+(()=>{ /* lesson 4: en/ett */
+  const ettlist='jobb arbete mejl problem dokument möte kontor team företag projekt schema kort program nummer fel sätt paket pass papper brev prov meddelande land område hem hus rum kök kylskåp huvud barn kafé liv äpple djur språk'.split(' ');
+  const g4=[...ettlist.map(w=>['ett',w]),...'bok dator kurs bil kaka vän födelsedag familj stad fråga skola dotter son butik lägenhet tidning barnbok språkkurs'.split(' ').map(w=>['en',w]),['ett','datorspel']];
+  g4.forEach(([g,w])=>FORMS.push({l:4,kind:'gender',g,w,key:`f:g:${w}`}));
+  NOUNS.forEach(n=>{FORMS.push({l:6,kind:'def',n,key:`f:d:${n.w}`});FORMS.push({l:6,kind:'pl',n,key:`f:p:${n.w}`})});
+  ADJ_NOUNS.forEach(([g,w])=>{FORMS.push({l:6,kind:'adj',g,w,key:`f:a:${w}`})});
+  [['en','restaurang','restaurangen'],['ett','kafé','kaféet'],['en','bil','bilen'],['ett','hus','huset'],['ett','företag','företaget'],['en','bok','boken'],['en','mobil','mobilen'],['ett','jobb','jobbet']].forEach(([g,w,d])=>FORMS.push({l:6,kind:'this',g,w,d,key:`f:t:${w}`}));
+  [['Anna','bil','Anna\'s car'],['Peter','jobb','Peter\'s job'],['Sara','mamma','Sara\'s mum'],['Finland','huvudstad','Finland\'s capital'],['Ali','fru','Ali\'s wife']].forEach(([n,w,en])=>FORMS.push({l:6,kind:'gen',n,w,en,key:`f:s:${n}`}));
+})();
+
+/* ================= QUESTION FACTORIES ================= */
+function distract(v,field,n=3){
+  const pool=VOCAB.filter(x=>x!==v&&x[field]!==v[field]&&norm(x.en)!==norm(v.en));
+  const same=shuffle(pool.filter(x=>x.l===v.l&&(!!x.g)===(!!v.g)));const rest=shuffle(pool.filter(x=>x.l===v.l));const all=shuffle(pool);
+  return uniq([...same,...rest,...all].map(x=>x[field])).filter(x=>norm(x)!==norm(v[field])).slice(0,n);
+}
+const Q={
+  flash:v=>({type:'flash',key:v.key,v}),
+  pick:(v,dir)=>{dir=dir||pick(['sv','en']);return dir==='sv'
+    ?{type:'mc',key:v.key,tag:'What does it mean?',prompt:`${esc(v.sv)} <button class="say" data-say="${esc(v.sv)}">🔊</button>`,a:v.en,o:distract(v,'en'),say:v.sv,after:`${v.e} ${esc(v.sv)} = ${esc(v.en)}`,sayFirst:true}
+    :{type:'mc',key:v.key,tag:'How do you say it in Swedish?',prompt:`<span class="emo">${v.e}</span>${esc(v.en)}`,a:v.sv,o:distract(v,'sv'),say:v.sv,after:`${v.e} ${esc(v.en)} = ${esc(v.sv)}`}},
+  listen:v=>({type:'mc',key:v.key,tag:'Listen — what does it mean?',audio:v.sv,prompt:'',a:v.en,o:distract(v,'en'),say:v.sv,after:`${v.e} ${esc(v.sv)} = ${esc(v.en)}`}),
+  type:v=>{const answers=v.sv.split(' / ').map(s=>s.replace(/…/g,'').trim());return {type:'input',key:v.key,tag:'Type it in Swedish',prompt:`<span class="emo">${v.e}</span>${esc(v.en)}`,answers,bare:v.g?answers.map(a=>a.replace(/^(en|ett) /,'')):[],g:v.g,say:answers[0],hintText:answers[0],why:v.g?`Learn it with its little word: <b>${esc(answers[0])}</b>`:''}},
+  cloze:c=>({type:'mc',key:c.key,tag:'Fill the gap',gap:c.q,a:c.a,o:c.o,en:c.en,why:c.why,say:c.q.replace('___',c.a).replace(/\s*\(.*?\)\s*/g,' ')}),
+  sound:(s,i)=>{const sayBtn=/[\/·]/.test(s.w)||s.w.length<2?'':` <button class="say" data-say="${esc(s.w)}">🔊</button>`;
+    const prompt=s.q.endsWith('?')?`${esc(s.q)}<div style="color:var(--brand);font-size:34px;margin-top:6px">${esc(s.w)}${sayBtn}</div>`:`${esc(s.q)} <span style="color:var(--brand)">${esc(s.w)}</span>?${sayBtn}`;
+    return {type:'mc',key:'p:'+i,tag:'Sound detective',prompt,a:s.a,o:s.o,why:s.why,say:/[\/]/.test(s.w)?s.a:(s.w.length<2||s.w.includes('·')?null:s.w)}},
+  sortone:it=>{const b=it.set.b;return {type:'mc',key:it.key,tag:it.set.t,prompt:esc(it.t),a:b.find(x=>x[0]===it.b)[1],o:b.filter(x=>x[0]!==it.b).map(x=>x[1]),binary:b.length===2,say:sortSay(it)}},
+  build:s=>({type:'build',key:s.key,s}),
+  translate:s=>({type:'input',key:s.key,tag:'Write it in Swedish',prompt:esc(s.en),answers:[s.sv,...s.alts],long:true,say:s.sv+s.punct,s,why:`<div>${slotsHTML(s.chunks)}</div>`}),
+  verb3:v=>({type:'verb',key:'vb3:'+v.pres,v,ask:['imp','inf']}),
+  verb6:v=>({type:'verb',key:'vb6:'+v.pres,v,ask:['past']}),
+  form:f=>{switch(f.kind){
+    case 'gender':return {type:'mc',key:f.key,tag:'EN or ETT?',prompt:`<span style="font-size:40px">${esc(f.w)}</span>`,a:f.g,o:[f.g==='en'?'ett':'en'],binary:true,genderBtns:true,say:`${f.g} ${f.w}`,after:`<b>${f.g} ${esc(f.w)}</b>`,why:f.g==='ett'?'It\'s on the ETT list.':(/bok|kurs/.test(f.w)&&f.w.length>5?'Compound: the LAST word decides.':'Most words are EN (≈75%).')};
+    case 'def':return {type:'input',key:f.key,tag:'Say "the …"',prompt:`${esc(f.n.sv)} → <span class="mute">the ${esc(f.n.en.replace(/^an? /,''))}</span>`,answers:[f.n.def],say:f.n.def,why:f.n.grp==='x'&&/kafé|museum/.test(f.n.w)?'Irregular!':f.n.g==='en'?(/[aeiouyåäö]$/.test(f.n.w)?'EN-word ending in a vowel → + n':'EN-word → + en'):(/[aeiouyåäö]$/.test(f.n.w)?'ETT-word ending in a vowel → + t':'ETT-word → + et')};
+    case 'pl':return {type:'input',key:f.key,tag:'Make it plural',prompt:`${esc(f.n.sv)} → två ___ <span class="mute small">(${esc(f.n.en.replace(/^an? /,''))}s)</span>`,answers:[f.n.pl],say:'två '+f.n.pl,why:PL_WHY[f.n.grp]+(f.n.w==='vän'?' (exception: vänner)':f.n.w==='katt'?' (exception: katter)':'')};
+    case 'adj':{const a=pick(ADJ);const t=f.g==='ett';const pred=Math.random()<.4;const n=NOUNS.find(x=>x.w===f.w);
+      if(pred&&n)return {type:'mc',key:f.key,tag:'Adjective agreement',gap:`${cap(n.def)} är ___. (${a[0]})`,a:t?a[1]:a[0],o:[t?a[0]:a[1]],en:`The ${f.w} is ${a[2]}.`,why:t?'ETT-word → + t, even after "är".':'EN-word → nothing happens.',say:`${cap(n.def)} är ${t?a[1]:a[0]}.`};
+      return {type:'mc',key:f.key,tag:'Adjective agreement',gap:`${f.g} ___ ${f.w} (${a[0]})`,a:t?a[1]:a[0],o:[t?a[0]:a[1]],en:`a ${a[2]} ${f.w}`,why:t?'ETT-word → adjective + t.':'EN-word → nothing happens to the adjective.',say:`${f.g} ${t?a[1]:a[0]} ${f.w}`}}
+    case 'this':{const far=Math.random()<.5;return {type:'mc',key:f.key,tag:'this / that',gap:`___ ${far?'där':'här'} ${f.d}`,a:f.g==='ett'?'det':'den',o:[f.g==='ett'?'den':'det','de'],en:`${far?'that':'this'} ${f.w}`,why:`${f.w} is an ${f.g.toUpperCase()}-word → ${f.g==='ett'?'det':'den'} ${far?'där':'här'} + definite noun.`,say:`${f.g==='ett'?'det':'den'} ${far?'där':'här'} ${f.d}`}}
+    case 'gen':return {type:'input',key:f.key,tag:'Genitive',prompt:`${esc(f.en)} → ___ ${esc(f.w)}`,answers:[f.n+'s '+f.w,f.n+'s'],say:f.n+'s '+f.w,why:'Just add -s, no apostrophe!'};
+  }}
+};
+/* catalogue: every item with a default question maker */
+const CATALOG=[
+  ...VOCAB.map(v=>({key:v.key,l:v.l,kind:'v',ref:v,make:()=>{const b=box(v.key);return b<1?Q.pick(v,'sv'):b<3?(Speech.ok&&Math.random()<.35?Q.listen(v):Q.pick(v,'en')):Q.type(v)}})),
+  ...SENTS.map(s=>({key:s.key,l:s.l,kind:'s',ref:s,make:()=>box(s.key)<2?Q.build(s):Q.translate(s)})),
+  ...CLOZE.map(c=>({key:c.key,l:c.l,kind:'c',ref:c,make:()=>Q.cloze(c)})),
+  ...SOUNDS.map((s,i)=>({key:'p:'+i,l:1,kind:'p',ref:s,make:()=>Q.sound(s,i)})),
+  ...VERBS.filter(v=>v.l===3).map(v=>({key:'vb3:'+v.pres,l:3,kind:'vb3',ref:v,make:()=>Q.verb3(v)})),
+  ...VERBS.map(v=>({key:'vb6:'+v.pres,l:6,kind:'vb6',ref:v,make:()=>Q.verb6(v)})),
+  ...SORTITEMS.map(it=>({key:it.key,l:it.l,kind:'so',ref:it,make:()=>Q.sortone(it)})),
+  ...FORMS.map(f=>({key:f.key,l:f.l,kind:'f',ref:f,make:()=>Q.form(f)}))
+];
+const BYKEY=new Map(CATALOG.map(c=>[c.key,c]));
+/* order: due first, then unseen, then weakest */
+function prioritize(list){const t=dayNum();return shuffle(list).sort((a,b)=>score(a)-score(b));
+  function score(c){const it=S.items[c.key];if(!it)return 1000+Math.random()*50;if(it.d<=t)return it.d-t+Math.random()*3;return 2000+it.b*100+(it.d-t)}}
+
+/* ================= MODES ================= */
+const MODES={
+  cards:{lv:1,ic:'🃏',n:'Flashcards',d:'Flip, remember, rate yourself',kind:'v'},
+  pick:{lv:1,ic:'🎯',n:'Word picker',d:'Choose the right meaning',kind:'v'},
+  match:{lv:1,ic:'🧩',n:'Match pairs',d:'Connect Swedish ↔ English fast',kind:'v'},
+  listen:{lv:1,ic:'👂',n:'Listen & pick',d:'Hear it, choose the meaning',kind:'v',voice:true},
+  sound:{lv:1,ic:'🔎',n:'Sound detective',d:'Vowels & sound changes',kind:'p'},
+  type:{lv:2,ic:'⌨️',n:'Type the word',d:'Recall and spell it',kind:'v'},
+  gap:{lv:2,ic:'🕳️',n:'Fill the gap',d:'Pick the missing word',kind:'c'},
+  sort:{lv:2,ic:'🗂️',n:'Sort it',d:'Drop each item in its box',kind:'so'},
+  forms:{lv:2,ic:'🔤',n:'Word forms',d:'en/ett, the …, plurals, adjectives',kind:'f'},
+  build:{lv:3,ic:'🧱',n:'Sentence builder',d:'Put the tiles in the right order',kind:'s'},
+  verbs:{lv:3,ic:'⚙️',n:'Verb machine',d:'Present → command → infinitive → past',kind:'vb'},
+  translate:{lv:3,ic:'✍️',n:'Write the sentence',d:'Translate a full sentence',kind:'s'},
+  mix:{lv:4,ic:'👑',n:'Boss round',d:'Everything mixed + earlier lessons',kind:'*'}
+};
+const LVNAME={1:'Level 1 · See & recognise',2:'Level 2 · Recall',3:'Level 3 · Build & produce',4:'Mastery'};
+function modesFor(l){return Object.keys(MODES).filter(m=>{const M=MODES[m];if(M.kind==='*')return true;
+  if(M.kind==='vb')return VERBS.some(v=>(l===3&&v.l===3)||l===6);return CATALOG.some(c=>c.l===l&&c.kind===M.kind)})}
+function lessonItems(l){return CATALOG.filter(c=>c.l===l)}
+function mastery(l){const it=lessonItems(l);if(!it.length)return 0;return it.reduce((s,c)=>s+Math.min(box(c.key),4),0)/(it.length*4)}
+
+function buildQs(mode,l){
+  const byKind=k=>prioritize(CATALOG.filter(c=>c.l===l&&c.kind===k));
+  const V=()=>byKind('v').map(c=>c.ref);
+  switch(mode){
+    case 'cards':return V().slice(0,12).map(Q.flash);
+    case 'pick':return V().slice(0,10).map(v=>Q.pick(v));
+    case 'listen':return V().slice(0,10).map(Q.listen);
+    case 'type':return V().slice(0,10).map(Q.type);
+    case 'match':{const v=V().slice(0,18);const r=[];for(let i=0;i<v.length;i+=6){const g=v.slice(i,i+6);if(g.length>=3)r.push({type:'match',pairs:g})}return r}
+    case 'sound':return byKind('p').slice(0,10).map(c=>c.make());
+    case 'gap':return byKind('c').slice(0,10).map(c=>c.make());
+    case 'sort':{const sets=SORTS.filter(s=>s.l===l);return shuffle(sets).slice(0,2).map(s=>({type:'sort',set:s,items:prioritize(SORTITEMS.filter(x=>x.set===s)).slice(0,8)}))}
+    case 'forms':return byKind('f').slice(0,12).map(c=>c.make());
+    case 'build':return byKind('s').slice(0,8).map(c=>Q.build(c.ref));
+    case 'translate':return byKind('s').slice(0,6).map(c=>Q.translate(c.ref));
+    case 'verbs':return l===3?byKind('vb3').slice(0,8).map(c=>c.make()):byKind('vb6').slice(0,8).map(c=>c.make());
+    case 'mix':{const own=prioritize(lessonItems(l)).slice(0,10);const old=prioritize(CATALOG.filter(c=>c.l<l)).slice(0,l>1?4:0);return shuffle([...own,...old]).map(c=>c.make())}
+  }return [];
+}
+
+/* ================= ROUTER / VIEWS ================= */
+const app=()=>$('#app');
+let VIEW={name:'home'};
+function go(name,p={}){VIEW={name,...p};const h=name==='home'?'#/':name==='lesson'?`#/lesson/${p.l}/${p.tab||'practice'}`:`#/${name}`;if(location.hash!==h)history.pushState(null,'',h);render();window.scrollTo(0,0)}
+window.addEventListener('popstate',()=>{parseHash();render()});
+function parseHash(){const h=location.hash.replace(/^#\/?/,'').split('/');
+  if(h[0]==='lesson'&&+h[1]>=1&&+h[1]<=6)VIEW={name:'lesson',l:+h[1],tab:h[2]||'practice'};
+  else if(['cheat','progress','speed','weak'].includes(h[0]))VIEW={name:h[0]};
+  else if(h[0]==='session'&&SES)VIEW={name:SES.i>=SES.qs.length?'summary':'session'};else if(h[0]==='summary'&&SES)VIEW={name:'summary'};else VIEW={name:'home'}}
+function render(){hideFb();if(VIEW.name!=='session'){const f=$('#fb');f&&f.remove()}if(VIEW.name!=='session'){const f=$('#fb');f&&f.remove()}document.body.classList.toggle('in-session',VIEW.name==='session');
+  if(VIEW.name!=='speed')stopSpeed();
+  ({home:vHome,lesson:vLesson,session:vSession,summary:vSummary,cheat:vCheat,progress:vProgress,speed:vSpeed,weak:vWeak}[VIEW.name]||vHome)()}
+function topbar(back){return `<div class="top">${back?`<button class="iconbtn" data-act="${back}" title="Back">←</button>`:''}<h1 data-act="home"><span class="logo">S</span>Svenska 1–6</h1>
+  <span class="pill" title="Day streak">🔥 ${streak()}</span><span class="pill" title="Experience points">⭐ ${S.xp}</span>
+  <button class="iconbtn" data-act="theme" title="Light / dark">🌓</button></div>`}
+function ring(p,size=64,stroke=7,label){const r=(size-stroke)/2,c=2*Math.PI*r;return `<svg class="ring" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${Math.round(p*100)}% mastered"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--card2)" stroke-width="${stroke}"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${p>=.8?'var(--ok)':'var(--brand)'}" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p)}" transform="rotate(-90 ${size/2} ${size/2})"/><text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="${size/4.2}">${label??Math.round(p*100)+'%'}</text></svg>`}
+function starRow(l){const s=S.stars[l]||{};return `<div class="stars">${[1,2,3].map(i=>`<span class="${s[i]?'':'off'}">⭐</span>`).join('')}<span class="${s[4]?'':'off'}">👑</span></div>`}
+function dueKeys(){const t=dayNum();return Object.keys(S.items).filter(k=>BYKEY.has(k)&&S.items[k].d<=t).sort((a,b)=>S.items[a].d-S.items[b].d)}
+function nextLesson(){for(const L of LESSONS)if(mastery(L.n)<.6)return L.n;return 6}
+
+function vHome(){
+  const due=dueKeys().length;const nl=nextLesson();const learned=Object.values(S.items).filter(i=>i.b>=3).length;
+  app().innerHTML=`${topbar()}
+  <div class="card hero"><div>
+    <div class="mute small" style="font-weight:800;letter-spacing:.05em;text-transform:uppercase">Today · ${new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</div>
+    ${due?`<div class="row" style="margin:6px 0"><span class="num">${due}</span><div><b>items to review</b><div class="mute small">Spaced repetition: they come back just before you forget them.</div></div></div>`
+         :`<h2>${Object.keys(S.items).length?'All caught up! 🎉':'Välkommen, Osman! 👋'}</h2><div class="mute">${Object.keys(S.items).length?'Nothing is due. Learn something new to keep the streak.':'Start with Lesson 1 — or jump into any lesson. Everything you practise comes back for review at the right time.'}</div>`}
+    <div class="row" style="margin-top:12px">${due?`<button class="btn big" data-act="review">▶ Start review</button>`:''}<button class="btn ${due?'ghost':'big'}" data-act="lesson" data-l="${nl}">${due?'Continue':'▶ Continue'} Lesson ${nl}</button></div>
+  </div><div style="text-align:center">${ring(learned/CATALOG.length,110,11,learned)}<div class="small mute" style="font-weight:800">items learned<br>of ${CATALOG.length}</div></div></div>
+  <h3 style="margin:24px 0 10px">Your lessons</h3>
+  <div class="grid g2">${LESSONS.map(L=>`<div class="card lcard" data-act="lesson" data-l="${L.n}"><div class="lnum">${L.n}</div><div style="flex:1;min-width:0"><div class="t">${L.t}</div><div class="d">${L.d}</div>${starRow(L.n)}</div>${ring(mastery(L.n),58,6)}</div>`).join('')}</div>
+  <h3 style="margin:24px 0 10px">Tools</h3>
+  <div class="grid g3">
+   <div class="card tool" data-act="nav" data-v="speed"><span class="ic">⚡</span><div><b>Speed round</b><span>60 seconds, true or false. Best: ${S.speed}</span></div></div>
+   <div class="card tool" data-act="nav" data-v="weak"><span class="ic">🩹</span><div><b>Weak spots</b><span>Practise what you got wrong most</span></div></div>
+   <div class="card tool" data-act="nav" data-v="cheat"><span class="ic">📋</span><div><b>Cheat sheet</b><span>Lessons 1–6 on one page</span></div></div>
+   <div class="card tool" data-act="nav" data-v="progress"><span class="ic">📈</span><div><b>Progress</b><span>Calendar, mastery per lesson</span></div></div>
+  </div>
+  <div class="foot mute"><span>Progress is saved in this browser.</span><span class="spacer"></span>
+   <label class="row small" style="gap:6px;cursor:pointer"><input type="checkbox" data-act="auto" ${S.auto?'checked':''}> Auto-play Swedish audio</label>
+   <button class="btn ghost" data-act="export">⬇ Export progress</button><button class="btn ghost" data-act="import">⬆ Import</button><button class="btn ghost" data-act="reset">Reset</button></div>
+  ${Speech.ok?'':`<div class="box tip small" style="margin-top:12px"><b class="h">Audio</b>No Swedish voice found in this browser yet. Chrome and Edge usually have one; on Windows you can add Swedish under Settings → Time & language → Speech. Everything else works without audio.</div>`}`;
+}
+
+function vLesson(){
+  const l=VIEW.l,L=LESSONS[l-1],tab=VIEW.tab||'practice';
+  const modes=modesFor(l).filter(m=>!MODES[m].voice||Speech.ok);
+  let body='';
+  if(tab==='learn'){body=`<div class="learn">${LEARN[l]().join('')}</div>
+    <div class="card" style="margin-top:4px"><div class="row"><h3 style="margin:0">All words · Lesson ${l}</h3><span class="spacer"></span><label class="row small" style="gap:6px;cursor:pointer"><input type="checkbox" data-act="hideen"> Hide English (test yourself)</label></div>
+    <p class="say-hint">Tap a word to hear it. The dot shows how well you know it: grey new · orange learning · green solid.</p>
+    <input class="search" placeholder="Search…" data-act="search">
+    <div class="vgrid" id="vlist">${VOCAB.filter(v=>v.l===l).map(v=>`<div class="vitem" data-say="${esc(v.sv.split(' / ')[0])}" data-q="${esc((v.sv+' '+v.en).toLowerCase())}"><span class="e">${v.e}</span><div><div class="s">${esc(v.sv)}</div><div class="m">${esc(v.en)}</div></div><span class="lvdot" data-b="${box(v.key)}"></span></div>`).join('')}</div></div>
+    <div class="row" style="margin-top:16px"><button class="btn big" data-act="tab" data-t="practice">Practise Lesson ${l} →</button></div>`}
+  else{body=[1,2,3,4].map(lv=>{const ms=modes.filter(m=>MODES[m].lv===lv);if(!ms.length)return '';
+    return `<div class="level"><div class="lvhead"><span class="lvbadge lv${lv}">${LVNAME[lv]}</span>${(S.stars[l]||{})[lv]?'<span title="earned">'+(lv===4?'👑':'⭐')+'</span>':''}</div>
+    <div class="grid g4">${ms.map(m=>{const M=MODES[m],b=S.best[l+':'+m];const name=m==='forms'&&l===4?'EN or ETT?':m==='verbs'&&l===6?'Past-tense machine':M.n;
+      return `<div class="card mode" data-act="play" data-m="${m}"><span class="ic">${M.ic}</span><b>${name}</b><span>${M.d}</span>${b!=null?`<span class="best">Best ${b}%</span>`:''}</div>`}).join('')}</div></div>`}).join('')+
+    `<p class="small mute">Tip: get ≥ 80% in any activity of a level to earn its ⭐. Wrong answers come back later in the same round, and again in your daily review.</p>`}
+  app().innerHTML=`${topbar('home')}
+   <div class="row"><div class="lnum">${l}</div><div><h2 style="margin:0">${L.t}</h2><div class="mute">${L.d} · class of ${L.date}</div></div><span class="spacer"></span>${ring(mastery(l),64,7)}</div>
+   <div class="tabs"><button class="${tab==='learn'?'on':''}" data-act="tab" data-t="learn">📖 Learn</button><button class="${tab==='practice'?'on':''}" data-act="tab" data-t="practice">🎮 Practise</button></div>${body}
+   <div class="row" style="margin-top:20px">${l>1?`<button class="btn ghost" data-act="lesson" data-l="${l-1}">← Lesson ${l-1}</button>`:''}<span class="spacer"></span>${l<6?`<button class="btn ghost" data-act="lesson" data-l="${l+1}">Lesson ${l+1} →</button>`:''}</div>`;
+  if(tab==='learn'){const fd=$('#flipdemo');if(fd){fd.dataset.i=0;fd.dataset.s=0;drawFlip()}}
+}
+function drawFlip(){const fd=$('#flipdemo');if(!fd)return;const pair=FLIPDEMO[+fd.dataset.i];fd.style.opacity=0;setTimeout(()=>{fd.innerHTML=slotsHTML(parseChunks(pair[+fd.dataset.s]));fd.style.opacity=1},160)}
+
+/* ================= SESSION ENGINE ================= */
+let SES=null;
+function startSession(qs,meta){qs=qs.filter(Boolean);if(!qs.length){toast('Nothing to practise here yet.');return}
+  SES={qs,i:0,res:[],meta,missed:[],first:qs.length};go('session')}
+function vSession(){if(!SES){go('home');return}if(SES.i>=SES.qs.length){go('summary');return}
+  const q=SES.qs[SES.i];
+  app().innerHTML=`<div class="sbar"><button class="iconbtn" data-act="quit" title="Stop">✕</button><div class="segs">${SES.qs.map((x,i)=>`<i class="${i<SES.i?(SES.res[i]?'ok':'bad'):i===SES.i?'cur':''}"></i>`).join('')}</div><span class="pill">${SES.meta.title}</span></div><div class="stage" id="stage"></div>`;
+  const host=$('#stage');R[q.type](q,host,(res,info)=>answered(res,info||{}));
+}
+function answered(res,info){
+  const q=SES.qs[SES.i];if(q.done)return;q.done=true;
+  if(!info.recorded)rec(q.key,res);
+  SES.res[SES.i]=res>0;
+  if(res===0){SES.missed.push(q);if(!q.retry&&q.type!=='match'&&q.type!=='sort'){const c=Object.assign({},q,{retry:true,done:false});SES.qs.splice(Math.min(SES.i+3,SES.qs.length),0,c)}}
+  save();
+  if(info.silent){nextQ();return}
+  showFb(res>0,info);
+}
+function nextQ(){if(!SES||SES.adv===SES.i)return;SES.adv=SES.i;hideFb();SES.i++;if(SES.i>=SES.qs.length)finish();else vSession()}
+let FBTOK=0;
+function showFb(ok,info){
+  let fb=$('#fb');if(!fb){fb=document.createElement('div');fb.id='fb';fb.className='fb';document.body.appendChild(fb)}
+  fb.className='fb '+(ok?'good':'bad');
+  fb.innerHTML=`<div class="in"><div class="msg"><div class="ttl">${ok?(info.title||'✅ '+pick(PRAISE)):(info.title||'❌ Not quite')}</div>
+   ${info.ans?`<div class="ans">${info.ans} ${info.say?`<button class="say" data-say="${esc(info.say)}">🔊</button>`:''}</div>`:''}${info.why?`<div class="why">${info.why}</div>`:''}</div>
+   <button class="btn" data-act="next" id="nextbtn">Continue ⏎</button></div>`;
+  const tok=++FBTOK;requestAnimationFrame(()=>{if(tok===FBTOK&&VIEW.name==='session')fb.classList.add('show')});
+  setTimeout(()=>{const b=$('#nextbtn');b&&b.focus()},60);
+  if(info.say)autoSay(info.say);
+}
+function hideFb(){FBTOK++;const fb=$('#fb');if(fb)fb.classList.remove('show')}
+function finish(){
+  const scored=SES.qs.filter(q=>!q.retry);const idx=SES.qs.map((q,i)=>i).filter(i=>!SES.qs[i].retry);
+  const right=idx.filter(i=>SES.res[i]).length;const pct=Math.round(right/scored.length*100);
+  const m=SES.meta;if(m.l&&m.mode){const k=m.l+':'+m.mode;S.best[k]=Math.max(S.best[k]||0,pct);if(pct>=80){(S.stars[m.l]=S.stars[m.l]||{})[MODES[m.mode].lv]=true}}
+  SES.pct=pct;SES.right=right;SES.total=scored.length;save();go('summary');if(pct>=80)confetti();
+}
+function vSummary(){if(!SES){go('home');return}
+  const m=SES.meta;const missed=dedupeMissed();
+  app().innerHTML=`${topbar()}<div class="stage"><div class="card" style="text-align:center">
+   <div class="qtype">${m.title}</div><div class="score" style="color:${SES.pct>=80?'var(--ok)':SES.pct>=50?'var(--warn)':'var(--bad)'}">${SES.pct}%</div>
+   <div class="mute">${SES.right} of ${SES.total} right first time${SES.pct>=80?' · ⭐ level star earned!':''}</div>
+   <p style="font-size:20px;font-weight:800">${SES.pct>=90?'Fantastiskt! 🏆':SES.pct>=80?'Bra jobbat! 💪':SES.pct>=50?'Good progress — the misses will come back in review.':'Keep going — repetition is how it sticks. 🌱'}</p>
+   <div class="row" style="justify-content:center">${missed.length?`<button class="btn" data-act="retrymissed">🔁 Practise my ${missed.length} mistake${missed.length>1?'s':''}</button>`:''}<button class="btn ghost" data-act="again">▶ Play again</button>${m.l?`<button class="btn ghost" data-act="lesson" data-l="${m.l}">Back to Lesson ${m.l}</button>`:`<button class="btn ghost" data-act="home">Home</button>`}</div></div>
+   ${missed.length?`<div class="card" style="margin-top:14px"><h3>To remember</h3><div class="missed">${missed.map(q=>`<div><span>${missLabel(q)}</span></div>`).join('')}</div></div>`:''}</div>`;
+}
+function strip(h){const d=document.createElement('div');d.innerHTML=h.replace(/<span class="emo">.*?<\/span>/,'').replace(/<button.*?<\/button>/g,'');return esc(d.textContent.trim())}
+function missLabel(q){
+  if(q.v&&q.type==='flash')return `${q.v.e} <b>${esc(q.v.sv)}</b> = ${esc(q.v.en)}`;
+  if(q.type==='build')return `<b>${esc(q.s.sv+q.s.punct)}</b> <span class="mute">${esc(q.s.en)}</span>`;
+  if(q.type==='match')return (q.bad||[]).map(k=>{const v=BYKEY.get(k).ref;return `${v.e} <b>${esc(v.sv)}</b> = ${esc(v.en)}`}).join('<br>');
+  if(q.type==='sort')return (q.bad||[]).map(k=>{const it=BYKEY.get(k).ref;return `${esc(it.t)} → <b>${esc(it.set.b.find(x=>x[0]===it.b)[1])}</b>`}).join('<br>');
+  if(q.type==='verb')return `<b>${esc(q.v.pres)}</b> → ${esc(q.v.imp)}! → ${esc(q.v.inf)} → ${esc(q.v.past)}`;
+  if(q.type==='input')return `${strip(q.prompt)} → <b>${esc(q.answers[0])}</b>`;
+  if(q.type==='mc'&&q.after)return q.after;
+  if(q.type==='mc')return q.gap?`<b>${esc(q.gap.replace('___',q.a))}</b>`:`${strip(q.prompt)} → <b>${esc(q.a)}</b>`;
+  return '';
+}
+
+function dedupeMissed(){const seenK=new Set();return SES.missed.filter(q=>{const k=q.key||q;if(seenK.has(k))return false;seenK.add(k);return true})}
+const EN_SETS=new Set(['qw','help','hinorka']);
+function sortSay(it){const id=it.set.id;if(EN_SETS.has(id))return null;if(id==='enett')return it.b+' '+it.t;if(id==='fritid'||id==='plural'||id==='past'||id==='long'||id==='soft'||id==='pron'||id==='vgroup'||id==='mood')return it.t;
+  return it.t.replace(/\(.*?\)/g,'').replace(/___/g,it.b).trim()}
+/* ================= RENDERERS ================= */
+const R={};
+const KEYS=['1','2','3','4','5','6'];
+R.mc=(q,host,done)=>{
+  const opts=shuffle([q.a,...q.o]);let gapHtml='';
+  if(q.gap){const parts=esc(q.gap).split('___');gapHtml=`<div class="sentence">${parts[0]}<span class="gap" id="gap">?</span>${parts[1]||''}</div>${q.en?`<div class="sub">${esc(q.en)}</div>`:''}`}
+  host.innerHTML=`<div class="qtype">${q.tag||''}${q.retry?' · second try':''}</div>
+   ${q.audio?`<button class="play" data-say="${esc(q.audio)}" title="Play again">🔊</button><div class="row" style="justify-content:center;margin-bottom:14px"><button class="btn ghost" data-slow="${esc(q.audio)}">🐢 Slower</button></div>`:''}
+   ${q.prompt?`<div class="prompt">${q.prompt}</div><div class="sub"></div>`:''}${gapHtml}
+   <div class="opts ${q.binary?'binary':''}">${opts.map((o,i)=>`<button class="opt ${q.genderBtns?(o==='en'?'enb':'ettb'):''}" data-i="${i}">${q.binary?'':`<span class="k">${i+1}</span>`}${esc(o)}</button>`).join('')}</div>`;
+  if(q.audio)setTimeout(()=>Speech.say(q.audio),250);
+  if(q.sayFirst)setTimeout(()=>autoSay(q.say),200);
+  $$('.opt',host).forEach(b=>b.onclick=()=>{
+    const o=opts[+b.dataset.i];const ok=o===q.a;$$('.opt',host).forEach(x=>{x.disabled=true;if(opts[+x.dataset.i]===q.a)x.classList.add('right')});
+    if(!ok)b.classList.add('wrong');
+    const g=$('#gap',host);if(g){g.textContent=q.a;g.classList.add('filled')}
+    done(ok?2:0,{ans:q.after||(q.gap?esc(q.gap.replace('___',q.a)):`<b>${esc(q.a)}</b>`),why:q.why||'',say:q.say});
+  });
+};
+R.flash=(q,host,done)=>{
+  const v=q.v;const rev=box(v.key)>=2&&Math.random()<.5; /* known words: sometimes English first */
+  const front=rev?`<div class="emo">${v.e}</div><div class="word">${esc(v.en)}</div><div class="mute small" style="margin-top:8px">Say it in Swedish, then flip</div>`
+                 :`<div class="emo">${v.e}</div><div class="word">${esc(v.sv)}</div><div class="mute small" style="margin-top:8px">What does it mean? Think, then flip</div>`;
+  const back=`<div class="emo">${v.e}</div><div class="word" style="color:var(--brand)">${esc(v.sv)}</div><div style="font-size:21px;font-weight:700;margin-top:4px">${esc(v.en)}</div>${v.g?`<span class="gtag ${v.g}">${v.g.toUpperCase()}-word</span>`:''}<div style="margin-top:10px"><button class="say" data-say="${esc(v.sv.split(' / ')[0])}">🔊 Listen</button></div>`;
+  host.innerHTML=`<div class="qtype">Flashcard${seen(v.key)?'':' · NEW'}</div><div class="flash" id="fl"><div class="inner"><div class="face">${front}</div><div class="face back">${back}</div></div></div>
+   <div id="fa"><button class="btn big" style="width:100%" id="flipbtn">Flip card <span class="kbd">space</span></button></div>`;
+  const fl=$('#fl',host);let flipped=false;
+  const flip=()=>{if(flipped)return;flipped=true;fl.classList.add('flipped');autoSay(v.sv.split(' / ')[0]);
+    $('#fa',host).innerHTML=`<div class="small mute" style="text-align:center;margin-bottom:8px">How well did you know it?</div><div class="rate">
+     <button class="r0" data-r="0">Again<small>forgot · 1</small></button><button class="r1" data-r="1">Hard<small>tomorrow · 2</small></button><button class="r2" data-r="2">Good<small>later · 3</small></button><button class="r3" data-r="3">Easy<small>much later · 4</small></button></div>`;
+    $$('.rate button',host).forEach(b=>b.onclick=()=>done(+b.dataset.r,{silent:true}))};
+  fl.onclick=e=>{if(!e.target.closest('.say'))flip()};$('#flipbtn',host).onclick=flip;q.flip=flip;
+};
+function charKeys(){return `<div class="keys">${['å','ä','ö','Å','Ä','Ö'].map(c=>`<button type="button" data-ch="${c}">${c}</button>`).join('')}</div>`}
+function wireKeys(host,inp){$$('.keys button',host).forEach(b=>b.onclick=()=>{const s=inp.selectionStart??inp.value.length,e=inp.selectionEnd??s;inp.value=inp.value.slice(0,s)+b.dataset.ch+inp.value.slice(e);inp.focus();inp.setSelectionRange(s+1,s+1)})}
+function wordDiff(user,target){ /* LCS on words → coloured */
+  const a=norm(user).split(' ').filter(Boolean),b=norm(target).split(' ').filter(Boolean);
+  const L=Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));
+  for(let i=a.length-1;i>=0;i--)for(let j=b.length-1;j>=0;j--)L[i][j]=a[i]===b[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  let i=0,j=0;const out=[];while(i<a.length&&j<b.length){if(a[i]===b[j]){out.push(`<span class="g">${esc(b[j])}</span>`);i++;j++}else if(L[i+1][j]>=L[i][j+1]){out.push(`<span class="x">${esc(a[i])}</span>`);i++}else{out.push(`<span class="m">${esc(b[j])}</span>`);j++}}
+  while(i<a.length)out.push(`<span class="x">${esc(a[i++])}</span>`);while(j<b.length)out.push(`<span class="m">${esc(b[j++])}</span>`);
+  return `<div class="diff">${out.join('')}</div><div class="small mute" style="margin-top:4px"><span class="diff"><span class="g">right</span><span class="x">remove</span><span class="m">missing</span></span></div>`;
+}
+R.input=(q,host,done)=>{
+  let hints=0;
+  host.innerHTML=`<div class="qtype">${q.tag}${q.retry?' · second try':''}</div><div class="prompt">${q.prompt}</div><div class="sub">${q.long?'Type the whole sentence. Word order matters!':q.g?'Include en / ett if it is a noun.':''}</div>
+   <input class="inp" id="inp" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Skriv på svenska…">${charKeys()}
+   <div class="row"><button class="btn ghost" id="hint">💡 Hint</button><span class="spacer"></span><button class="btn big" id="chk">Check ⏎</button></div><div id="extra" style="margin-top:12px"></div>`;
+  const inp=$('#inp',host);wireKeys(host,inp);setTimeout(()=>inp.focus(),50);
+  $('#hint',host).onclick=()=>{hints++;const a=q.hintText||q.answers[0];const n=Math.min(a.length,hints*(q.long?4:2));inp.value=a.slice(0,n);inp.focus()};
+  const check=()=>{const val=inp.value;if(!norm(val)){inp.classList.add('wrong');setTimeout(()=>inp.classList.remove('wrong'),400);return}
+    inp.disabled=true;$('#chk',host).disabled=true;$('#hint',host).disabled=true;
+    const n=norm(val);let best=null;
+    for(const a of q.answers){const na=norm(a);if(n===na){finishOk(a);return}const d=lev(n,na);if(!best||d<best.d)best={d,a,na}}
+    for(const b of (q.bare||[]))if(n===norm(b)){inp.classList.add('right');done(1,{title:'✅ Almost perfect',ans:`<b>${esc(q.answers[0])}</b>`,why:`Remember the little word: <b>${esc(q.answers[0])}</b>`,say:q.say});return}
+    if(deacc(n)===deacc(best.na)){inp.classList.add('wrong');done(0,{title:'🟡 So close — check å / ä / ö',ans:`<b>${esc(best.a)}</b>`,why:'The dots change the word and the sound!',say:best.a});return}
+    if(best.d<=1&&best.na.length>=5){inp.classList.add('right');done(hints?1:2,{title:'✅ Right (small typo)',ans:`<b>${esc(best.a)}</b>`,why:q.why||'',say:q.say});return}
+    inp.classList.add('wrong');
+    if(q.long){$('#extra',host).innerHTML=`<div class="card"><div class="small mute" style="font-weight:800;margin-bottom:6px">YOUR ANSWER vs. MODEL</div>${wordDiff(val,best.a)}<div style="margin-top:10px"><button class="btn ghost" id="override">I think mine is also correct</button></div></div>`;
+      $('#override',host).onclick=()=>{hideFb();SES.missed=SES.missed.filter(x=>x!==q);const i=SES.qs.indexOf(q);SES.res[i]=true;const r=SES.qs.findIndex((x,k)=>k>i&&x.retry&&x.key===q.key);if(r>-1)SES.qs.splice(r,1);if(S.items[q.key]){S.items[q.key].w--;S.items[q.key].r++;S.items[q.key].d=dayNum()+1}save();nextQ()}}
+    done(0,{ans:`<b>${esc(q.answers[0])}${q.s?q.s.punct:''}</b>`,why:q.why||'',say:q.say});
+  };
+  const finishOk=a=>{inp.classList.add('right');done(hints?1:2,{ans:`<b>${esc(a)}${q.s?q.s.punct:''}</b>`,why:q.long?q.why:'',say:q.say})};
+  $('#chk',host).onclick=check;inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();e.stopPropagation();if(!inp.disabled)check()}};
+};
+R.build=(q,host,done)=>{
+  const s=q.s;const tiles=s.chunks.map((c,i)=>({...c,i,t:(i===0&&!PROPER.includes(c.t.split(' ')[0]))?c.t.charAt(0).toLowerCase()+c.t.slice(1):c.t}));
+  let order=shuffle(tiles.map(t=>t.i));if(order.length>1&&order.every((x,i)=>x===i))order=order.reverse();
+  let ans=[],colored=false,hinted=false;
+  host.innerHTML=`<div class="qtype">Sentence builder${q.retry?' · second try':''}</div><div class="prompt">${esc(s.en)}</div><div class="sub">Tap the tiles in the right order. Remember: the verb is 2nd!</div>
+   <div class="ansarea" id="ans"></div><div class="bank" id="bank"></div>
+   <div class="row"><button class="btn ghost" id="col">🎨 Colour hint</button><button class="btn ghost" id="hnt">💡 Next tile</button><button class="btn ghost" id="clr">↺ Clear</button><span class="spacer"></span><button class="btn big" id="chk">Check ⏎</button></div>
+   <div class="legend small" id="leg" style="margin-top:12px;display:none"></div>`;
+  const draw=()=>{const A=$('#ans',host),B=$('#bank',host);
+    A.innerHTML=ans.length?ans.map((i,k)=>`<button class="tile r-${tiles[i].r}" data-a="${k}">${esc(k===0?cap(tiles[i].t):tiles[i].t)}</button>`).join('')+`<span class="punct">${s.punct}</span>`:`<span class="mute">Your sentence appears here…</span>`;
+    B.innerHTML=order.filter(i=>!ans.includes(i)).map(i=>`<button class="tile r-${tiles[i].r}" data-b="${i}">${esc(tiles[i].t)}</button>`).join('');
+    $$('[data-b]',B).forEach(b=>b.onclick=()=>{ans.push(+b.dataset.b);Speech.ok&&S.auto&&Speech.say(tiles[+b.dataset.b].t,1);draw()});
+    $$('[data-a]',A).forEach(b=>b.onclick=()=>{ans.splice(+b.dataset.a,1);draw()});
+    host.classList.toggle('colored',colored)};
+  draw();
+  $('#col',host).onclick=()=>{colored=!colored;hinted=true;$('#leg',host).style.display=colored?'flex':'none';$('#leg',host).innerHTML=legendHTML();draw()};
+  $('#clr',host).onclick=()=>{ans=[];draw()};
+  $('#hnt',host).onclick=()=>{hinted=true;let k=0;while(k<ans.length&&ans[k]===k)k++;ans=ans.slice(0,k);if(k<tiles.length)ans.push(k);draw()};
+  const check=()=>{if(ans.length<tiles.length){$('#ans',host).classList.add('wrong');setTimeout(()=>$('#ans',host).classList.remove('wrong'),400);toast('Use all the tiles');return}
+    const built=ans.map(i=>tiles[i].t).join(' ');const ok=[s.sv,...s.alts].some(a=>norm(a)===norm(built));
+    $$('button',host).forEach(b=>b.disabled=true);colored=true;draw();$$('#ans .tile',host).forEach(b=>b.disabled=true);
+    $('#ans',host).classList.add(ok?'right':'wrong');
+    done(ok?(hinted?1:2):0,{ans:ok?`<div>${slotsHTML(ans.map(i=>({t:tiles[i].t,r:tiles[i].r})))}</div>`:`<div>${slotsHTML(s.chunks)}</div>`,why:ok?'':`Correct: <b>${esc(s.sv+s.punct)}</b>`,say:ok?cap(built)+s.punct:s.sv+s.punct});
+  };
+  $('#chk',host).onclick=check;q.check=check;
+};
+R.verb=(q,host,done)=>{
+  const v=q.v;const F={pres:['Present'],imp:['Command  (like Jobba!)'],inf:['After kan / vill  (like jobba)'],past:['Past, igår…  (like jobbade)']};
+  const shown=q.ask.includes('past')?['pres','imp','past']:['pres','imp','inf'];
+  host.innerHTML=`<div class="qtype">${q.ask.includes('past')?'Past-tense machine':'Verb machine'}${q.retry?' · second try':''}</div><div class="prompt">${esc(v.pres)} <button class="say" data-say="${esc(v.pres)}">🔊</button> <span class="mute" style="font-size:20px">= ${esc(v.en)}</span></div>
+   <div class="sub">${q.ask.includes('past')?'Base (command) + de / te / dde — or a strong verb by heart.':'Command: drop -r / -er. Infinitive: ends in a vowel.'}</div>
+   <div class="vpipe">${shown.map(f=>`<div class="vstep" data-f="${f}"><label>${F[f][0]}</label>${q.ask.includes(f)?`<input data-in="${f}" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type here…">`:`<div class="given">${esc(f==='imp'?v.imp+'!':v[f])}</div>`}</div>`).join('')}</div>
+   ${charKeys()}<div class="row"><span class="spacer"></span><button class="btn big" id="chk">Check ⏎</button></div>`;
+  const inputs=$$('input[data-in]',host);let last=inputs[0];inputs.forEach(i=>i.onfocus=()=>last=i);setTimeout(()=>inputs[0].focus(),50);
+  $$('.keys button',host).forEach(b=>b.onclick=()=>{const inp=last;const s=inp.selectionStart??inp.value.length;inp.value=inp.value.slice(0,s)+b.dataset.ch+inp.value.slice(inp.selectionEnd??s);inp.focus();inp.setSelectionRange(s+1,s+1)});
+  const check=()=>{let all=true;inputs.forEach(inp=>{const f=inp.dataset.in;const want=f==='imp'?v.imp:v[f];const ok=norm(inp.value)===norm(want);all=all&&ok;const st=inp.closest('.vstep');st.classList.add(ok?'right':'wrong');inp.disabled=true;if(!ok)st.insertAdjacentHTML('beforeend',`<div class="fix">✓ ${esc(f==='imp'?want+'!':want)}</div>`)});
+    $('#chk',host).disabled=true;
+    done(all?2:0,{ans:`<b>${esc(v.pres)}</b> → ${esc(v.imp)}! → ${esc(v.inf)} → ${esc(v.past)}`,why:q.ask.includes('past')?PAST_WHY[v.grp]:(v.inf===v.imp.toLowerCase()?'Infinitive = command (already ends in a vowel).':`Infinitive = command + a${v.pres==='gör'?' (gör → göra)':''}.`),say:`${v.pres}. ${v.imp}! ${v.inf}. ${v.past}.`})};
+  $('#chk',host).onclick=check;inputs.forEach((inp,k)=>inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();e.stopPropagation();if(k<inputs.length-1&&!inputs[k+1].value)inputs[k+1].focus();else if(!inp.disabled)check()}});
+};
+R.match=(q,host,done)=>{
+  const pairs=q.pairs;let sel=null,mistakes=0,matched=0;const bad=new Set();const t0=Date.now();
+  const L=shuffle(pairs.map((v,i)=>({i,t:v.sv}))),Rt=shuffle(pairs.map((v,i)=>({i,t:v.e+' '+v.en})));
+  host.innerHTML=`<div class="qtype">Match pairs</div><div class="prompt" style="font-size:22px">Tap a Swedish word, then its meaning</div><div class="sub" id="mstat">0 / ${pairs.length} · mistakes 0</div>
+   <div class="mgrid"><div class="mcol">${L.map(x=>`<button class="mt" data-s="L" data-i="${x.i}">${esc(x.t)}</button>`).join('')}</div><div class="mcol">${Rt.map(x=>`<button class="mt" data-s="R" data-i="${x.i}">${esc(x.t)}</button>`).join('')}</div></div>`;
+  $$('.mt',host).forEach(b=>b.onclick=()=>{
+    if(b.dataset.s==='L'){const v=pairs[+b.dataset.i];Speech.ok&&S.auto&&Speech.say(v.sv.split(' / ')[0])}
+    if(!sel||sel.dataset.s===b.dataset.s){sel&&sel.classList.remove('sel');sel=b;b.classList.add('sel');return}
+    if(sel.dataset.i===b.dataset.i){[sel,b].forEach(x=>{x.classList.remove('sel');x.classList.add('done')});matched++;const v=pairs[+b.dataset.i];rec(v.key,bad.has(v.key)?0:2);
+      if(matched===pairs.length){save();q.bad=[...bad];const secs=Math.round((Date.now()-t0)/1000);setTimeout(()=>done(mistakes<=1?2:0,{recorded:true,title:mistakes<=1?`✅ All matched in ${secs}s!`:`Done — ${mistakes} mistakes`,why:mistakes>1?'The ones you mixed up will come back in your review.':`${secs} seconds · ${mistakes} mistake${mistakes===1?'':'s'}`}),250)}}
+    else{mistakes++;[sel,b].forEach(x=>{bad.add(pairs[+x.dataset.i].key);x.classList.remove('sel');x.classList.add('no');setTimeout(()=>x.classList.remove('no'),400)})}
+    sel=null;$('#mstat',host).textContent=`${matched} / ${pairs.length} · mistakes ${mistakes}`;
+  });
+};
+R.sort=(q,host,done)=>{
+  const set=q.set;let queue=q.items.slice();const retried=new Set();let right=0,total=q.items.length;
+  host.innerHTML=`<div class="qtype">Sort it</div><div class="prompt" style="font-size:24px">${esc(set.t)}</div><div class="sub" id="sstat">Tap the right box (or press 1–${set.b.length})</div>
+   <div id="cardhost"></div><div class="buckets">${set.b.map((b,k)=>`<div class="bucket" data-b="${b[0]}"><div class="bh b-${b[3]}">${esc(b[1])}${b[2]?`<small>${esc(b[2])}</small>`:''}</div></div>`).join('')}</div>`;
+  const showCard=()=>{if(!queue.length){const ok=right/total>=.8;q.bad=[...retried];done(ok?2:0,{recorded:true,title:ok?`✅ ${right} / ${total} sorted right first time`:`${right} / ${total} right first time`,why:ok?'':'Look at the boxes again — the misses will come back in review.'});return}
+    const it=queue[0];$('#cardhost',host).innerHTML=`<div class="sortcard">${esc(it.t)}${/[åäö]|^[a-z]/.test(it.t)&&set.id!=='qw'&&set.id!=='help'&&set.id!=='hinorka'?` <button class="say" data-say="${esc(it.t.replace(/___/g,'…'))}">🔊</button>`:''}<small>${queue.length} left</small></div>`};
+  const choose=bk=>{const it=queue[0];if(!it||host.dataset.lock)return;const el=$(`.bucket[data-b="${CSS.escape(bk)}"]`,host);
+    if(bk===it.b){if(!retried.has(it.key)){right++;rec(it.key,2)}el.insertAdjacentHTML('beforeend',`<div class="in">${esc(it.t)}</div>`);queue.shift();showCard()}
+    else{if(!retried.has(it.key)){rec(it.key,0);retried.add(it.key)}el.classList.add('nope');const good=$(`.bucket[data-b="${CSS.escape(it.b)}"]`,host);good.classList.add('hint');host.dataset.lock=1;
+      setTimeout(()=>{el.classList.remove('nope');good.classList.remove('hint');delete host.dataset.lock;queue.push(queue.shift());showCard()},1000)}
+    save()};
+  $$('.bucket',host).forEach(b=>b.onclick=()=>choose(b.dataset.b));q.choose=k=>{const b=set.b[k];if(b)choose(b[0])};showCard();
+};
+
+/* ================= OTHER VIEWS ================= */
+function vCheat(){app().innerHTML=`${topbar('home')}<h2>Cheat sheet — Lessons 1 to 6</h2><p class="mute">Keep this next to you while you write your diary. Tap any example to hear it.</p>
+ <div class="card"><h3>The sentence map colours</h3>${legendHTML()}${SL('Ikväll:F / ska:V / jag:S / inte:N / baka:V2 / en kaka:O / hemma:P','Tonight I\'m not going to bake a cake at home.')}</div>
+ <div class="card tscroll" style="margin-top:14px"><table class="t cheat"><tr><th>Topic</th><th>The rule in one line</th><th>Example</th></tr>${CHEAT.map(r=>`<tr><td>${r[0]}</td><td>${esc(r[1])}</td><td>${r[2].split(' · ').map(x=>`<span class="sv" data-say="${esc(x.replace(/→.*/,''))}">${esc(x)}</span>`).join(' · ')}</td></tr>`).join('')}</table></div>
+ <div class="box ok" style="margin-top:14px"><b class="h">Bra jobbat, Osman!</b>These are your foundations. Next up: the Lessons 7–22 handbook.</div>`}
+function vProgress(){
+  const t=dayNum();const days=[];const start=t-7*16+1-((new Date().getDay()+6)%7);for(let d=start;d<=t;d++)days.push(d);
+  const lvl=n=>!n?0:n<10?1:n<30?2:n<60?3:4;const total=Object.values(S.days).reduce((a,b)=>a+b,0);
+  app().innerHTML=`${topbar('home')}<h2>Your progress</h2>
+  <div class="grid g3"><div class="card" style="text-align:center"><div class="score">🔥${streak()}</div><div class="mute">day streak</div></div><div class="card" style="text-align:center"><div class="score">${Object.values(S.items).filter(i=>i.b>=3).length}</div><div class="mute">items learned (3+ correct in a row)</div></div><div class="card" style="text-align:center"><div class="score">${total}</div><div class="mute">answers given</div></div></div>
+  <div class="card" style="margin-top:14px"><h3>Practice calendar</h3><div class="heat">${days.map(d=>`<i data-l="${lvl(S.days[d])}" class="${d===t?'today':''}" title="${new Date(d*864e5).toLocaleDateString('en-GB')}: ${S.days[d]||0} answers"></i>`).join('')}</div><div class="small mute">Last 16 weeks. Short daily practice beats long rare sessions — your memory needs the spacing.</div></div>
+  <div class="card" style="margin-top:14px"><h3>Mastery per lesson</h3>${LESSONS.map(L=>{const m=mastery(L.n);return `<div class="barrow"><span class="lbl">Lesson ${L.n}</span><div class="track"><div class="fill" style="width:${m*100}%;background:${m>=.8?'var(--ok)':'var(--brand)'}"></div></div><span class="v">${Math.round(m*100)}%</span></div>`}).join('')}</div>`}
+function weakKeys(){return Object.keys(S.items).filter(k=>BYKEY.has(k)&&S.items[k].w>0).sort((a,b)=>(S.items[b].w-S.items[b].r*.5-S.items[b].b)-(S.items[a].w-S.items[a].r*.5-S.items[a].b))}
+function vWeak(){const ks=weakKeys().slice(0,40);
+  app().innerHTML=`${topbar('home')}<h2>Weak spots 🩹</h2><p class="mute">The items you've missed most. A short focused round fixes them fastest.</p>
+  ${ks.length?`<button class="btn big" data-act="weakplay">▶ Practise my top ${Math.min(15,ks.length)}</button><div class="card" style="margin-top:14px"><div class="missed">${ks.map(k=>{const c=BYKEY.get(k);const it=S.items[k];return `<div><span>${weakLabel(c)}</span><span class="mute small">✗${it.w} ✓${it.r}</span></div>`}).join('')}</div></div>`
+   :`<div class="card">No mistakes recorded yet — go practise! 🌱</div>`}`}
+function weakLabel(c){const r=c.ref;switch(c.kind){case 'v':return `${r.e} <b>${esc(r.sv)}</b> = ${esc(r.en)}`;case 's':return `<b>${esc(r.sv+r.punct)}</b>`;case 'c':return `<b>${esc(r.q.replace('___',r.a))}</b>`;case 'p':return `${esc(r.w)} → <b>${esc(r.a)}</b>`;case 'vb3':case 'vb6':return `<b>${esc(r.pres)}</b> → ${esc(r.imp)}! → ${esc(r.inf)} → ${esc(r.past)}`;case 'so':return `${esc(r.t)} → <b>${esc(r.set.b.find(x=>x[0]===r.b)[1])}</b>`;case 'f':return `<b>${esc(r.w||r.n?.sv||r.n||'')}</b> <span class="mute">${esc(r.kind)}</span>`}return c.key}
+
+/* speed round */
+let SP=null;
+function stopSpeed(){if(SP&&SP.timer){clearInterval(SP.timer);SP.timer=null}}
+function vSpeed(){stopSpeed();
+  app().innerHTML=`${topbar('home')}<div class="stage"><h2>⚡ Speed round</h2><p class="mute">60 seconds. Is the translation right? Press <span class="kbd">←</span> for ✗ and <span class="kbd">→</span> for ✓. Best score: <b>${S.speed}</b></p>
+  <div class="card"><h3>Which lessons?</h3><div class="row">${LESSONS.map(L=>`<label class="chip"><input type="checkbox" data-sl="${L.n}" ${mastery(L.n)>0||L.n===1?'checked':''}> L${L.n}</label>`).join('')}</div>
+  <button class="btn big" style="margin-top:14px" data-act="speedgo">▶ Go!</button></div></div>`}
+function speedGo(){const ls=$$('[data-sl]').filter(x=>x.checked).map(x=>+x.dataset.sl);const pool=VOCAB.filter(v=>ls.includes(v.l));if(pool.length<4){toast('Pick at least one lesson');return}
+  SP={pool,score:0,wrong:0,end:Date.now()+60000,cur:null,timer:null};
+  app().innerHTML=`${topbar('home')}<div class="stage"><div class="timer"><i id="tb" style="width:100%"></i></div><div class="row"><span class="pill">✓ <b id="sc">0</b></span><span class="pill">✗ <b id="wr">0</b></span><span class="spacer"></span><span class="pill" id="tl">60s</span></div>
+   <div class="card speedcard" id="scard" style="margin-top:16px"></div><div class="tf"><button class="no" data-act="tf" data-v="0">✗ Wrong</button><button class="yes" data-act="tf" data-v="1">✓ Right</button></div></div>`;
+  nextSpeed();SP.timer=setInterval(()=>{const left=Math.max(0,SP.end-Date.now());$('#tb').style.width=(left/600)+'%';$('#tl').textContent=Math.ceil(left/1000)+'s';if(!left)endSpeed()},100)}
+function nextSpeed(){const v=pick(SP.pool);const truth=Math.random()<.5;const m=truth?v.en:pick(SP.pool.filter(x=>x.en!==v.en)).en;SP.cur={v,truth,m};
+  $('#scard').innerHTML=`<div class="w">${esc(v.sv)}</div><div class="eq">=</div><div class="m">${esc(m)}</div>`}
+function answerSpeed(yes){if(!SP||!SP.timer)return;const ok=(yes===SP.cur.truth);const c=$('#scard');c.classList.remove('flashok','flashbad');void c.offsetWidth;c.classList.add(ok?'flashok':'flashbad');
+  if(ok)SP.score++;else{SP.wrong++;rec(SP.cur.v.key,0);toast(`${SP.cur.v.sv} = ${SP.cur.v.en}`,1500)}$('#sc').textContent=SP.score;$('#wr').textContent=SP.wrong;nextSpeed()}
+function endSpeed(){stopSpeed();const best=SP.score>S.speed;if(best)S.speed=SP.score;const t=dayNum();S.days[t]=(S.days[t]||0)+SP.score+SP.wrong;S.xp+=SP.score*2;save();if(best)confetti();
+  $('.stage').innerHTML=`<div class="card" style="text-align:center"><div class="qtype">Speed round</div><div class="score">${SP.score}</div><div class="mute">right answers · ${SP.wrong} wrong</div><p style="font-weight:800;font-size:20px">${best?'🏆 New record!':'Best: '+S.speed}</p><div class="row" style="justify-content:center"><button class="btn" data-act="nav" data-v="speed">Again</button><button class="btn ghost" data-act="home">Home</button></div></div>`;SP=null}
+
+function confetti(){const c=document.createElement('div');c.className='confetti';const cols=['#9b1f45','#2f6fb5','#b8860b','#23845a','#c2335f','#7b52c7'];
+  for(let i=0;i<90;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'%';p.style.background=pick(cols);p.style.animationDuration=(1.6+Math.random()*1.8)+'s';p.style.animationDelay=Math.random()*.5+'s';p.style.transform=`rotate(${Math.random()*360}deg)`;c.appendChild(p)}
+  document.body.appendChild(c);setTimeout(()=>c.remove(),4200)}
+
+/* ================= EVENTS ================= */
+function startMode(l,m){const qs=buildQs(m,l);const nm=m==='forms'&&l===4?'EN or ETT?':MODES[m].n;startSession(qs,{l,mode:m,title:`L${l} · ${nm}`})}
+function startReview(){const due=dueKeys().slice(0,20).map(k=>BYKEY.get(k).make());
+  if(due.length<6){const nl=nextLesson();const fresh=prioritize(VOCAB.filter(v=>v.l===nl&&!seen(v.key))).slice(0,8-Math.min(due.length,5)).map(Q.flash);due.push(...fresh)}
+  startSession(shuffle(due),{title:'Daily review'})}
+document.addEventListener('click',e=>{
+  const sayEl=e.target.closest('[data-say]');if(sayEl&&!e.target.closest('[data-act]')){Speech.say(sayEl.dataset.say);if(sayEl.classList.contains('say')||sayEl.classList.contains('play'))return}
+  const slow=e.target.closest('[data-slow]');if(slow){Speech.say(slow.dataset.slow,.55);return}
+  const svEl=e.target.closest('.sv');if(svEl&&!svEl.dataset.say){Speech.say(svEl.textContent);return}
+  const a=e.target.closest('[data-act]');if(!a)return;const act=a.dataset.act;
+  switch(act){
+    case 'home':go('home');break;
+    case 'lesson':go('lesson',{l:+a.dataset.l,tab:VIEW.name==='lesson'?VIEW.tab:(mastery(+a.dataset.l)===0?'learn':'practice')});break;
+    case 'tab':go('lesson',{l:VIEW.l,tab:a.dataset.t});break;
+    case 'play':startMode(VIEW.l,a.dataset.m);break;
+    case 'review':startReview();break;
+    case 'next':nextQ();break;
+    case 'quit':if(confirmQuit())go(SES.meta.l?'lesson':'home',{l:SES.meta.l,tab:'practice'});break;
+    case 'again':SES.meta.mode?startMode(SES.meta.l,SES.meta.mode):SES.meta.title==='Daily review'?startReview():startSession(shuffle(SES.qs.filter(q=>!q.retry).map(q=>Object.assign({},q,{done:false,retry:false}))),SES.meta);break;
+    case 'retrymissed':{const list=dedupeMissed();const ms=list.filter(q=>q.key).map(q=>{const c=BYKEY.get(q.key);return c?c.make():Object.assign({},q,{done:false,retry:false})});
+      const extra=list.filter(q=>q.type==='match').flatMap(q=>(q.bad||[]).map(k=>Q.pick(BYKEY.get(k).ref)));
+      const extra2=list.filter(q=>q.type==='sort').flatMap(q=>(q.bad||[]).map(k=>Q.sortone(BYKEY.get(k).ref)));
+      startSession(shuffle([...ms,...extra,...extra2]),{title:'Fix my mistakes',l:SES.meta.l});break}
+    case 'nav':go(a.dataset.v);break;
+    case 'theme':{const cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');S.theme=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=S.theme;save();break}
+    case 'auto':S.auto=a.checked;save();break;
+    case 'hideen':$('#vlist').parentElement.classList.toggle('hideen',a.checked);break;
+    case 'flipdemo':{const fd=$('#flipdemo');fd.dataset.s=+fd.dataset.s?0:1;if(fd.dataset.s==='0')fd.dataset.i=(+fd.dataset.i+1)%FLIPDEMO.length;a.textContent=fd.dataset.s==='1'?'🔄 Next example':'🔄 Move the time to the front';drawFlip();const txt=parseChunks(FLIPDEMO[+fd.dataset.i][+fd.dataset.s]).map(c=>c.t).join(' ');setTimeout(()=>autoSay(txt),200);break}
+    case 'weakplay':startSession(weakKeys().slice(0,15).map(k=>BYKEY.get(k).make()),{title:'Weak spots'});break;
+    case 'speedgo':speedGo();break;
+    case 'tf':answerSpeed(a.dataset.v==='1');break;
+    case 'export':{const blob=new Blob([JSON.stringify(S)],{type:'application/json'});const u=URL.createObjectURL(blob);const x=document.createElement('a');x.href=u;x.download=`svenska-progress-${new Date().toISOString().slice(0,10)}.json`;x.click();setTimeout(()=>URL.revokeObjectURL(u),1000);break}
+    case 'import':{const f=document.createElement('input');f.type='file';f.accept='.json,application/json';f.onchange=()=>{const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.v!==1)throw 0;S=Object.assign(freshState(),d);save();toast('Progress imported ✓');render()}catch(err){toast('That file is not a progress export.')}};r.readAsText(f.files[0])};f.click();break}
+    case 'reset':if(confirm('Delete all progress in this browser? (Export first if you want a backup.)')){S=freshState();save();render()}break;
+  }
+});
+document.addEventListener('input',e=>{if(e.target.dataset.act==='search'){const q=e.target.value.toLowerCase().trim();$$('#vlist .vitem').forEach(el=>el.style.display=!q||el.dataset.q.includes(q)?'':'none')}});
+function confirmQuit(){return !SES||SES.i===0||confirm('Stop this round? Your answers so far are saved.')}
+document.addEventListener('keydown',e=>{
+  if(VIEW.name==='speed'&&SP&&SP.timer){if(e.key==='ArrowLeft'){e.preventDefault();answerSpeed(false)}if(e.key==='ArrowRight'){e.preventDefault();answerSpeed(true)}return}
+  if(VIEW.name!=='session'||!SES)return;const fb=$('#fb.show');
+  if(fb){if(e.key==='Enter'||e.key===' '){e.preventDefault();nextQ()}return}
+  if(e.target.tagName==='INPUT')return;const q=SES.qs[SES.i];
+  if(q.type==='flash'){if(e.key===' '||e.key==='Enter'){e.preventDefault();q.flip&&q.flip()}const rb=$$('.rate button');if(rb.length&&KEYS.includes(e.key)&&+e.key<=4){rb[+e.key-1].click()}return}
+  if(q.type==='mc'){const os=$$('.opt');if(KEYS.includes(e.key)&&os[+e.key-1]&&!os[0].disabled)os[+e.key-1].click();if(q.binary&&os.length===2&&!os[0].disabled){if(e.key==='ArrowLeft')os[0].click();if(e.key==='ArrowRight')os[1].click()}return}
+  if(q.type==='sort'&&KEYS.includes(e.key)){q.choose&&q.choose(+e.key-1);return}
+  if(q.type==='build'&&e.key==='Enter'){e.preventDefault();q.check&&q.check()}
+});
+
+/* ================= BOOT ================= */
+if(S.theme)document.documentElement.dataset.theme=S.theme;
+Speech.init();parseHash();render();
+setTimeout(()=>{if(VIEW.name==='home')render()},900); /* re-render once voices load */
+</script></body></html>
