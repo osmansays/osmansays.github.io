@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
+    <title>YKI Exam Practice - Gimara Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .auth-section {
+            display: none;
+        }
+
+        .auth-section.active {
+            display: block;
+        }
+
+        .login-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-logout {
+            background: #f5f5f5;
+            color: #666;
+            border: 2px solid #ddd;
+            margin-top: 20px;
+            width: auto;
+            float: right;
+        }
+
+        .btn-logout:hover {
+            background: #e8e8e8;
+            border-color: #999;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #d32f2f;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.authenticated {
+            display: block;
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .theme-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-color: #667eea;
+        }
+
+        .theme-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .theme-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .theme-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .practice-section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .practice-section.active {
+            display: block;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #e8e8e8;
+            border-color: #999;
+        }
+
+        .practice-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .exercise {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .exercise-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .exercise-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .writing-area {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+
+        .writing-area:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .model-answer {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .model-answer.show {
+            display: block;
+        }
+
+        .model-answer-title {
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .model-answer-text {
+            color: #333;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .btn-show-answer {
+            background: #4caf50;
+            padding: 8px 16px;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s;
+        }
+
+        .btn-show-answer:hover {
+            background: #45a049;
+        }
+
+        .btn-show-answer.hide {
+            background: #999;
+        }
+
+        .word-counter {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        .topic-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .topic-tab {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .topic-tab:hover {
+            border-color: #667eea;
+        }
+
+        .topic-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .topic-content {
+            display: none;
+        }
+
+        .topic-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .practice-section {
+                padding: 20px;
+            }
+
+            .btn-logout {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 YKI Exam Practice</h1>
+            <p>Gimara Course - Interactive Writing Practice (Speaking replaced with Writing)</p>
+        </div>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="auth-section active">
+            <div class="login-form">
+                <h2 style="text-align: center; color: #667eea; margin-bottom: 20px;">Access Exam Practice</h2>
+                <div id="errorMessage" class="error-message"></div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter password" autocomplete="off">
+                </div>
+                <button class="btn" onclick="checkPassword()">Enter Practice</button>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div id="contentSection" class="content">
+            <!-- Themes Grid -->
+            <div id="themesView">
+                <div class="themes-grid">
+                    <div class="theme-card" onclick="selectTheme('tema1')">
+                        <div class="theme-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Tema 1</h3>
+                        <p><strong>Människan och omgivningen</strong></p>
+                        <p>Family, relationships, home life, and social interactions</p>
+                    </div>
+                    <div class="theme-card" onclick="selectTheme('tema2')">
+                        <div class="theme-icon">🛍️</div>
+                        <h3>Tema 2</h3>
+                        <p><strong>Vardagsliv</strong></p>
+                        <p>Shopping, everyday activities, consumer behavior, and services</p>
+                    </div>
+                    <div class="theme-card" onclick="selectTheme('tema3')">
+                        <div class="theme-icon">🌿</div>
+                        <h3>Tema 3</h3>
+                        <p><strong>Natur och miljö</strong></p>
+                        <p>Nature, environment, recycling, and natural disasters</p>
+                    </div>
+                    <div class="theme-card" onclick="selectTheme('tema4')">
+                        <div class="theme-icon">❤️</div>
+                        <h3>Tema 4</h3>
+                        <p><strong>Hälsa och välbefinnande</strong></p>
+                        <p>Health, wellness, illness, and medical situations</p>
+                    </div>
+                    <div class="theme-card" onclick="selectTheme('tema5')">
+                        <div class="theme-icon">💼</div>
+                        <h3>Tema 5</h3>
+                        <p><strong>Arbete och utbildning</strong></p>
+                        <p>Work, education, job interviews, and professional situations</p>
+                    </div>
+                    <div class="theme-card" onclick="selectTheme('tema6')">
+                        <div class="theme-icon">🎬</div>
+                        <h3>Tema 6</h3>
+                        <p><strong>Fritid och hobbyer</strong></p>
+                        <p>Leisure, hobbies, entertainment, and cultural activities</p>
+                    </div>
+                    <div class="theme-card" onclick="selectTheme('tema7')">
+                        <div class="theme-icon">🏛️</div>
+                        <h3>Tema 7</h3>
+                        <p><strong>Samhälle</strong></p>
+                        <p>Society, immigration, citizenship, and civic matters</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Sections -->
+            <div id="practiceView" style="display: none;">
+                <button class="back-btn" onclick="goBackToThemes()">← Back to Themes</button>
+
+                <!-- Tema 1: Människan och omgivningen -->
+                <div class="practice-section" id="tema1-practice">
+                    <h2>Tema 1: Människan och omgivningen</h2>
+
+                    <div class="topic-tabs">
+                        <div class="topic-tab active" onclick="switchTopic(this, 'dialogs')">Dialogues & Responses</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'writing')">Writing Exercises</div>
+                        <div class="topic-tab" onclick="switchTopic(this, 'opinion')">Opinion Essays</div>
+                    </div>
+
+                    <!-- Dialogs -->
+                    <div class="topic-content active" id="dialogs">
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 1: A Friend Visits</div>
+                            <div class="exercise-description">
+                                Your friend has come to visit. Greet them, offer something to drink, describe your home, and discuss what's good and bad about your apartment.
+                            </div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Det var verkligen snällt av dig att bjuda in mig på besök. Tack för inbjudan!
+
+Jag skulle gärna ta en kopp kaffe om du har. Din lägenhet är mycket vacker! Jag älskar möbel och färgerna här.
+
+Det som är bra med lägenheten är att det är ljust och stort, nära kollektivtrafiken, och grannarna är trevliga. Dessutom är hyran rimlig för området.
+
+Det som skulle kunna vara bättre är att det finns för mycket trafik utanför på gatan, så det är lite bullrigt på morgonen och kvällen. Och vi har små fönster i sovrum vilket gör det ganska mörkt.</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 2: Your Friend is Leaving</div>
+                            <div class="exercise-description">
+                                Your friend is leaving after visiting. Thank them, ask about their plans, and either accept or decline to drive them somewhere.
+                            </div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Vad har du planerat för de kommande dagarna? Jag hoppas att du ska kunna komma tillbaka snart!
+
+Tyvärr kan jag inte köra dig idag eftersom jag måste jobba kvar och slutföra ett projekt. Men jag kan erbjuda dig att åka taxi eller så kan du ta bussen från huvudstationen.
+
+Tack för att du var här! Det var verkligen trevligt att träffas. Vi ses igen mycket snart!</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Dialog 3: Congratulating a Friend on New Job</div>
+                            <div class="exercise-description">
+                                You heard your friend got a new job. Call and congratulate them. Ask about the job and agree on a time to talk more.
+                            </div>
+                            <textarea class="writing-area" placeholder="Write your response here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej! Det är jag, Osman. Jag hörde att du har fått ett nytt jobb - grattis! Jag ville bara ringa och säga att jag är så glad för dig!
+
+Berätta, hur är jobbet? Vad ska du göra där?
+
+Visst, jag förstår att du är mycket busy just nu. Kan jag ringa dig igen ikväll? Jag skulle vilja höra mer om ditt nya jobb.
+
+Tack för att du tog telefonen! Vi talar senare. Ha en fin dag!</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Writing Exercises -->
+                    <div class="topic-content" id="writing">
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 1: Message for a Friend's Celebration</div>
+                            <div class="exercise-description">
+                                Something important has happened to your friend. Write a message to congratulate them.
+                                Include: what happened, your opinion, and how you want to celebrate together.
+                            </div>
+                            <textarea class="writing-area" placeholder="Write your message here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer (Example - New Baby):</div>
+                                <div class="model-answer-text">Kära vän,
+
+Jag fick veta att du har fått en bebis - grattis! Det är mycket glädjande nyheter!
+
+Jag är så glad för er och tror att ni kommer att vara utmärkta föräldrar. Det nya livet kommer att ge er så mycket glädje och nya upplevelser.
+
+Jag skulle vilja komma och besöka er när ni är redo. Jag kan ta med mat eller kläder till barnet. Låt mig veta när det passar att komma!
+
+Med varma hälsningar och lyckönskningar!</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Writing 2: Email to Real Estate Agent</div>
+                            <div class="exercise-description">
+                                You're looking for a new apartment. Write an email to a real estate agent about:
+                                What type of housing you're looking for, location requirements, budget, and when you want to move.
+                            </div>
+                            <textarea class="writing-area" placeholder="Write your email here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Hej!
+
+Jag är på väg att söka efter en ny lägenhet i Espoo och hoppades att ni kunde hjälpa mig.
+
+Jag letar efter en tvårummers lägenhet som är modern och luminös. Det är viktigt för mig att det ligger nära kollektivtrafiken och att det finns bra butiker i närområdet. Jag skulle också vilja bo nära skolor och parker.
+
+Min budget är omkring 1200-1400 euro per månad för hyran.
+
+Jag skulle vilja flytta senast i oktober. Kan ni skicka några förslag på lägenheter som passar mina behov?
+
+Tack på förhand!
+Med vänliga hälsningar,
+Osman</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Opinion Essays -->
+                    <div class="topic-content" id="opinion">
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: "Swedish Parties are Boring"</div>
+                            <div class="exercise-description">
+                                Write an essay about what you think of Swedish/Finnish parties.
+                                Include: what happens at these parties, why they might be boring or fun, and your personal opinion.
+                            </div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Svenska och finländska fester kan ibland vara lite tråkiga jämfört med fester i mitt hemland.
+
+Vad skiljer dem? I sverige börjar fester ofta senare på kvällen, och folk talar mycket in formell miljö. Dessutom drinkar många ganska mycket, vilket gör att de blev tystare istället för livligare.
+
+Men å andra sidan är det positivt att fester är väl organiserade och att maten är mycket bra. Folk är också vänliga och respektfulli, även om de inte dansar så mycket.
+
+Min åsikt är att svenska fester inte är tråkiga, men de är annorlunda från vad jag är van vid. Det är en väl annorlunda kultur, och jag försöker njuta av båda typerna av fester. Det viktigaste är att träffa vänner och ha det roligt tillsammans.</div>
+                            </div>
+                        </div>
+
+                        <div class="exercise">
+                            <div class="exercise-title">Opinion: "Good Relationships Require Work"</div>
+                            <div class="exercise-description">
+                                Write about what makes a good relationship and how to maintain it.
+                                Include: what a good relationship is, how to care for it, and what kind of partner you value.
+                            </div>
+                            <textarea class="writing-area" placeholder="Write your opinion here..."></textarea>
+                            <div class="word-counter">Word count: <span>0</span></div>
+                            <button class="btn-show-answer" onclick="toggleAnswer(this)">Show Model Answer</button>
+                            <div class="model-answer">
+                                <div class="model-answer-title">Model Answer:</div>
+                                <div class="model-answer-text">Jag tycker att ett bra förhållande kräver mycket arbete och engagemang från båda parter.
+
+Vad är ett bra förhållande? Det handlar om tillit, respekt, öppen kommunikation och att visa kärlek. Det är viktigt att kunna diskutera problem öppet utan att bråka.
+
+Hur tar man hand om sitt förhållande? Genom att höra och lyssna på sin partner, genom att ge komplimanger och uttrycka sin kärlek ofta, och genom att spendera tid tillsammans. Det är också viktigt att ha gemensamma intressen och mål.
+
+Vilka egenskaper värderar jag hos en partner? Jag tycker att det är viktigt med ärlighet, humor, tålamod och att vilja utvecklas som person. En bra partner ska stödja mig i mina drömmar och vara där för mig i svåra tider.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tema 2 -->
+                <div class="practice-section" id="tema2-practice">
+                    <h2>Tema 2: Vardagsliv</h2>
+                    <p><em>Coming soon - Similar practice structure for Theme 2: Daily Life (Shopping, Services, Transport)</em></p>
+                </div>
+
+                <!-- Tema 3 -->
+                <div class="practice-section" id="tema3-practice">
+                    <h2>Tema 3: Natur och miljö</h2>
+                    <p><em>Coming soon - Similar practice structure for Theme 3: Nature and Environment</em></p>
+                </div>
+
+                <!-- Tema 4 -->
+                <div class="practice-section" id="tema4-practice">
+                    <h2>Tema 4: Hälsa och välbefinnande</h2>
+                    <p><em>Coming soon - Similar practice structure for Theme 4: Health and Wellness</em></p>
+                </div>
+
+                <!-- Tema 5 -->
+                <div class="practice-section" id="tema5-practice">
+                    <h2>Tema 5: Arbete och utbildning</h2>
+                    <p><em>Coming soon - Similar practice structure for Theme 5: Work and Education</em></p>
+                </div>
+
+                <!-- Tema 6 -->
+                <div class="practice-section" id="tema6-practice">
+                    <h2>Tema 6: Fritid och hobbyer</h2>
+                    <p><em>Coming soon - Similar practice structure for Theme 6: Leisure and Hobbies</em></p>
+                </div>
+
+                <!-- Tema 7 -->
+                <div class="practice-section" id="tema7-practice">
+                    <h2>Tema 7: Samhälle</h2>
+                    <p><em>Coming soon - Similar practice structure for Theme 7: Society</em></p>
+                </div>
+            </div>
+
+            <button class="btn-logout" onclick="logout()">Logout</button>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="footer">
+            <p>YKI Exam Practice - Based on Gimara Preparation Book</p>
+            <p>© 2026 - Swedish Language Learning</p>
+        </div>
+    </div>
+
+    <script>
+        // Check if already authenticated
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('yki_authenticated') === 'true') {
+                showContent();
+            }
+        });
+
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'MyVoip338!';
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (password === correctPassword) {
+                sessionStorage.setItem('yki_authenticated', 'true');
+                showContent();
+                errorMessage.classList.remove('show');
+            } else {
+                errorMessage.textContent = 'Incorrect password. Please try again.';
+                errorMessage.classList.add('show');
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+            }
+        }
+
+        function showContent() {
+            document.getElementById('loginSection').classList.remove('active');
+            document.getElementById('contentSection').classList.add('authenticated');
+        }
+
+        function logout() {
+            sessionStorage.removeItem('yki_authenticated');
+            document.getElementById('loginSection').classList.add('active');
+            document.getElementById('contentSection').classList.remove('authenticated');
+            document.getElementById('password').value = '';
+            document.getElementById('password').focus();
+            goBackToThemes();
+        }
+
+        function selectTheme(themeId) {
+            document.getElementById('themesView').style.display = 'none';
+            document.getElementById('practiceView').style.display = 'block';
+
+            // Hide all practice sections
+            document.querySelectorAll('.practice-section').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Show selected theme
+            document.getElementById(themeId + '-practice').classList.add('active');
+        }
+
+        function goBackToThemes() {
+            document.getElementById('themesView').style.display = 'block';
+            document.getElementById('practiceView').style.display = 'none';
+        }
+
+        function switchTopic(element, topicId) {
+            // Update tabs
+            element.parentElement.querySelectorAll('.topic-tab').forEach(el => {
+                el.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            // Update content
+            const currentSection = element.closest('.practice-section');
+            currentSection.querySelectorAll('.topic-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            currentSection.querySelector('#' + topicId).classList.add('active');
+        }
+
+        function toggleAnswer(button) {
+            const modelAnswer = button.nextElementSibling;
+            modelAnswer.classList.toggle('show');
+            button.textContent = modelAnswer.classList.contains('show') ? 'Hide Answer' : 'Show Model Answer';
+            button.classList.toggle('hide');
+        }
+
+        // Word counter
+        document.addEventListener('input', function(e) {
+            if (e.target.classList.contains('writing-area')) {
+                const text = e.target.value.trim();
+                const wordCount = text ? text.split(/\s+/).length : 0;
+                const counter = e.target.nextElementSibling;
+                if (counter && counter.classList.contains('word-counter')) {
+                    counter.querySelector('span').textContent = wordCount;
+                }
+            }
+        });
+
+        // Allow Enter key to submit password
+        document.getElementById('password').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>
