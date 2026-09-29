@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
+    <title>YKI Vocabulary Practice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #e8e8e8;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .vocab-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .vocab-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .vocab-swedish {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .vocab-english {
+            color: #666;
+            font-size: 0.95em;
+            display: none;
+        }
+
+        .vocab-card.revealed .vocab-english {
+            display: block;
+        }
+
+        .vocab-example {
+            color: #999;
+            font-size: 0.85em;
+            margin-top: 10px;
+            font-style: italic;
+            display: none;
+        }
+
+        .vocab-card.revealed .vocab-example {
+            display: block;
+        }
+
+        .quiz-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 12px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f0f0;
+        }
+
+        .option.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .option.correct {
+            background: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+
+        .option.incorrect {
+            background: #d32f2f;
+            color: white;
+            border-color: #d32f2f;
+        }
+
+        .theme-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .theme-tab {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .theme-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .btn-flip {
+            width: 100%;
+            padding: 10px;
+            background: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .btn-flip:hover {
+            background: #0b7dda;
+        }
+
+        .stats {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #1565c0;
+        }
+
+        .hint {
+            background: #fff9c4;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #fbc02d;
+            margin-bottom: 15px;
+        }
+
+        .hint strong {
+            color: #f57f17;
+        }
+
+        @media (max-width: 768px) {
+            .vocab-list {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-tabs {
+                flex-direction: column;
+            }
+
+            .theme-tab {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="goBack()">← Back to Menu</button>
+
+        <div class="header">
+            <h1>📝 Vocabulary Practice</h1>
+            <p>Master YKI Theme Vocabulary</p>
+        </div>
+
+        <!-- TEMA 1: MÄNNISKAN OCH OMGIVNINGEN -->
+        <div class="section">
+            <h2>Tema 1: Människan och Omgivningen</h2>
+            <p style="color: #666; margin-bottom: 20px;">The Person and the Surroundings</p>
+
+            <div class="hint">
+                <strong>💡 Tip:</strong> Click each card to reveal the English translation and example sentence. Try to memorize the Swedish words first!
+            </div>
+
+            <div class="vocab-list">
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">familj</div>
+                    <div class="vocab-english">family</div>
+                    <div class="vocab-example">Jag har en stor familj.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">vän</div>
+                    <div class="vocab-english">friend</div>
+                    <div class="vocab-example">Min bästa vän heter Anna.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">granne</div>
+                    <div class="vocab-english">neighbor</div>
+                    <div class="vocab-example">Min granne är mycket snäll.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">hem</div>
+                    <div class="vocab-english">home</div>
+                    <div class="vocab-example">Mitt hem är i Finland.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">lägenhet</div>
+                    <div class="vocab-english">apartment</div>
+                    <div class="vocab-example">Jag bor i en liten lägenhet.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">möbler</div>
+                    <div class="vocab-english">furniture</div>
+                    <div class="vocab-example">Vi köpte nya möbler till sovrummet.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">relation</div>
+                    <div class="vocab-english">relationship</div>
+                    <div class="vocab-example">En bra relation kräver tillit.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">vänskaps</div>
+                    <div class="vocab-english">friendship</div>
+                    <div class="vocab-example">Vänskapen mellan oss är viktig.</div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <h3 style="margin-bottom: 15px;">Quick Quiz</h3>
+                <div class="quiz-question">
+                    <div class="question-text">1. What does "granne" mean?</div>
+                    <div class="quiz-options">
+                        <div class="option" onclick="selectAnswer(this, 'neighbor')">neighbor</div>
+                        <div class="option" onclick="selectAnswer(this, 'family')">family</div>
+                        <div class="option" onclick="selectAnswer(this, 'friend')">friend</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMA 2: VARDAGSLIV -->
+        <div class="section">
+            <h2>Tema 2: Vardagsliv</h2>
+            <p style="color: #666; margin-bottom: 20px;">Everyday Life & Shopping</p>
+
+            <div class="vocab-list">
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">butik</div>
+                    <div class="vocab-english">store/shop</div>
+                    <div class="vocab-example">Jag går till butiken för att köpa mat.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">vara</div>
+                    <div class="vocab-english">item/product</div>
+                    <div class="vocab-example">Denna vara kostar 50 euro.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">pris</div>
+                    <div class="vocab-english">price</div>
+                    <div class="vocab-example">Priset på denna skjorta är mycket högt.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">säljare</div>
+                    <div class="vocab-english">seller/shop assistant</div>
+                    <div class="vocab-example">Säljaren hjälpte mig att hitta rätt storlek.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">returnera</div>
+                    <div class="vocab-english">to return</div>
+                    <div class="vocab-example">Kan jag returnera denna skjorta?</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">fel</div>
+                    <div class="vocab-english">fault/defect</div>
+                    <div class="vocab-example">Det finns ett fel med denna produkt.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">betala</div>
+                    <div class="vocab-english">to pay</div>
+                    <div class="vocab-example">Jag betalar med kort.</div>
+                </div>
+                <div class="vocab-card" onclick="this.classList.toggle('revealed')">
+                    <div class="vocab-swedish">kvittot</div>
+                    <div class="vocab-english">receipt</div>
+                    <div class="vocab-example">Kan jag få ett kvitto för köpet?</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMA 3-7 PREVIEW -->
+        <div class="section">
+            <h2>Additional Themes Available</h2>
+            <p style="color: #666; margin-bottom: 20px;">Click below to practice vocabulary for each theme:</p>
+
+            <div class="theme-tabs" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <div style="padding: 15px; background: #e3f2fd; border-radius: 8px; flex: 1; min-width: 200px;">
+                    <h3 style="color: #1565c0; margin-bottom: 8px;">Tema 3: Natur & Miljö</h3>
+                    <p style="color: #666; font-size: 0.9em;">skog, sjö, miljö, återvinna, skydda</p>
+                </div>
+                <div style="padding: 15px; background: #f3e5f5; border-radius: 8px; flex: 1; min-width: 200px;">
+                    <h3 style="color: #512da8; margin-bottom: 8px;">Tema 4: Hälsa & Välbefinnande</h3>
+                    <p style="color: #666; font-size: 0.9em;">sjuk, medicin, läkare, tandläkare, symptom</p>
+                </div>
+                <div style="padding: 15px; background: #fff3e0; border-radius: 8px; flex: 1; min-width: 200px;">
+                    <h3 style="color: #f57f17; margin-bottom: 8px;">Tema 5: Arbete & Utbildning</h3>
+                    <p style="color: #666; font-size: 0.9em;">jobb, chef, kollega, löne, möte</p>
+                </div>
+                <div style="padding: 15px; background: #e8f5e9; border-radius: 8px; flex: 1; min-width: 200px;">
+                    <h3 style="color: #2e7d32; margin-bottom: 8px;">Tema 6: Fritid & Hobbyer</h3>
+                    <p style="color: #666; font-size: 0.9em;">hobby, sport, musik, läsa, resa</p>
+                </div>
+                <div style="padding: 15px; background: #eceff1; border-radius: 8px; flex: 1; min-width: 200px;">
+                    <h3 style="color: #263238; margin-bottom: 8px;">Tema 7: Samhälle</h3>
+                    <p style="color: #666; font-size: 0.9em;">lag, rätt, plikt, regering, jämlikhet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEARNING TIPS -->
+        <div class="section">
+            <h2>📚 Vocabulary Learning Tips</h2>
+
+            <div style="line-height: 1.8; color: #666;">
+                <p><strong style="color: #333;">1. Flashcard Method:</strong> Use Quizlet or write words on cards. Swedish on one side, English on the other. Review daily for 15 minutes.</p>
+
+                <p style="margin-top: 15px;"><strong style="color: #333;">2. Context Learning:</strong> Always learn words in sentences, not isolation. The example sentences on cards above show you how each word is used.</p>
+
+                <p style="margin-top: 15px;"><strong style="color: #333;">3. Spaced Repetition:</strong> Review vocabulary you learned:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>After 1 day</li>
+                    <li>After 3 days</li>
+                    <li>After 1 week</li>
+                    <li>After 2 weeks</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong style="color: #333;">4. Speaking Practice:</strong> Say words out loud as you study. Pronunciation matters for the YKI exam!</p>
+
+                <p style="margin-top: 15px;"><strong style="color: #333;">5. Listening:</strong> Listen to Swedish songs, podcasts, or YouTube videos. Try to catch vocabulary words you've learned.</p>
+
+                <p style="margin-top: 15px;"><strong style="color: #333;">6. Theme-Based Study:</strong> Focus on one theme at a time. This way you learn related vocabulary together, which helps memory.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function selectAnswer(element, answer) {
+            // Remove previous selections
+            const siblings = element.parentElement.querySelectorAll('.option');
+            siblings.forEach(sibling => sibling.classList.remove('selected', 'correct', 'incorrect'));
+
+            // Mark as selected
+            element.classList.add('selected');
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

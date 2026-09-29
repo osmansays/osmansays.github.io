@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
+    <title>YKI Grammar Practice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #e8e8e8;
+            border-color: #999;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .exercise {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .exercise-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .exercise-text {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .answer-hint {
+            font-size: 0.85em;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .btn-check {
+            background: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-check:hover {
+            background: #45a049;
+        }
+
+        .btn-show {
+            background: #2196f3;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .btn-show:hover {
+            background: #0b7dda;
+        }
+
+        .answer-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .answer-box.show {
+            display: block;
+        }
+
+        .correct {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .incorrect {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+
+        .grammar-rule {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin-bottom: 20px;
+        }
+
+        .grammar-rule h3 {
+            color: #1565c0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .grammar-rule p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .example {
+            background: #fff9c4;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .tab-btn:hover {
+            border-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .beginner {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .intermediate {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+
+        .advanced {
+            background: #ffccbc;
+            color: #d84315;
+        }
+
+        .progress-bar {
+            background: #f0f0f0;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            background: #667eea;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="goBack()">← Back to Menu</button>
+
+        <div class="header">
+            <h1>📖 Grammar Practice</h1>
+            <p>Master Swedish Grammar for YKI Exam</p>
+        </div>
+
+        <!-- SECTION 1: VERB CONJUGATION -->
+        <div class="section">
+            <h2>Verb Conjugation: Present & Past Tense</h2>
+
+            <div class="grammar-rule">
+                <h3>🎯 How Swedish Verbs Work</h3>
+                <p><strong>Present Tense:</strong> All verbs add -R to the base form</p>
+                <p class="example">jobba → jobbar, äta → äter, köpa → köper</p>
+                <p><strong>Past Tense:</strong> Group 1 (AR verbs) add -DE, Group 2 (ER verbs) modify the ending</p>
+                <p class="example">jobbar → jobbade, äter → åt, köper → köpte</p>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 1: Present Tense <span class="difficulty beginner">Beginner</span></div>
+                <div class="exercise-text">Fill in the correct present tense form:</div>
+                <div class="input-group">
+                    <p>Jag _____ (tala) svenska varje dag.</p>
+                    <input type="text" id="ex1" placeholder="Answer">
+                    <div class="answer-hint">Hint: This is an AR verb</div>
+                    <button class="btn-check" onclick="checkAnswer('ex1', 'talar')">Check</button>
+                    <button class="btn-show" onclick="toggleAnswer('ans1')">Show Answer</button>
+                    <div id="ans1" class="answer-box"><strong>Answer:</strong> talar (I speak Swedish every day)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 2: Past Tense <span class="difficulty beginner">Beginner</span></div>
+                <div class="exercise-text">Fill in the correct past tense form:</div>
+                <div class="input-group">
+                    <p>Jag _____ (äta) pizza igår kväll.</p>
+                    <input type="text" id="ex2" placeholder="Answer">
+                    <div class="answer-hint">Hint: Irregular verb - "ät"</div>
+                    <button class="btn-check" onclick="checkAnswer('ex2', 'åt')">Check</button>
+                    <button class="btn-show" onclick="toggleAnswer('ans2')">Show Answer</button>
+                    <div id="ans2" class="answer-box"><strong>Answer:</strong> åt (I ate pizza yesterday evening)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 3: Mixed Tenses <span class="difficulty intermediate">Intermediate</span></div>
+                <div class="exercise-text">Fill in both present and past forms:</div>
+                <div class="input-group">
+                    <p>Han _____ (köpa) en bil varje år. Förra året _____ han en Tesla.</p>
+                    <input type="text" id="ex3a" placeholder="Present form">
+                    <input type="text" id="ex3b" placeholder="Past form" style="margin-top: 10px;">
+                    <button class="btn-check" onclick="checkAnswer('ex3a', 'köper'); checkAnswer('ex3b', 'köpte')">Check</button>
+                    <button class="btn-show" onclick="toggleAnswer('ans3')">Show Answer</button>
+                    <div id="ans3" class="answer-box"><strong>Answer:</strong> köper / köpte (He buys a car every year. Last year he bought a Tesla)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: WORD ORDER -->
+        <div class="section">
+            <h2>Word Order: The Golden Rule</h2>
+
+            <div class="grammar-rule">
+                <h3>🎯 Swedish Word Order Rules</h3>
+                <p><strong>Position 1 (Fundament):</strong> Can be 1+ words (PERSON, PLACE, or TIME)</p>
+                <p><strong>Position 2 (VERB):</strong> Always comes 2nd - this is the GOLDEN RULE</p>
+                <p><strong>Position 3+:</strong> Subject (if not in position 1), adverbials (inte, alltid, ofta), object, adverbs</p>
+                <p class="example">Jag | talar | svenska | varje dag. (I speak Swedish every day)</p>
+                <p class="example">Varje dag | talar | jag | svenska. (Every day I speak Swedish - same meaning, different emphasis)</p>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 1: Basic Word Order <span class="difficulty beginner">Beginner</span></div>
+                <div class="exercise-text">Arrange the words in correct order:</div>
+                <div class="input-group">
+                    <p>Words: varje | dag | till | jag | jobbet | går</p>
+                    <input type="text" id="wo1" placeholder="Write the sentence">
+                    <div class="answer-hint">Hint: Start with "Jag" and remember verb is 2nd</div>
+                    <button class="btn-check" onclick="checkAnswer('wo1', 'jag går till jobbet varje dag', true)">Check</button>
+                    <button class="btn-show" onclick="toggleAnswer('wo-ans1')">Show Answer</button>
+                    <div id="wo-ans1" class="answer-box"><strong>Answer:</strong> Jag går till jobbet varje dag. (I go to work every day)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 2: Fronting the Adverbial <span class="difficulty intermediate">Intermediate</span></div>
+                <div class="exercise-text">Rearrange to put the time adverbial first:</div>
+                <div class="input-group">
+                    <p>Original: Jag tränar på gymmet på morgonen.</p>
+                    <p>Rearrange starting with "På morgonen":</p>
+                    <input type="text" id="wo2" placeholder="Write the sentence">
+                    <div class="answer-hint">Hint: After adverbial, verb comes next</div>
+                    <button class="btn-show" onclick="toggleAnswer('wo-ans2')">Show Answer</button>
+                    <div id="wo-ans2" class="answer-box"><strong>Answer:</strong> På morgonen tränar jag på gymmet. (In the morning I train at the gym - same meaning, different word order for emphasis)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 3: Negation Placement <span class="difficulty intermediate">Intermediate</span></div>
+                <div class="exercise-text">Add "inte" (not) in the correct position:</div>
+                <div class="input-group">
+                    <p>Jag gillar att dricka kaffe.</p>
+                    <p>Rewrite with "inte":</p>
+                    <input type="text" id="wo3" placeholder="Write the sentence with inte">
+                    <div class="answer-hint">Hint: "inte" goes after the verb</div>
+                    <button class="btn-show" onclick="toggleAnswer('wo-ans3')">Show Answer</button>
+                    <div id="wo-ans3" class="answer-box"><strong>Answer:</strong> Jag gillar inte att dricka kaffe. (I don't like to drink coffee)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: ADJECTIVES -->
+        <div class="section">
+            <h2>Adjectives: En, Ett, Plural Forms</h2>
+
+            <div class="grammar-rule">
+                <h3>🎯 Swedish Adjective Rules</h3>
+                <p><strong>EN nouns:</strong> Adjective stays as is → en rolig film</p>
+                <p><strong>ETT nouns:</strong> Adjective adds -T → ett roligt jobb</p>
+                <p><strong>Plural:</strong> Adjective adds -A → två roliga filmer</p>
+                <p class="example">rolig / roligt / roliga, dyr / dyrt / dyra, stor / stort / stora</p>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 1: Gender Agreement <span class="difficulty beginner">Beginner</span></div>
+                <div class="exercise-text">Fill in the correct adjective form:</div>
+                <div class="input-group">
+                    <p>En _____ (stor) hund och ett _____ (stor) hus</p>
+                    <input type="text" id="adj1a" placeholder="For en noun">
+                    <input type="text" id="adj1b" placeholder="For ett noun" style="margin-top: 10px;">
+                    <button class="btn-check" onclick="checkAnswer('adj1a', 'stor'); checkAnswer('adj1b', 'stort')">Check</button>
+                    <button class="btn-show" onclick="toggleAnswer('adj-ans1')">Show Answer</button>
+                    <div id="adj-ans1" class="answer-box"><strong>Answer:</strong> stor / stort (A big dog and a big house)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 2: Plural Forms <span class="difficulty beginner">Beginner</span></div>
+                <div class="exercise-text">Rewrite in plural:</div>
+                <div class="input-group">
+                    <p>Original: En tråkig film</p>
+                    <p>Plural (many boring films):</p>
+                    <input type="text" id="adj2" placeholder="Write in plural">
+                    <div class="answer-hint">Hint: Use "många" or "två"</div>
+                    <button class="btn-show" onclick="toggleAnswer('adj-ans2')">Show Answer</button>
+                    <div id="adj-ans2" class="answer-box"><strong>Answer:</strong> Många tråkiga filmer (Many boring films)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 3: Complex Adjectives <span class="difficulty advanced">Advanced</span></div>
+                <div class="exercise-text">Fill in all forms of the adjective:</div>
+                <div class="input-group">
+                    <p>Min _____ (ny) bil är _____ (ny). Båda _____ (ny) bilarna är snabba.</p>
+                    <input type="text" id="adj3a" placeholder="For en noun (min bil är...)">
+                    <input type="text" id="adj3b" placeholder="For ett noun (ett nytt hus är...)" style="margin-top: 10px;">
+                    <input type="text" id="adj3c" placeholder="For plural (två nya bilar)" style="margin-top: 10px;">
+                    <button class="btn-show" onclick="toggleAnswer('adj-ans3')">Show Answer</button>
+                    <div id="adj-ans3" class="answer-box"><strong>Answer:</strong> ny / nytt / nya (My new car is new. Both new cars are fast)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: HELPING VERBS -->
+        <div class="section">
+            <h2>Helping Verbs + Infinitive</h2>
+
+            <div class="grammar-rule">
+                <h3>🎯 Helping Verbs (Hjälpverb)</h3>
+                <p><strong>KAN</strong> - can/able to → Han kan simma. (He can swim)</p>
+                <p><strong>MÅSTE</strong> - must/have to → Jag måste jobba. (I must work)</p>
+                <p><strong>VILL</strong> - want → Vi vill äta pizza. (We want to eat pizza)</p>
+                <p><strong>SKA</strong> - will/going to (future) → Hon ska komma imorgon. (She's going to come tomorrow)</p>
+                <p class="example">Pattern: HELPING VERB + INFINITIVE (base form of other verb)</p>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 1: KAN vs MÅSTE <span class="difficulty beginner">Beginner</span></div>
+                <div class="exercise-text">Fill in KAN or MÅSTE:</div>
+                <div class="input-group">
+                    <p>Du _____ plugga svenska för att klara provet.</p>
+                    <input type="text" id="hv1" placeholder="KAN or MÅSTE?">
+                    <button class="btn-check" onclick="checkAnswer('hv1', 'måste')">Check</button>
+                    <button class="btn-show" onclick="toggleAnswer('hv-ans1')">Show Answer</button>
+                    <div id="hv-ans1" class="answer-box"><strong>Answer:</strong> måste (You must study Swedish to pass the test)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 2: Complete the Infinitive <span class="difficulty intermediate">Intermediate</span></div>
+                <div class="exercise-text">Fill in the helping verb and infinitive:</div>
+                <div class="input-group">
+                    <p>Jag _____ (vill) _____ (köpa) en ny lägenhet.</p>
+                    <input type="text" id="hv2a" placeholder="Helping verb">
+                    <input type="text" id="hv2b" placeholder="Infinitive" style="margin-top: 10px;">
+                    <button class="btn-show" onclick="toggleAnswer('hv-ans2')">Show Answer</button>
+                    <div id="hv-ans2" class="answer-box"><strong>Answer:</strong> vill / köpa (I want to buy a new apartment)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 3: SKA for Future <span class="difficulty intermediate">Intermediate</span></div>
+                <div class="exercise-text">Translate using SKA:</div>
+                <div class="input-group">
+                    <p>"I'm going to study tonight."</p>
+                    <input type="text" id="hv3" placeholder="Translate using SKA">
+                    <button class="btn-show" onclick="toggleAnswer('hv-ans3')">Show Answer</button>
+                    <div id="hv-ans3" class="answer-box"><strong>Answer:</strong> Jag ska plugga ikväll. (I'm going to study tonight)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: POSSESSIVE PRONOUNS -->
+        <div class="section">
+            <h2>Possessive Pronouns & Pronouns</h2>
+
+            <div class="grammar-rule">
+                <h3>🎯 Possessive Pronouns</h3>
+                <p><strong>MIN/MITT/MINA</strong> - my | <strong>DIN/DITT/DINA</strong> - your</p>
+                <p><strong>HANS</strong> - his | <strong>HENNES</strong> - her | <strong>VÅRT/VÅR/VÅRA</strong> - our</p>
+                <p><strong>ER/ERT/ERA</strong> - your (plural) | <strong>DERAS</strong> - their</p>
+                <p class="example">min bil (my car), mitt hus (my house), mina böcker (my books)</p>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 1: Mine/Yours/His/Hers <span class="difficulty beginner">Beginner</span></div>
+                <div class="exercise-text">Fill in the correct possessive pronoun:</div>
+                <div class="input-group">
+                    <p>Det är _____ (I) lägenhet och _____ (he) lägenhet.</p>
+                    <input type="text" id="poss1a" placeholder="For 'I'">
+                    <input type="text" id="poss1b" placeholder="For 'he'" style="margin-top: 10px;">
+                    <button class="btn-check" onclick="checkAnswer('poss1a', 'min'); checkAnswer('poss1b', 'hans')">Check</button>
+                    <button class="btn-show" onclick="toggleAnswer('poss-ans1')">Show Answer</button>
+                    <div id="poss-ans1" class="answer-box"><strong>Answer:</strong> min / hans (It's my apartment and his apartment)</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="exercise-title">Exercise 2: Gender Agreement with Possessives <span class="difficulty intermediate">Intermediate</span></div>
+                <div class="exercise-text">Fill in the correct form (min/mitt/mina):</div>
+                <div class="input-group">
+                    <p>_____ auto, _____ hus, _____ djur</p>
+                    <input type="text" id="poss2a" placeholder="For 'bil' (en)">
+                    <input type="text" id="poss2b" placeholder="For 'hus' (ett)" style="margin-top: 10px;">
+                    <input type="text" id="poss2c" placeholder="For 'djur' (plural)" style="margin-top: 10px;">
+                    <button class="btn-show" onclick="toggleAnswer('poss-ans2')">Show Answer</button>
+                    <div id="poss-ans2" class="answer-box"><strong>Answer:</strong> min bil / mitt hus / mina djur</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function checkAnswer(inputId, correctAnswer, approximate = false) {
+            const input = document.getElementById(inputId);
+            const value = input.value.toLowerCase().trim();
+            const correct = correctAnswer.toLowerCase().trim();
+
+            if (approximate) {
+                if (value.includes(correct) || correct.includes(value)) {
+                    input.style.borderColor = '#4caf50';
+                    input.parentElement.innerHTML += '<div class="correct">✓ Correct!</div>';
+                } else {
+                    input.style.borderColor = '#d32f2f';
+                    input.parentElement.innerHTML += '<div class="incorrect">✗ Try again</div>';
+                }
+            } else {
+                if (value === correct) {
+                    input.style.borderColor = '#4caf50';
+                    input.parentElement.innerHTML += '<div class="correct">✓ Correct!</div>';
+                } else {
+                    input.style.borderColor = '#d32f2f';
+                    input.parentElement.innerHTML += '<div class="incorrect">✗ Not quite. Try again!</div>';
+                }
+            }
+        }
+
+        function toggleAnswer(id) {
+            const box = document.getElementById(id);
+            box.classList.toggle('show');
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, notranslate, noimageindex">
+    <title>YKI Email Writing Practice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #e8e8e8;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .task-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .task-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .requirements {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #2196f3;
+            margin-bottom: 15px;
+        }
+
+        .requirements-title {
+            font-weight: 600;
+            color: #1565c0;
+            margin-bottom: 8px;
+        }
+
+        .requirements ul {
+            margin-left: 20px;
+            color: #333;
+        }
+
+        .requirements li {
+            margin-bottom: 5px;
+        }
+
+        .email-template {
+            background: #fff9c4;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #fbc02d;
+            margin-bottom: 15px;
+        }
+
+        .template-title {
+            font-weight: 600;
+            color: #f57f17;
+            margin-bottom: 10px;
+        }
+
+        .template-text {
+            font-family: 'Courier New', monospace;
+            color: #333;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        .template-text .placeholder {
+            background: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .writing-area {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+
+        .writing-area:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .word-count {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 8px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-submit {
+            background: #4caf50;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-submit:hover {
+            background: #45a049;
+        }
+
+        .btn-clear {
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        .btn-clear:hover {
+            background: #e8e8e8;
+        }
+
+        .btn-show {
+            background: #2196f3;
+            color: white;
+        }
+
+        .btn-show:hover {
+            background: #0b7dda;
+        }
+
+        .model-answer {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .model-answer.show {
+            display: block;
+        }
+
+        .model-title {
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .model-text {
+            font-family: 'Courier New', monospace;
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .tip-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #7c4dff;
+            margin-bottom: 20px;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: #512da8;
+            margin-bottom: 8px;
+        }
+
+        .tip-text {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .checklist {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .checklist-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            color: #333;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .template-text {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="goBack()">← Back to Menu</button>
+
+        <div class="header">
+            <h1>✉️ Email Writing Practice</h1>
+            <p>YKI Writing Tasks 1 & 2</p>
+        </div>
+
+        <!-- TASK 1: INFORMAL EMAIL -->
+        <div class="section">
+            <h2>Task 1: Informal Email</h2>
+
+            <div class="task-box">
+                <div class="task-title">📧 Scenario</div>
+                <div class="task-description">
+                    Your Swedish friend Anna has just told you she got a new job in Helsinki. Write an informal email to congratulate her and suggest meeting up soon.
+                </div>
+            </div>
+
+            <div class="requirements">
+                <div class="requirements-title">✓ Requirements (50-80 words)</div>
+                <ul>
+                    <li>Informal greeting (Hej Anna,)</li>
+                    <li>React to her news (Vad roligt! / Jag är glad för dig!)</li>
+                    <li>Ask how she's feeling or get more details</li>
+                    <li>Suggest meeting up (Vi borde träffas!)</li>
+                    <li>Informal closing (Kram, / Hälsning,)</li>
+                </ul>
+            </div>
+
+            <div class="email-template">
+                <div class="template-title">📝 Email Structure</div>
+                <div class="template-text">Från: [your name]
+Till: anna@email.com
+Ärende: Grattis på det nya jobbet!
+
+Hej Anna,
+
+[Greeting + how are you]
+
+[React to news - congratulate]
+
+[Ask question or suggest something]
+
+[Suggest meeting]
+
+[Informal ending]
+
+[Your name]</div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 Helpful Phrases</div>
+                <div class="tip-text">
+                    • Vad roligt att du har hittat ett nytt jobb! (How exciting that you found a new job!)
+                    • Jag är mycket glad för dig. (I'm very happy for you.)
+                    • Vad sägs om lördag på vårt favoritkafe? (What do you say about Saturday at our favorite café?)
+                    • Vi ses snart! (See you soon!)
+                </div>
+            </div>
+
+            <textarea id="task1" class="writing-area" placeholder="Write your informal email here..."></textarea>
+            <div class="word-count">Word count: <span id="count1">0</span> / 80</div>
+
+            <div class="btn-group">
+                <button class="btn btn-submit" onclick="submitEmail(1)">Check Email</button>
+                <button class="btn btn-clear" onclick="clearText(1)">Clear</button>
+                <button class="btn btn-show" onclick="toggleAnswer('ans1')">Show Model</button>
+            </div>
+
+            <div id="ans1" class="model-answer">
+                <div class="model-title">📋 Model Answer</div>
+                <div class="model-text">Från: Osman
+Till: anna@email.com
+Ärende: Grattis på det nya jobbet!
+
+Hej Anna,
+
+Hur är det med dig? Jag är mycket glad för dig!
+
+Vad roligt att du har hittat ett nytt jobb i Helsingfors! Du måste berätta allt om det. Hur mår du? Är jobbet intressant?
+
+Vi borde träffas snart! Vad sägs om lördag på vårt favoritkafe? Då kan vi prata mer om ditt nya jobb.
+
+Kram,
+Osman</div>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-title">✅ Before Submitting - Check</div>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I included an informal greeting (Hej + first name with comma)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I congratulated her on the news</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I asked a follow-up question or asked for details</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I suggested meeting up with a specific time/place</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I used an informal closing (Kram/Hälsning + first name)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">My email is 50-80 words (check word count above)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I checked grammar and spelling</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- TASK 2: FORMAL EMAIL -->
+        <div class="section">
+            <h2>Task 2: Formal Email</h2>
+
+            <div class="task-box">
+                <div class="task-title">📧 Scenario</div>
+                <div class="task-description">
+                    You're interested in renting an apartment you saw online. Write a formal email to the landlord asking about availability and details about the apartment.
+                </div>
+            </div>
+
+            <div class="requirements">
+                <div class="requirements-title">✓ Requirements (60-80 words)</div>
+                <ul>
+                    <li>Formal greeting (Hej,)</li>
+                    <li>Clear reason for writing (Jag skriver angående...)</li>
+                    <li>Provide relevant information (dates, apartment number, etc.)</li>
+                    <li>Ask specific questions about the apartment</li>
+                    <li>Thank them in advance (Tack på förhand)</li>
+                    <li>Formal closing (Vänliga hälsningar)</li>
+                </ul>
+            </div>
+
+            <div class="email-template">
+                <div class="template-title">📝 Email Structure</div>
+                <div class="template-text">Från: [your name]
+Till: landlord@email.com
+Ärende: Förfrågan om lägenhet på Kalastranden 5
+
+Hej,
+
+Jag heter [your name] och skriver angående [lägenhet/apartment description].
+
+[Relevant details - when you're looking, your situation]
+
+Skulle ni kunna berätta...? [Ask questions about apartment, rent, availability]
+
+Tack på förhand. Jag ser fram emot ert svar.
+
+Vänliga hälsningar,
+[Your full name]
+[Your phone number]
+[Your email]</div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 Helpful Phrases</div>
+                <div class="tip-text">
+                    • Jag heter X och skriver angående lägenheten... (I am X and I'm writing about the apartment...)
+                    • Jag har bott i Finland i 2 år. (I have lived in Finland for 2 years.)
+                    • Skulle ni kunna berätta om...? (Could you tell me about...?)
+                    • Jag ser fram emot ert svar. (I look forward to your response.)
+                    • Vänliga hälsningar (Kind regards)
+                </div>
+            </div>
+
+            <textarea id="task2" class="writing-area" placeholder="Write your formal email here..."></textarea>
+            <div class="word-count">Word count: <span id="count2">0</span> / 80</div>
+
+            <div class="btn-group">
+                <button class="btn btn-submit" onclick="submitEmail(2)">Check Email</button>
+                <button class="btn btn-clear" onclick="clearText(2)">Clear</button>
+                <button class="btn btn-show" onclick="toggleAnswer('ans2')">Show Model</button>
+            </div>
+
+            <div id="ans2" class="model-answer">
+                <div class="model-title">📋 Model Answer</div>
+                <div class="model-text">Från: Osman
+Till: landlord@email.com
+Ärende: Förfrågan om lägenhet på Kalastranden 5
+
+Hej,
+
+Jag heter Osman och skriver angående två-rumslägenheten på Kalastranden 5.
+
+Jag arbetar som programmerare och letar efter en lägenhet i Esbo för oktober. Jag är mycket intresserad av denna lägenhet.
+
+Skulle ni kunna berätta om priset per månad och när lägenhet är tillgänglig? Inkluderar hyran möblering och internet?
+
+Tack på förhand. Jag ser fram emot ert svar.
+
+Vänliga hälsningar,
+Osman
++358 40 1234567
+osman@email.com</div>
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-title">✅ Before Submitting - Check</div>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I used formal greeting (Hej, without name)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I clearly stated the reason for writing (Jag skriver angående...)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I provided relevant personal/situational information</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I asked 2-3 specific questions using formal language</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I thanked them in advance (Tack på förhand)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I used formal closing (Vänliga hälsningar + full name)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">I included contact information (phone or email)</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">My email is 60-80 words</span>
+                </label>
+                <label class="checklist-item">
+                    <input type="checkbox" class="checkbox">
+                    <span class="checkbox-label">Grammar and spelling are correct</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- EMAIL TIPS -->
+        <div class="section">
+            <h2>📚 Email Writing Tips</h2>
+
+            <div style="line-height: 1.8; color: #666;">
+                <p><strong style="color: #333;">Informal vs Formal:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>INFORMAL: "Hej Anna," / "Kram, [name]" / Ask casual questions / Use simple words</li>
+                    <li>FORMAL: "Hej," / "Vänliga hälsningar, [full name]" / Be respectful / Use complete sentences</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong style="color: #333;">Email Structure Checklist:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Header: Från (From), Till (To), Ärende (Subject)</li>
+                    <li>Greeting appropriate to tone</li>
+                    <li>Opening: Acknowledge/thank/explain why you're writing</li>
+                    <li>Body: Main information and questions</li>
+                    <li>Closing: Thank you, expectation, or invitation</li>
+                    <li>Sign-off: Name and contact info</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong style="color: #333;">Common Mistakes to Avoid:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>❌ Too short (doesn't meet word count)</li>
+                    <li>❌ Wrong tone (informal when formal is needed)</li>
+                    <li>❌ Missing subject line (Ärende)</li>
+                    <li>❌ Not answering all points of the task</li>
+                    <li>❌ Grammar errors (verb position, adjective agreement)</li>
+                    <li>❌ Too complicated - use simple, clear language</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong style="color: #333;">Practice Strategy:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Write your email in the text box above</li>
+                    <li>Check the word count (50-80 for informal, 60-80 for formal)</li>
+                    <li>Go through the checklist and verify each point</li>
+                    <li>Compare with the model answer</li>
+                    <li>Note any differences and try writing again!</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('task1').addEventListener('input', function() {
+            const words = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+            document.getElementById('count1').textContent = words;
+
+            if (words >= 50 && words <= 80) {
+                document.getElementById('count1').style.color = '#4caf50';
+            } else if (words > 80) {
+                document.getElementById('count1').style.color = '#f57f17';
+            } else {
+                document.getElementById('count1').style.color = '#d32f2f';
+            }
+        });
+
+        document.getElementById('task2').addEventListener('input', function() {
+            const words = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+            document.getElementById('count2').textContent = words;
+
+            if (words >= 60 && words <= 80) {
+                document.getElementById('count2').style.color = '#4caf50';
+            } else if (words > 80) {
+                document.getElementById('count2').style.color = '#f57f17';
+            } else {
+                document.getElementById('count2').style.color = '#d32f2f';
+            }
+        });
+
+        function submitEmail(taskNum) {
+            const textarea = document.getElementById('task' + taskNum);
+            const words = textarea.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+
+            if (taskNum === 1 && (words < 50 || words > 80)) {
+                alert('⚠️ Your email should be 50-80 words. Currently: ' + words + ' words');
+                return;
+            }
+            if (taskNum === 2 && (words < 60 || words > 80)) {
+                alert('⚠️ Your email should be 60-80 words. Currently: ' + words + ' words');
+                return;
+            }
+
+            alert('✅ Email submitted! Compare with the model answer to see how you did.');
+        }
+
+        function clearText(taskNum) {
+            document.getElementById('task' + taskNum).value = '';
+            document.getElementById('count' + taskNum).textContent = '0';
+            document.getElementById('count' + taskNum).style.color = '#999';
+        }
+
+        function toggleAnswer(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle('show');
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
