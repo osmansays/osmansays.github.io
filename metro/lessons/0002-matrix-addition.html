@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matrix Addition · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="page">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="../reference/math-cheatsheet.html">Math sheet</a><a href="../reference/pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="../reference/glossary.html">Glossary</a></div>
+  <span>Lesson 02 / 09</span>
+</nav>
+<main>
+  <p class="eyebrow">Lesson 02 · Section 1, question type 1 · 25 minutes</p>
+  <h1>Matrix addition</h1>
+  <p class="lede">The exam's first math question: "calculate the sum of two matrices." It's the easiest mark on the paper, so the only goal is to never drop it to a sign slip.</p>
+
+  <div class="q mcq" data-answer="0">
+    <span class="qnum">Warm-up · from lesson 01</span>
+    <p class="prompt">Which sections get graded?</p>
+    <div class="opts">
+      <button class="opt">The first two you answer</button>
+      <button class="opt">The two you score best</button>
+      <button class="opt">All four, averaged together</button>
+      <button class="opt">Whichever two you label</button>
+    </div>
+    <div class="explain">Only the first two answered. Leave the other two blank.</div>
+  </div>
+
+  <h2>The idea in one line</h2>
+  <p>A matrix is a grid of numbers with a size <strong>rows × columns</strong>. Two matrices can be added <strong>only if they have the same size</strong>, and you add them <strong>position by position</strong>.</p>
+  <p class="display"><span data-m="a,b;c,d"></span><span class="op">+</span><span data-m="e,f;g,h"></span><span class="op">=</span><span data-m="a+e,b+f;c+g,d+h"></span></p>
+  <p>The entry in row <em>i</em>, column <em>j</em> is written <span class="math">a<sub>ij</sub></span>. So <span class="math">(A + B)<sub>ij</sub> = a<sub>ij</sub> + b<sub>ij</sub></span>. See <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices">Khan Academy: Matrices</a> for the same rule with short videos.</p>
+
+  <div class="worked">
+    <span class="label">Worked example</span>
+    <p class="display"><span data-m="2,-1;0,3"></span><span class="op">+</span><span data-m="4,5;-2,1"></span></p>
+    <ol>
+      <li>Check sizes: both 2 × 2. Allowed.</li>
+      <li>Top-left: 2 + 4 = 6. Top-right: −1 + 5 = 4.</li>
+      <li>Bottom-left: 0 + (−2) = −2. Bottom-right: 3 + 1 = 4.</li>
+    </ol>
+    <p class="display"><span class="op">=</span><span data-m="6,4;-2,4"></span></p>
+  </div>
+
+  <h3>Three relatives the exam can slip in</h3>
+  <ul>
+    <li><strong>Subtraction</strong> <span class="math">A − B</span>: same rule, subtract position by position. Watch double negatives: 3 − (−2) = 5.</li>
+    <li><strong>Scalar multiple</strong> <span class="math">kA</span>: multiply <em>every</em> entry by k. Then combinations like <span class="math">3A − B</span> are just two easy steps.</li>
+    <li><strong>Solve for X</strong> in <span class="math">X + A = B</span>: then <span class="math">X = B − A</span>, exactly like ordinary numbers.</li>
+  </ul>
+  <p>Addition is <strong>commutative</strong> (<span class="math">A + B = B + A</span>), so order doesn't matter. Multiplication is a different story, see the bonus at the end.</p>
+
+  <div class="callout warn">
+    <span class="label">Where marks get lost</span>
+    <ul>
+      <li>Copying a minus sign wrong. Circle negative entries before you start.</li>
+      <li>Adding matrices of different sizes. The answer is "not defined", and that <em>is</em> the correct answer.</li>
+      <li>In <span class="math">kA</span>, multiplying only the first row.</li>
+    </ul>
+  </div>
+
+  <h2>Practice</h2>
+  <p>Do each on paper first, then type the result. Fractions and negatives are fine.</p>
+
+  <div class="q matq" data-answer="6,8;10,12">
+    <span class="qnum">P1</span>
+    <p class="prompt"><span data-m="1,2;3,4"></span><span class="op">+</span><span data-m="5,6;7,8"></span><span class="op">=</span></p>
+    <div class="explain">1+5, 2+6, 3+7, 4+8.</div>
+  </div>
+
+  <div class="q matq" data-answer="0,2,0;3,0,6">
+    <span class="qnum">P2</span>
+    <p class="prompt">A 2 × 3 sum: <span data-m="1,0,-2;3,4,1"></span><span class="op">+</span><span data-m="-1,2,2;0,-4,5"></span><span class="op">=</span></p>
+    <div class="explain">Row 1: 1+(−1)=0, 0+2=2, −2+2=0. Row 2: 3+0=3, 4+(−4)=0, 1+5=6. Zeros are a common trap: they're still entries.</div>
+  </div>
+
+  <div class="q mcq" data-answer="3">
+    <span class="qnum">P3</span>
+    <p class="prompt">A is 2 × 3 and B is 3 × 2. What is A + B?</p>
+    <div class="opts">
+      <button class="opt">The result is 2×2</button>
+      <button class="opt">The result is 3×3</button>
+      <button class="opt">The result is 6×6</button>
+      <button class="opt">The sum is undefined</button>
+    </div>
+    <div class="explain">Sizes must match exactly. 2 × 3 and 3 × 2 do not, so the sum is not defined.</div>
+  </div>
+
+  <div class="q matq" data-answer="1,5;-4,0">
+    <span class="qnum">P4</span>
+    <p class="prompt">A = <span data-m="1,2;0,-1"></span>, B = <span data-m="2,1;4,-3"></span>. Find <span class="math">3A − B</span>.</p>
+    <div class="explain">3A = <span data-m="3,6;0,-3"></span>. Then subtract B: 3−2=1, 6−1=5, 0−4=−4, −3−(−3)=0.</div>
+  </div>
+
+  <div class="q matq" data-answer="4,3;2,1">
+    <span class="qnum">P5</span>
+    <p class="prompt">Solve for X: <span class="math">X +</span> <span data-m="1,2;3,4"></span> <span class="op">=</span> <span data-m="5,5;5,5"></span></p>
+    <div class="explain">X = B − A = <span data-m="5-1,5-2;5-3,5-4"></span> = <span data-m="4,3;2,1"></span>.</div>
+  </div>
+
+  <h3>Bonus: matrix multiplication (not in the spec, 5 minutes)</h3>
+  <p>The invitation only lists the sum. If a Q5 does go further, the rule is <strong>row × column</strong>: entry (i, j) is row i of A dotted with column j of B. A must have as many columns as B has rows, and <span class="math">AB ≠ BA</span> in general.</p>
+  <div class="q matq" data-answer="2,1;4,3">
+    <span class="qnum">Bonus</span>
+    <p class="prompt"><span data-m="1,2;3,4"></span><span class="op">·</span><span data-m="0,1;1,0"></span><span class="op">=</span></p>
+    <div class="explain">Top-left = (1)(0)+(2)(1) = 2. Top-right = (1)(1)+(2)(0) = 1. Bottom-left = (3)(0)+(4)(1) = 4. Bottom-right = (3)(1)+(4)(0) = 3. This matrix swaps the columns.</div>
+  </div>
+
+  <div class="source">
+    <p class="small"><strong>Primary source:</strong> <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices">Khan Academy – Matrices (Precalculus)</a>. Do the "Add & subtract matrices" practice set until you get 5 in a row.</p>
+  </div>
+  <div class="ask"><strong>Questions?</strong> Ask Claude, e.g. "give me five more matrix sums with negatives" or "why can't different sizes be added?"</div>
+
+  <div class="done-wrap"><button class="done-toggle" data-lesson="0002"></button></div>
+  <nav class="pager"><a href="0001-exam-game-plan.html">← Exam game plan</a><a href="0003-solving-functions.html">Next: Solving a function →</a></nav>
+</main>
+</div>
+</body>
+</html>

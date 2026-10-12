@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Derivatives · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="page">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="../reference/math-cheatsheet.html">Math sheet</a><a href="../reference/pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="../reference/glossary.html">Glossary</a></div>
+  <span>Lesson 04 / 09</span>
+</nav>
+<main>
+  <p class="eyebrow">Lesson 04 · Section 1, question type 3 · 45 minutes</p>
+  <h1>Derivatives of basic functions</h1>
+  <p class="lede">A derivative is the slope of a function at each point, its rate of change. On the exam it's mostly mechanical: learn the power rule cold, then add the product and chain rules for the harder question.</p>
+
+  <div class="q num" data-set data-answer="2,5" data-fields="x">
+    <span class="qnum">Warm-up · from lesson 03</span>
+    <p class="prompt">Solve <span class="math">x² − 7x + 10 = 0</span>.</p>
+    <div class="explain">Product 10, sum −7 → −2 and −5. (x − 2)(x − 5) = 0 → x = 2 or 5.</div>
+  </div>
+
+  <h2>The rules you need</h2>
+  <p>Notation: <span class="math">f′(x)</span> and <span class="math">dy/dx</span> mean the same thing. Full list with proofs: <a href="https://tutorial.math.lamar.edu/Classes/CalcI/DiffFormulas.aspx">Paul's Notes – Differentiation Formulas</a>.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Function</th><th>Derivative</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>constant c</td><td>0</td><td><span class="math">7 → 0</span></td></tr>
+      <tr><td><strong>xⁿ (power rule)</strong></td><td><strong>n·xⁿ⁻¹</strong></td><td><span class="math">x⁵ → 5x⁴</span></td></tr>
+      <tr><td>k·f(x)</td><td>k·f′(x)</td><td><span class="math">3x² → 6x</span></td></tr>
+      <tr><td>f ± g</td><td>f′ ± g′</td><td>term by term</td></tr>
+      <tr><td>eˣ</td><td>eˣ</td><td></td></tr>
+      <tr><td>ln x</td><td>1/x</td><td></td></tr>
+      <tr><td>sin x</td><td>cos x</td><td></td></tr>
+      <tr><td>cos x</td><td>−sin x</td><td></td></tr>
+      <tr><td>product f·g</td><td>f′g + fg′</td><td><span class="math">x²eˣ → 2xeˣ + x²eˣ</span></td></tr>
+      <tr><td>quotient f/g</td><td>(f′g − fg′) / g²</td><td>rarely needed</td></tr>
+      <tr><td>chain f(g(x))</td><td>f′(g(x)) · g′(x)</td><td><span class="math">(3x+1)⁵ → 15(3x+1)⁴</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <span class="label">The trick that makes the power rule cover everything</span>
+    <p>Rewrite roots and fractions as powers first: <span class="math">√x = x<sup>1/2</sup></span>, <span class="math">1/x² = x<sup>−2</sup></span>. Then <span class="math">x<sup>1/2</sup> → ½x<sup>−1/2</sup> = 1/(2√x)</span> and <span class="math">x<sup>−2</sup> → −2x<sup>−3</sup> = −2/x³</span>.</p>
+  </div>
+
+  <h2>Worked examples, easiest first</h2>
+  <div class="worked">
+    <span class="label">A · polynomial (the likely Q3)</span>
+    <p class="display">f(x) = 3x⁴ − 2x² + 7x − 5</p>
+    <p>Each term separately: 3·4x³ = 12x³, −2·2x = −4x, 7x → 7, −5 → 0.</p>
+    <p class="display">f′(x) = 12x³ − 4x + 7</p>
+  </div>
+  <div class="worked">
+    <span class="label">B · slope at a point</span>
+    <p>Slope of <span class="math">f(x) = x³</span> at x = 2? Differentiate first, <em>then</em> substitute: f′(x) = 3x², f′(2) = 3·4 = <strong>12</strong>.</p>
+  </div>
+  <div class="worked">
+    <span class="label">C · product rule</span>
+    <p><span class="math">f(x) = x²·eˣ</span>. Let u = x² (u′ = 2x), v = eˣ (v′ = eˣ).</p>
+    <p class="display">f′ = u′v + uv′ = 2x·eˣ + x²·eˣ = eˣ(x² + 2x)</p>
+  </div>
+  <div class="worked">
+    <span class="label">D · chain rule</span>
+    <p><span class="math">f(x) = (3x + 1)⁵</span>. Outside: (·)⁵ → 5(·)⁴. Inside: 3x + 1 → 3. Multiply.</p>
+    <p class="display">f′(x) = 5(3x + 1)⁴ · 3 = 15(3x + 1)⁴</p>
+    <p class="small">More: <a href="https://tutorial.math.lamar.edu/Classes/CalcI/ChainRule.aspx">Paul's Notes – Chain Rule</a>.</p>
+  </div>
+  <div class="worked">
+    <span class="label">E · stationary point (a likely Q5 twist)</span>
+    <p>Where is <span class="math">f(x) = x² − 6x + 5</span> flat? Set f′(x) = 0: 2x − 6 = 0 → x = 3. Then f(3) = 9 − 18 + 5 = −4. The point (3, −4) is a minimum (the parabola opens upward because the x² coefficient is positive).</p>
+  </div>
+
+  <div class="callout warn">
+    <span class="label">Where marks get lost</span>
+    <ul>
+      <li>Constant terms: the derivative of −5 is 0, not −5.</li>
+      <li>Substituting before differentiating. Always f′ first, then plug in.</li>
+      <li>Chain rule: forgetting to multiply by the inner derivative.</li>
+    </ul>
+  </div>
+
+  <h2>Practice</h2>
+  <div class="q mcq" data-answer="0">
+    <span class="qnum">P1</span>
+    <p class="prompt">Derivative of <span class="math">5x³</span>?</p>
+    <div class="opts">
+      <button class="opt">15x²</button><button class="opt">5x²</button><button class="opt">15x³</button><button class="opt">3x²</button>
+    </div>
+    <div class="explain">5 · 3x² = 15x².</div>
+  </div>
+  <div class="q mcq" data-answer="2">
+    <span class="qnum">P2</span>
+    <p class="prompt">Derivative of <span class="math">4x³ − 6x² + 2x − 9</span>?</p>
+    <div class="opts">
+      <button class="opt">12x² − 6x + 2</button><button class="opt">12x² − 12x − 9</button><button class="opt">12x² − 12x + 2</button><button class="opt">4x² − 6x + 2</button>
+    </div>
+    <div class="explain">12x² − 12x + 2. The −9 disappears.</div>
+  </div>
+  <div class="q num" data-answer="5" data-fields="f′(1)">
+    <span class="qnum">P3</span>
+    <p class="prompt"><span class="math">f(x) = 2x³ − x</span>. Find <span class="math">f′(1)</span>.</p>
+    <div class="explain">f′(x) = 6x² − 1, f′(1) = 6 − 1 = 5.</div>
+  </div>
+  <div class="q num" data-answer="11" data-fields="f′(4)">
+    <span class="qnum">P4</span>
+    <p class="prompt"><span class="math">f(x) = x² + 3x</span>. Slope of the graph at x = 4?</p>
+    <div class="explain">f′(x) = 2x + 3, f′(4) = 11.</div>
+  </div>
+  <div class="q num" data-answer="1" data-fields="f′(4)">
+    <span class="qnum">P5</span>
+    <p class="prompt"><span class="math">f(x) = 4√x</span>. Find <span class="math">f′(4)</span>.</p>
+    <div class="explain">4x<sup>1/2</sup> → 2x<sup>−1/2</sup> = 2/√x. At x = 4: 2/2 = 1.</div>
+  </div>
+  <div class="q num" data-answer="6" data-fields="f′(1)">
+    <span class="qnum">P6</span>
+    <p class="prompt">Chain rule: <span class="math">f(x) = (2x − 1)³</span>. Find <span class="math">f′(1)</span>.</p>
+    <div class="explain">f′(x) = 3(2x − 1)² · 2 = 6(2x − 1)². At x = 1: 6 · 1 = 6.</div>
+  </div>
+  <div class="q num" data-answer="1" data-fields="f′(1)">
+    <span class="qnum">P7</span>
+    <p class="prompt">Product rule: <span class="math">f(x) = x · ln x</span>. Find <span class="math">f′(1)</span>.</p>
+    <div class="explain">f′ = 1·ln x + x·(1/x) = ln x + 1. At x = 1: 0 + 1 = 1.</div>
+  </div>
+  <div class="q num" data-answer="2;-7" data-fields="x;y">
+    <span class="qnum">P8</span>
+    <p class="prompt">Find the stationary point of <span class="math">f(x) = 2x² − 8x + 1</span>.</p>
+    <div class="explain">f′(x) = 4x − 8 = 0 → x = 2. f(2) = 8 − 16 + 1 = −7. Point (2, −7), a minimum.</div>
+  </div>
+
+  <div class="source">
+    <p class="small"><strong>Primary source:</strong> <a href="https://tutorial.math.lamar.edu/Classes/CalcI/DiffFormulas.aspx">Paul's Online Math Notes – Differentiation Formulas</a>. Work examples 1–4 on paper before checking.</p>
+  </div>
+  <div class="ask"><strong>Questions?</strong> Ask Claude, e.g. "explain the chain rule like I'm reading a stack trace" or "give me five more derivatives of mixed difficulty".</div>
+
+  <div class="done-wrap"><button class="done-toggle" data-lesson="0004"></button></div>
+  <nav class="pager"><a href="0003-solving-functions.html">← Solving a function</a><a href="0005-mean-and-median.html">Next: Mean and median →</a></nav>
+</main>
+</div>
+</body>
+</html>

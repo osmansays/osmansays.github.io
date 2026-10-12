@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pseudocode Cheat Sheet · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="wide">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="math-cheatsheet.html">Math sheet</a><a href="pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="glossary.html">Glossary</a></div>
+  <span>Reference</span>
+</nav>
+<main>
+  <p class="eyebrow">Section 4 · one page</p>
+  <h1>Pseudocode cheat sheet</h1>
+  <p class="small">From lessons 07–08. Python style is the default; C++ style only if a question asks for it.</p>
+
+  <div class="ref-grid">
+    <section>
+      <h3>Before you write <a class="small" href="../lessons/0007-pseudocode-on-paper.html">lesson</a></h3>
+      <ol>
+        <li>Inputs and outputs as a comment</li>
+        <li>One example by hand</li>
+        <li>Plan in 3–6 plain lines</li>
+        <li>Write it, with good names</li>
+        <li>Trace: your example + one edge case</li>
+      </ol>
+      <h3>Answer checklist</h3>
+      <ul>
+        <li>"Pseudocode (Python style)" written at the top</li>
+        <li>Input read, output printed</li>
+        <li>Variables initialised before loops</li>
+        <li>Loop bounds unambiguous (1 to n inclusive)</li>
+        <li>Edge cases: empty, zero, negative, one item</li>
+        <li>No division by zero</li>
+        <li>Functions <code>return</code> rather than print</li>
+        <li>Indentation consistent</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Syntax</h3>
+<pre>x = input("prompt")        <span class="c"># read</span>
+print("Total:", total)     <span class="c"># write</span>
+
+<span class="k">if</span> a &gt; b:
+    ...
+<span class="k">elif</span> a == b:
+    ...
+<span class="k">else</span>:
+    ...
+
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> n:          <span class="c"># inclusive</span>
+<span class="k">for</span> i <span class="k">from</span> n <span class="k">down to</span> 1:
+<span class="k">for</span> each x <span class="k">in</span> values:
+<span class="k">while</span> condition:
+
+<span class="k">def</span> name(param):
+    <span class="k">return</span> result
+
+n % 2 == 0     <span class="c"># even</span>
+n // 10        <span class="c"># integer division</span>
+len(values)    values[0]    values[len-1]</pre>
+    </section>
+
+    <section>
+      <h3>Pattern skeletons <a class="small" href="../lessons/0008-exam-programs.html">lesson</a></h3>
+<pre><span class="c"># accumulate</span>
+total = 0
+<span class="k">for</span> each x <span class="k">in</span> values: total = total + x
+
+<span class="c"># count matching</span>
+count = 0
+<span class="k">for</span> each x <span class="k">in</span> values:
+    <span class="k">if</span> condition(x): count = count + 1
+
+<span class="c"># max (never start at 0)</span>
+best = values[0]
+<span class="k">for</span> each x <span class="k">in</span> values:
+    <span class="k">if</span> x &gt; best: best = x
+
+<span class="c"># search: index or -1</span>
+<span class="k">for</span> i <span class="k">from</span> 0 <span class="k">to</span> len(values) - 1:
+    <span class="k">if</span> values[i] == target: <span class="k">return</span> i
+<span class="k">return</span> -1
+
+<span class="c"># longest streak</span>
+<span class="k">if</span> ok: run = run + 1; longest = max(longest, run)
+<span class="k">else</span>: run = 0
+
+<span class="c"># product starts at 1</span>
+result = 1</pre>
+    </section>
+
+    <section>
+      <h3>C++ style equivalents</h3>
+<pre>cin &gt;&gt; x;
+cout &lt;&lt; total &lt;&lt; endl;
+<span class="k">if</span> (a &gt; b) { ... } <span class="k">else</span> { ... }
+<span class="k">for</span> (int i = 1; i &lt;= n; i++) { ... }
+<span class="k">while</span> (x &gt; 1) { ... }
+int square(int n) { <span class="k">return</span> n * n; }
+int values[10];</pre>
+      <h3>Classic traps</h3>
+      <ul>
+        <li><code>max = 0</code> fails on all-negative data</li>
+        <li><code>result = 0</code> for a product</li>
+        <li>Printing inside the loop when one result is wanted</li>
+        <li>FizzBuzz: test the "both" case first</li>
+        <li>Swapping without a temp variable overwrites</li>
+        <li>Average before you know the total needs two passes</li>
+      </ul>
+    </section>
+  </div>
+</main>
+</div>
+</body>
+</html>

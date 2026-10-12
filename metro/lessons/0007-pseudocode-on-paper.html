@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pseudocode on Paper · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="page">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="../reference/math-cheatsheet.html">Math sheet</a><a href="../reference/pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="../reference/glossary.html">Glossary</a></div>
+  <span>Lesson 07 / 09</span>
+</nav>
+<main>
+  <p class="eyebrow">Lesson 07 · Section 4 · 40 minutes</p>
+  <h1>Pseudocode on paper</h1>
+  <p class="lede">You already program for a living. The risk here isn't logic: it's writing with a pencil, no compiler, no tests, and a grader who has 30 seconds per answer. This lesson is about making your answer obviously correct.</p>
+
+  <div class="q num" data-answer="1/12" data-fields="P">
+    <span class="qnum">Warm-up · from lesson 06</span>
+    <p class="prompt">Two dice. P(sum is 4)?</p>
+    <div class="explain">(1,3) (2,2) (3,1) → 3/36 = 1/12.</div>
+  </div>
+
+  <h2>Pick one style and say so</h2>
+  <p>The invitation says "C++ or Python style". Write <strong>"Pseudocode (Python style)"</strong> at the top of your answer and stick to it. Python style needs the least handwriting, and indentation shows structure at a glance. Keep indentation deliberate: draw a faint vertical line down each block if your handwriting drifts.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Concept</th><th>Python style</th><th>C++ style</th></tr></thead>
+    <tbody>
+      <tr><td>Input / output</td><td><code>n = input("n")</code><br><code>print(total)</code></td><td><code>cin &gt;&gt; n;</code><br><code>cout &lt;&lt; total;</code></td></tr>
+      <tr><td>Decision</td><td><code>if x &gt; 0:</code> … <code>elif</code> … <code>else:</code></td><td><code>if (x &gt; 0) { … } else { … }</code></td></tr>
+      <tr><td>Count loop</td><td><code>for i from 1 to n:</code></td><td><code>for (int i = 1; i &lt;= n; i++) { … }</code></td></tr>
+      <tr><td>Condition loop</td><td><code>while x &gt; 1:</code></td><td><code>while (x &gt; 1) { … }</code></td></tr>
+      <tr><td>Function</td><td><code>def is_even(n):</code> … <code>return</code></td><td><code>bool isEven(int n) { … }</code></td></tr>
+      <tr><td>List / array</td><td><code>values = []</code>, <code>values[i]</code>, <code>len(values)</code></td><td><code>int values[10];</code>, <code>values[i]</code></td></tr>
+      <tr><td>Remainder, integer division</td><td><code>n % 2</code>, <code>n // 2</code></td><td><code>n % 2</code>, <code>n / 2</code> (ints)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Pseudocode isn't compiled, so <code>for i from 1 to n</code> is fine and clearer than <code>range(1, n + 1)</code>. Just make the bounds unambiguous. More conventions: <a href="https://eng.libretexts.org/Courses/Delta_College/CSP31A_-_C_Programming/10%3A_Introduction_to_Structured_Programming/10.2%3A_Pseudocode_Examples_for_Control_Structures">LibreTexts – Pseudocode Examples for Control Structures</a>.</p>
+
+  <h2>The five-step method</h2>
+  <p>Use it for every programming question. Steps 1–3 take two minutes and save you from rewriting.</p>
+  <ol>
+    <li><strong>Inputs and outputs.</strong> Write them as a comment: <code># input: n numbers  # output: average</code></li>
+    <li><strong>One example by hand.</strong> Input 4, 8, 6 → average 6.</li>
+    <li><strong>Plan in plain words</strong>, 3–6 lines.</li>
+    <li><strong>Write the pseudocode.</strong> Meaningful names (<code>total</code>, not <code>t</code>).</li>
+    <li><strong>Trace it</strong> with your example, then one edge case: empty input, zero, negative, a single item.</li>
+  </ol>
+
+  <div class="worked">
+    <span class="label">Worked example</span>
+    <p>"Read 5 temperature readings. Print their average and how many were above 25 °C."</p>
+<pre><span class="c"># Pseudocode (Python style)</span>
+<span class="c"># input: 5 temperatures   output: average, count above 25</span>
+total = 0
+count_high = 0
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> 5:
+    t = input("temperature")
+    total = total + t
+    <span class="k">if</span> t &gt; 25:
+        count_high = count_high + 1
+average = total / 5
+print("Average:", average)
+print("Above 25:", count_high)</pre>
+    <p>The same in C++ style:</p>
+<pre><span class="c">// Pseudocode (C++ style)</span>
+double total = 0;
+int countHigh = 0;
+<span class="k">for</span> (int i = 1; i &lt;= 5; i++) {
+    double t;
+    cin &gt;&gt; t;
+    total = total + t;
+    <span class="k">if</span> (t &gt; 25) {
+        countHigh = countHigh + 1;
+    }
+}
+cout &lt;&lt; "Average: " &lt;&lt; total / 5 &lt;&lt; endl;
+cout &lt;&lt; "Above 25: " &lt;&lt; countHigh &lt;&lt; endl;</pre>
+  </div>
+
+  <h2>Trace tables</h2>
+  <p>A trace table is one column per variable, one row per step. It's how you test code with no computer, and some questions may ask "what does this print?". Practise these in your head or on paper, then check.</p>
+
+  <div class="q num" data-answer="9" data-fields="output">
+    <span class="qnum">T1</span>
+<pre>total = 0
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> 5:
+    <span class="k">if</span> i % 2 == 1:
+        total = total + i
+print(total)</pre>
+    <div class="explain">Odd i: 1, 3, 5. Total = 9.</div>
+  </div>
+  <div class="q num" data-answer="3" data-fields="output">
+    <span class="qnum">T2</span>
+<pre>x = 10
+count = 0
+<span class="k">while</span> x &gt; 1:
+    x = x // 2
+    count = count + 1
+print(count)</pre>
+    <div class="explain">
+      <div class="table-wrap"><table style="width:auto"><thead><tr><th>step</th><th>x</th><th>count</th></tr></thead>
+      <tbody><tr><td>start</td><td>10</td><td>0</td></tr><tr><td>1</td><td>5</td><td>1</td></tr><tr><td>2</td><td>2</td><td>2</td></tr><tr><td>3</td><td>1</td><td>3</td></tr></tbody></table></div>
+      x = 1 fails <code>x &gt; 1</code>, loop ends. Output 3.
+    </div>
+  </div>
+  <div class="q num" data-answer="7;3" data-fields="a;b">
+    <span class="qnum">T3</span>
+<pre>a = 3
+b = 7
+a = a + b
+b = a - b
+a = a - b
+print(a, b)</pre>
+    <div class="explain">a = 10; b = 10 − 7 = 3; a = 10 − 3 = 7. It swaps the two values without a temp variable.</div>
+  </div>
+  <div class="q num" data-answer="120" data-fields="output">
+    <span class="qnum">T4</span>
+<pre>n = 5
+result = 1
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> n:
+    result = result * i
+print(result)</pre>
+    <div class="explain">1·2·3·4·5 = 120. This is factorial. Starting <code>result = 0</code> would give 0: the identity for multiplication is 1.</div>
+  </div>
+  <div class="q num" data-answer="4" data-fields="count">
+    <span class="qnum">T5 · off-by-one</span>
+    <p class="prompt">In real Python, how many numbers does <code>for i in range(1, 5): print(i)</code> print?</p>
+    <div class="explain">1, 2, 3, 4. The end is exclusive. This is exactly why "from 1 to n" with stated inclusive bounds reads better on paper.</div>
+  </div>
+  <div class="q mcq" data-answer="0">
+    <span class="qnum">T6 · find the bug</span>
+<pre>largest = 0
+<span class="k">for</span> each x <span class="k">in</span> values:
+    <span class="k">if</span> x &gt; largest:
+        largest = x
+print(largest)</pre>
+    <div class="opts">
+      <button class="opt">Fails when all numbers negative</button>
+      <button class="opt">Fails when list has duplicates</button>
+      <button class="opt">Fails when numbers are sorted</button>
+      <button class="opt">Fails for very long lists</button>
+    </div>
+    <div class="explain">For −5, −2, −9 it prints 0, which isn't in the list. Fix: <code>largest = values[0]</code>. Graders love this edge case.</div>
+  </div>
+
+  <h2>Your turn: write first</h2>
+  <div class="attempt" id="sum-to-n">
+    <p><strong>Task:</strong> Read a positive integer n and print the sum 1 + 2 + … + n. If the input is not positive, print an error message.</p>
+    <label class="small" for="ta-sum-to-n">Your pseudocode (saved in this browser)</label>
+    <textarea id="ta-sum-to-n" spellcheck="false" placeholder="# Pseudocode (Python style)&#10;# input: ...  output: ..."></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model answer</button><button class="skip">I'm stuck, show it</button></div>
+    <div class="model">
+<pre><span class="c"># Pseudocode (Python style)</span>
+<span class="c"># input: integer n   output: 1 + 2 + ... + n</span>
+n = input("Enter a positive integer")
+<span class="k">if</span> n &lt;= 0:
+    print("Error: n must be positive")
+<span class="k">else</span>:
+    total = 0
+    <span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> n:
+        total = total + i
+    print("Sum:", total)</pre>
+      <p class="small">Trace with n = 4: 1 + 2 + 3 + 4 = 10. Bonus line a grader would enjoy: <code># check: equals n*(n+1)/2</code>.</p>
+      <p><strong>Mark yourself:</strong></p>
+      <ul class="rubric">
+        <li><input type="checkbox" id="r1"><label for="r1">States input and output</label></li>
+        <li><input type="checkbox" id="r2"><label for="r2">Handles n ≤ 0 with a message</label></li>
+        <li><input type="checkbox" id="r3"><label for="r3">Accumulator starts at 0</label></li>
+        <li><input type="checkbox" id="r4"><label for="r4">Loop bounds are clearly 1 to n inclusive</label></li>
+        <li><input type="checkbox" id="r5"><label for="r5">Prints the result after the loop, not inside it</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="source">
+    <p class="small"><strong>Primary source:</strong> <a href="https://eng.libretexts.org/Courses/Delta_College/CSP31A_-_C_Programming/10%3A_Introduction_to_Structured_Programming/10.2%3A_Pseudocode_Examples_for_Control_Structures">LibreTexts – Pseudocode Examples for Control Structures</a>. Skim it once to see the conventional keyword style; you don't need to adopt it.</p>
+  </div>
+  <div class="ask"><strong>Questions?</strong> Paste your pseudocode to Claude and ask "how would an examiner mark this?"</div>
+
+  <div class="done-wrap"><button class="done-toggle" data-lesson="0007"></button></div>
+  <nav class="pager"><a href="0006-probability.html">← Probability</a><a href="0008-exam-programs.html">Next: The programs they ask for →</a></nav>
+</main>
+</div>
+</body>
+</html>

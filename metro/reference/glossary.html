@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glossary · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="page">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="math-cheatsheet.html">Math sheet</a><a href="pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="glossary.html">Glossary</a></div>
+  <span>Reference</span>
+</nav>
+<main>
+  <p class="eyebrow">Terms used across the course</p>
+  <h1>Glossary</h1>
+
+  <h2>Mathematics</h2>
+  <dl class="gloss">
+    <dt>Matrix · size (m × n)</dt><dd>A grid of numbers with m rows and n columns. <span class="math">a<sub>ij</sub></span> is the entry in row i, column j.</dd>
+    <dt>Scalar</dt><dd>An ordinary number, as opposed to a matrix. <span class="math">kA</span> is a scalar multiple.</dd>
+    <dt>Function · f(x)</dt><dd>A rule that turns an input x into one output.</dd>
+    <dt>Root · zero</dt><dd>A value of x where <span class="math">f(x) = 0</span>; where the graph crosses the x-axis.</dd>
+    <dt>Quadratic</dt><dd>A function of the form <span class="math">ax² + bx + c</span> with a ≠ 0. Its graph is a parabola.</dd>
+    <dt>Discriminant · D</dt><dd><span class="math">b² − 4ac</span>. Its sign tells you how many real roots a quadratic has.</dd>
+    <dt>Composition · f(g(x))</dt><dd>Apply g first, then f to the result.</dd>
+    <dt>Derivative · f′(x) · dy/dx</dt><dd>The slope of f at each point; the instantaneous rate of change.</dd>
+    <dt>Stationary point</dt><dd>A point where <span class="math">f′(x) = 0</span>: a local maximum, minimum, or flat inflection.</dd>
+    <dt>Power · product · chain rule</dt><dd>The three derivative rules that cover the exam. See the <a href="math-cheatsheet.html">math sheet</a>.</dd>
+    <dt>Mean</dt><dd>Sum of values divided by how many there are.</dd>
+    <dt>Median</dt><dd>Middle value of the sorted data; mean of the two middle values if the count is even.</dd>
+    <dt>Mode</dt><dd>The most frequent value.</dd>
+    <dt>Outlier</dt><dd>A value far from the rest. Pulls the mean, not the median.</dd>
+    <dt>Frequency table</dt><dd>A list of values with how often each occurs.</dd>
+    <dt>Outcome · event</dt><dd>One possible result · a set of outcomes you care about.</dd>
+    <dt>Complement</dt><dd>"Not A". <span class="math">P(not A) = 1 − P(A)</span>.</dd>
+    <dt>Independent events</dt><dd>One happening doesn't change the probability of the other. Multiply for "and".</dd>
+    <dt>Mutually exclusive events</dt><dd>Cannot both happen. Add for "or".</dd>
+    <dt>With / without replacement</dt><dd>Whether a drawn item goes back before the next draw. Without replacement, the totals shrink.</dd>
+  </dl>
+
+  <h2>Programming</h2>
+  <dl class="gloss">
+    <dt>Pseudocode</dt><dd>Program logic written for a human reader, in a code-like style without strict syntax.</dd>
+    <dt>Trace table</dt><dd>A table with one column per variable and one row per step, used to run code by hand.</dd>
+    <dt>Accumulator</dt><dd>A variable that builds up a result across a loop (a total, a count, a product).</dd>
+    <dt>Edge case</dt><dd>An input at the boundary of what's expected: empty list, zero, negative, one item, the largest value.</dd>
+    <dt>Off-by-one error</dt><dd>A loop that runs one time too many or too few, usually from unclear bounds.</dd>
+    <dt>Modulo · %</dt><dd>The remainder after division. <code>n % 2 == 0</code> means n is even.</dd>
+    <dt>Integer division · //</dt><dd>Division that drops the fractional part: <code>7 // 2 = 3</code>.</dd>
+    <dt>Function · return value</dt><dd>A named, reusable block that takes parameters and gives back a result.</dd>
+    <dt>Index</dt><dd>Position of an element in a list. Starts at 0 in both Python and C++.</dd>
+  </dl>
+</main>
+</div>
+</body>
+</html>

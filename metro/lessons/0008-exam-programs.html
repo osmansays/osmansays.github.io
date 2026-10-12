@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exam Programs · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="page">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="../reference/math-cheatsheet.html">Math sheet</a><a href="../reference/pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="../reference/glossary.html">Glossary</a></div>
+  <span>Lesson 08 / 09</span>
+</nav>
+<main>
+  <p class="eyebrow">Lesson 08 · Section 4 · 60 minutes</p>
+  <h1>The programs they ask for</h1>
+  <p class="lede">"Write pseudocode for a simple program" draws from a small, well-known pool. Here are eight, in the same rising difficulty as the exam's five questions. Write each one yourself first, then compare and mark it with the checklist.</p>
+
+  <div class="q num" data-answer="30" data-fields="output">
+    <span class="qnum">Warm-up · from lesson 07</span>
+<pre>s = 0
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> 4:
+    s = s + i * i
+print(s)</pre>
+    <div class="explain">1 + 4 + 9 + 16 = 30.</div>
+  </div>
+
+  <div class="callout">
+    <span class="label">How to use this page</span>
+    <p>Set a 7-minute limit per task. Write on paper if you can (the textarea is for when you can't). Only open the model when you've written something. If you score under 4 on the checklist, redo that task tomorrow from a blank page.</p>
+  </div>
+
+  <h2>Level 1 · decisions</h2>
+  <div class="attempt" id="p1">
+    <h3>1 · Positive, negative or zero</h3>
+    <p>Read a number and print whether it is positive, negative or zero.</p>
+    <textarea id="ta-p1" spellcheck="false" aria-label="Your answer for task 1"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre><span class="c"># input: number x   output: its sign as text</span>
+x = input("Enter a number")
+<span class="k">if</span> x &gt; 0:
+    print("positive")
+<span class="k">elif</span> x &lt; 0:
+    print("negative")
+<span class="k">else</span>:
+    print("zero")</pre>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p1a"><label for="p1a">Input and output stated</label></li>
+        <li><input type="checkbox" id="p1b"><label for="p1b">Three branches, exactly one runs</label></li>
+        <li><input type="checkbox" id="p1c"><label for="p1c">Zero handled explicitly</label></li>
+        <li><input type="checkbox" id="p1d"><label for="p1d">Indentation shows structure</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="attempt" id="p2">
+    <h3>2 · Count the even numbers</h3>
+    <p>Read how many numbers will follow (n), then read the n numbers and print how many were even.</p>
+    <textarea id="ta-p2" spellcheck="false" aria-label="Your answer for task 2"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre><span class="c"># input: n, then n integers   output: count of even ones</span>
+n = input("How many numbers?")
+even_count = 0
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> n:
+    x = input("Number")
+    <span class="k">if</span> x % 2 == 0:
+        even_count = even_count + 1
+print("Even numbers:", even_count)</pre>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p2a"><label for="p2a">Counter initialised to 0 before the loop</label></li>
+        <li><input type="checkbox" id="p2b"><label for="p2b">Uses <code>% 2 == 0</code> for even</label></li>
+        <li><input type="checkbox" id="p2c"><label for="p2c">Loop runs exactly n times</label></li>
+        <li><input type="checkbox" id="p2d"><label for="p2d">Prints once, after the loop</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Level 2 · loops over data</h2>
+  <div class="attempt" id="p3">
+    <h3>3 · Largest and smallest</h3>
+    <p>Given a list of numbers, print the largest and the smallest. Handle an empty list.</p>
+    <textarea id="ta-p3" spellcheck="false" aria-label="Your answer for task 3"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre><span class="c"># input: list values   output: max and min</span>
+<span class="k">if</span> len(values) == 0:
+    print("List is empty")
+<span class="k">else</span>:
+    largest = values[0]
+    smallest = values[0]
+    <span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> len(values) - 1:
+        <span class="k">if</span> values[i] &gt; largest:
+            largest = values[i]
+        <span class="k">if</span> values[i] &lt; smallest:
+            smallest = values[i]
+    print("Largest:", largest, "Smallest:", smallest)</pre>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p3a"><label for="p3a">Starts from the first element, not 0</label></li>
+        <li><input type="checkbox" id="p3b"><label for="p3b">Empty list handled</label></li>
+        <li><input type="checkbox" id="p3c"><label for="p3c">Two separate <code>if</code>s (not if/else)</label></li>
+        <li><input type="checkbox" id="p3d"><label for="p3d">Index bounds stay inside the list</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="attempt" id="p4">
+    <h3>4 · FizzBuzz</h3>
+    <p>Print the numbers 1 to 100, but print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both.</p>
+    <textarea id="ta-p4" spellcheck="false" aria-label="Your answer for task 4"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre><span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> 100:
+    <span class="k">if</span> i % 15 == 0:
+        print("FizzBuzz")
+    <span class="k">elif</span> i % 3 == 0:
+        print("Fizz")
+    <span class="k">elif</span> i % 5 == 0:
+        print("Buzz")
+    <span class="k">else</span>:
+        print(i)</pre>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p4a"><label for="p4a">The "both" case is checked first</label></li>
+        <li><input type="checkbox" id="p4b"><label for="p4b">Uses elif so only one line prints per number</label></li>
+        <li><input type="checkbox" id="p4c"><label for="p4c">Range 1 to 100 inclusive</label></li>
+        <li><input type="checkbox" id="p4d"><label for="p4d">Prints the number itself otherwise</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Level 3 · sequences and functions</h2>
+  <div class="attempt" id="p5">
+    <h3>5 · Fibonacci</h3>
+    <p>Read n (n ≥ 1) and print the first n Fibonacci numbers: 0, 1, 1, 2, 3, 5, …</p>
+    <textarea id="ta-p5" spellcheck="false" aria-label="Your answer for task 5"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre><span class="c"># input: n   output: first n Fibonacci numbers</span>
+n = input("How many terms?")
+a = 0
+b = 1
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> n:
+    print(a)
+    next_term = a + b
+    a = b
+    b = next_term</pre>
+      <p class="small">Trace n = 6: prints 0, 1, 1, 2, 3, 5. ✓</p>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p5a"><label for="p5a">Correct starting pair (0, 1)</label></li>
+        <li><input type="checkbox" id="p5b"><label for="p5b">Uses a temporary so a and b don't overwrite each other</label></li>
+        <li><input type="checkbox" id="p5c"><label for="p5c">Prints exactly n terms (traced)</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="attempt" id="p6">
+    <h3>6 · Primes below 50</h3>
+    <p>Write a function <code>is_prime(n)</code> and use it to print all prime numbers below 50.</p>
+    <textarea id="ta-p6" spellcheck="false" aria-label="Your answer for task 6"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre><span class="k">def</span> is_prime(n):
+    <span class="k">if</span> n &lt; 2:
+        <span class="k">return</span> False
+    i = 2
+    <span class="k">while</span> i * i &lt;= n:        <span class="c"># only test up to sqrt(n)</span>
+        <span class="k">if</span> n % i == 0:
+            <span class="k">return</span> False
+        i = i + 1
+    <span class="k">return</span> True
+
+<span class="k">for</span> n <span class="k">from</span> 2 <span class="k">to</span> 49:
+    <span class="k">if</span> is_prime(n):
+        print(n)</pre>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p6a"><label for="p6a">0 and 1 are not prime</label></li>
+        <li><input type="checkbox" id="p6b"><label for="p6b">Returns False as soon as a divisor is found</label></li>
+        <li><input type="checkbox" id="p6c"><label for="p6c">Returns True only after the loop finishes</label></li>
+        <li><input type="checkbox" id="p6d"><label for="p6d">Bonus: stops at √n, with a comment saying why</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Level 4 · strings and the hard Q5</h2>
+  <div class="attempt" id="p7">
+    <h3>7 · Palindrome</h3>
+    <p>Read a word, build its reverse with a loop (no built-in reverse), and print whether it is a palindrome.</p>
+    <textarea id="ta-p7" spellcheck="false" aria-label="Your answer for task 7"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre>word = input("Enter a word")
+reversed_word = ""
+<span class="k">for</span> i <span class="k">from</span> len(word) - 1 <span class="k">down to</span> 0:
+    reversed_word = reversed_word + word[i]
+print("Reversed:", reversed_word)
+<span class="k">if</span> reversed_word == word:
+    print("Palindrome")
+<span class="k">else</span>:
+    print("Not a palindrome")</pre>
+      <p class="small">Mention in a comment that you'd convert to lowercase first if "Anna" should count.</p>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p7a"><label for="p7a">Loop runs from the last index down to 0</label></li>
+        <li><input type="checkbox" id="p7b"><label for="p7b">No built-in reverse used</label></li>
+        <li><input type="checkbox" id="p7c"><label for="p7c">Compares and prints both outcomes</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="attempt" id="p8">
+    <h3>8 · Sensor monitor (Smart Industry Q5)</h3>
+    <p>A list holds temperature readings from a machine, and a threshold is given. Print the average reading, how many readings were above the threshold, and the <strong>longest run of consecutive readings</strong> above it.</p>
+    <p class="small">Test data: readings 22, 27, 29, 24, 30, 31, 33, 21 and threshold 25. Expected: average 27.125, above 5, longest run 3.</p>
+    <textarea id="ta-p8" spellcheck="false" aria-label="Your answer for task 8"></textarea>
+    <div class="answer-row" style="margin-top:.5rem"><button class="primary reveal-model">Compare with model</button><button class="skip">Show it</button></div>
+    <div class="model">
+<pre><span class="c"># input: list readings, number threshold</span>
+<span class="c"># output: average, count above, longest run above</span>
+<span class="k">if</span> len(readings) == 0:
+    print("No data")
+<span class="k">else</span>:
+    total = 0
+    above = 0
+    run = 0
+    longest = 0
+    <span class="k">for</span> each r <span class="k">in</span> readings:
+        total = total + r
+        <span class="k">if</span> r &gt; threshold:
+            above = above + 1
+            run = run + 1
+            <span class="k">if</span> run &gt; longest:
+                longest = run
+        <span class="k">else</span>:
+            run = 0                 <span class="c"># streak broken</span>
+    print("Average:", total / len(readings))
+    print("Above threshold:", above)
+    print("Longest run:", longest)</pre>
+      <ul class="rubric">
+        <li><input type="checkbox" id="p8a"><label for="p8a">One pass computes all three results</label></li>
+        <li><input type="checkbox" id="p8b"><label for="p8b">Run resets to 0 when the streak breaks</label></li>
+        <li><input type="checkbox" id="p8c"><label for="p8c">Longest updated inside the streak, so a run at the very end counts</label></li>
+        <li><input type="checkbox" id="p8d"><label for="p8d">Empty list guarded before dividing</label></li>
+        <li><input type="checkbox" id="p8e"><label for="p8e">Traced with the test data and got 27.125 / 5 / 3</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="source">
+    <p class="small"><strong>Primary source:</strong> <a href="https://eng.libretexts.org/Courses/Delta_College/CSP31A_-_C_Programming/10%3A_Introduction_to_Structured_Programming/10.2%3A_Pseudocode_Examples_for_Control_Structures">LibreTexts – Pseudocode Examples for Control Structures</a>. For more practice, rewrite any two of the tasks above in C++ style.</p>
+  </div>
+  <div class="ask"><strong>Questions?</strong> Paste your attempt to Claude: "mark this like the Metropolia examiner would, out of 5".</div>
+
+  <div class="done-wrap"><button class="done-toggle" data-lesson="0008"></button></div>
+  <nav class="pager"><a href="0007-pseudocode-on-paper.html">← Pseudocode on paper</a><a href="0009-mock-exam.html">Next: Timed mock exam →</a></nav>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mock Exam · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="page">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="../reference/math-cheatsheet.html">Math sheet</a><a href="../reference/pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="../reference/glossary.html">Glossary</a></div>
+  <span>Lesson 09 / 09</span>
+</nav>
+<main>
+  <p class="eyebrow">Lesson 09 · Sunday 18.10 · 2 h 15 min</p>
+  <h1>Timed mock exam</h1>
+  <p class="lede">Same shape as the real Part I: two sections, five questions each, easiest first. Paper, pencil, no calculator, no notes. Solutions are folded away at the bottom; don't open them until both timers are done.</p>
+
+  <div class="callout">
+    <span class="label">Set-up</span>
+    <ul>
+      <li>Write "Section 1 – Mathematics" and "Section 4 – Programming" as headings, exactly as you will on the day.</li>
+      <li>Box every final math answer. Write "Pseudocode (Python style)" above your programs.</li>
+      <li>When time runs out, stop. Note what you'd have done with more time in a different colour.</li>
+    </ul>
+  </div>
+
+  <h2>Section 1 – Mathematics</h2>
+  <div class="timer" data-minutes="65" data-label="Math · 65 min"></div>
+  <ol>
+    <li>
+      <p>Calculate <span data-m="3,-2,1;0,4,-5"></span><span class="op">+</span><span data-m="-1,2,6;7,-4,5"></span></p>
+    </li>
+    <li>
+      <p>Let <span class="math">f(x) = x² − 2x − 15</span>. (a) Find <span class="math">f(2)</span>. (b) Solve <span class="math">f(x) = 0</span>.</p>
+    </li>
+    <li>
+      <p>(a) Find the derivative of <span class="math">f(x) = 4x³ − 6x² + 2x − 9</span> and evaluate <span class="math">f′(1)</span>. (b) Differentiate <span class="math">g(x) = (x² + 1)³</span>.</p>
+    </li>
+    <li>
+      <p>Daily downtime (minutes) on a line: 7, 3, 9, 5, 12, 4, 10, 6. (a) Find the mean and median. (b) A ninth day with 25 minutes is added. Find the new mean and median, and say in one sentence which measure changed more and why.</p>
+    </li>
+    <li>
+      <p>A machine produces defective parts with probability 0.03, independently. (a) Three parts are tested. Find P(all three are OK). (b) Find P(at least one is defective). (c) A box of 10 parts contains exactly 2 defective ones. Two are drawn without replacement. Find P(both defective). (d) Same box: find P(exactly one defective).</p>
+    </li>
+  </ol>
+
+  <h2>Section 4 – Programming</h2>
+  <div class="timer" data-minutes="65" data-label="Programming · 65 min"></div>
+  <ol>
+    <li><p>Read a pressure value in bar. Print <code>LOW</code> if it is below 2.0, <code>HIGH</code> if it is above 5.0, and <code>OK</code> otherwise.</p></li>
+    <li><p>Read 10 numbers. Print their sum and their average.</p></li>
+    <li><p>Read an integer n and print its multiplication table from n × 1 to n × 10, one line each, in the form <code>3 x 4 = 12</code>.</p></li>
+    <li><p>Write a function <code>count_vowels(text)</code> that returns the number of vowels (a, e, i, o, u, upper or lower case). Use it on a line read from the user and print the result.</p></li>
+    <li><p>A list holds the number of parts produced on each day of a month. Print the day number (starting from 1) with the highest production, and how many days were below the monthly average. Handle an empty list.</p></li>
+  </ol>
+
+  <h2>Solutions</h2>
+  <p class="small">Mark each question out of 2: 2 = fully right, 1 = right method with a slip, 0 = wrong or missing.</p>
+
+  <h3>Mathematics</h3>
+  <details><summary>Q1 · matrix sum</summary><div class="solution">
+    <p><span data-m="3+(-1),-2+2,1+6;0+7,4+(-4),-5+5"></span> = <span data-m="2,0,7;7,0,0"></span></p>
+  </div></details>
+  <details><summary>Q2 · function</summary><div class="solution">
+    <p>(a) f(2) = 4 − 4 − 15 = <strong>−15</strong>.</p>
+    <p>(b) Product −15, sum −2 → −5 and +3: (x − 5)(x + 3) = 0 → <strong>x = 5 or x = −3</strong>. Formula check: D = 4 + 60 = 64, x = (2 ± 8)/2.</p>
+  </div></details>
+  <details><summary>Q3 · derivatives</summary><div class="solution">
+    <p>(a) f′(x) = <strong>12x² − 12x + 2</strong>, f′(1) = 12 − 12 + 2 = <strong>2</strong>.</p>
+    <p>(b) Chain rule: g′(x) = 3(x² + 1)² · 2x = <strong>6x(x² + 1)²</strong>.</p>
+  </div></details>
+  <details><summary>Q4 · mean and median</summary><div class="solution">
+    <p>(a) Sorted: 3, 4, 5, 6, 7, 9, 10, 12. Sum 56, n = 8 → mean <strong>7</strong>. Median = (6 + 7)/2 = <strong>6.5</strong>.</p>
+    <p>(b) Sum 81, n = 9 → mean <strong>9</strong>. Sorted: 3, 4, 5, 6, <u>7</u>, 9, 10, 12, 25 → median <strong>7</strong>. The mean moved by 2, the median by 0.5: the mean includes the size of the outlier, the median only its position.</p>
+  </div></details>
+  <details><summary>Q5 · probability</summary><div class="solution">
+    <p>(a) 0.97³ = <strong>0.912673 ≈ 0.913</strong>. (By hand: 0.97² = 0.9409; 0.9409 × 0.97 = 0.9409 − 0.028227 = 0.912673.)</p>
+    <p>(b) 1 − 0.912673 = <strong>0.087327 ≈ 0.087</strong>.</p>
+    <p>(c) 2/10 · 1/9 = 2/90 = <strong>1/45 ≈ 0.022</strong>.</p>
+    <p>(d) Defective then OK, or OK then defective: 2/10 · 8/9 + 8/10 · 2/9 = 32/90 = <strong>16/45 ≈ 0.356</strong>. Check: P(both OK) = 56/90, and 56 + 2 + 32 = 90. ✓</p>
+  </div></details>
+
+  <h3>Programming</h3>
+  <details><summary>P1 · pressure check</summary><div class="solution">
+<pre>p = input("Pressure (bar)")
+<span class="k">if</span> p &lt; 2.0:
+    print("LOW")
+<span class="k">elif</span> p &gt; 5.0:
+    print("HIGH")
+<span class="k">else</span>:
+    print("OK")</pre>
+    <p class="small">2 marks if exactly 2.0 and 5.0 print OK.</p>
+  </div></details>
+  <details><summary>P2 · sum and average</summary><div class="solution">
+<pre>total = 0
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> 10:
+    x = input("Number")
+    total = total + x
+print("Sum:", total)
+print("Average:", total / 10)</pre>
+  </div></details>
+  <details><summary>P3 · multiplication table</summary><div class="solution">
+<pre>n = input("Number")
+<span class="k">for</span> i <span class="k">from</span> 1 <span class="k">to</span> 10:
+    print(n, "x", i, "=", n * i)</pre>
+  </div></details>
+  <details><summary>P4 · count vowels</summary><div class="solution">
+<pre><span class="k">def</span> count_vowels(text):
+    count = 0
+    <span class="k">for</span> each ch <span class="k">in</span> text:
+        <span class="k">if</span> lowercase(ch) <span class="k">in</span> "aeiou":
+            count = count + 1
+    <span class="k">return</span> count
+
+line = input("Enter text")
+print("Vowels:", count_vowels(line))</pre>
+    <p class="small">Lose a mark if upper case isn't handled, or if the function prints instead of returning.</p>
+  </div></details>
+  <details><summary>P5 · best day and below-average days</summary><div class="solution">
+<pre><span class="c"># input: list production (one value per day)</span>
+<span class="k">if</span> len(production) == 0:
+    print("No data")
+<span class="k">else</span>:
+    <span class="c"># pass 1: total and best day</span>
+    total = 0
+    best_index = 0
+    <span class="k">for</span> i <span class="k">from</span> 0 <span class="k">to</span> len(production) - 1:
+        total = total + production[i]
+        <span class="k">if</span> production[i] &gt; production[best_index]:
+            best_index = i
+    average = total / len(production)
+    <span class="c"># pass 2: count days below average</span>
+    below = 0
+    <span class="k">for</span> each p <span class="k">in</span> production:
+        <span class="k">if</span> p &lt; average:
+            below = below + 1
+    print("Best day:", best_index + 1)
+    print("Days below average:", below)</pre>
+    <p class="small">Key points: the average is only known after the first pass, so counting needs a second pass; the day number is index + 1.</p>
+  </div></details>
+
+  <h2>After marking</h2>
+  <ul>
+    <li>Score out of 20 per section. Under 14 in a section → that's Monday's focus.</li>
+    <li>For every question below 2: redo it from a blank page on Monday, without looking.</li>
+    <li>Tell Claude your scores per question. It will update your learning record and build a targeted drill for the weak spots.</li>
+  </ul>
+
+  <div class="ask"><strong>Questions?</strong> Photograph or type your answers and ask Claude to mark them against these solutions.</div>
+
+  <div class="done-wrap"><button class="done-toggle" data-lesson="0009"></button></div>
+  <nav class="pager"><a href="0008-exam-programs.html">← The programs they ask for</a><a href="../index.html">Course plan →</a></nav>
+</main>
+</div>
+</body>
+</html>

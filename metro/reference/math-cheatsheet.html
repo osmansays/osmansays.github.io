@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Math Cheat Sheet · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="wide">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="math-cheatsheet.html">Math sheet</a><a href="pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="glossary.html">Glossary</a></div>
+  <span>Reference</span>
+</nav>
+<main>
+  <p class="eyebrow">Section 1 · one page</p>
+  <h1>Math cheat sheet</h1>
+  <p class="small">Everything from lessons 02–06. Read it once on Tuesday 20.10, not on the morning of the exam.</p>
+
+  <div class="ref-grid">
+    <section>
+      <h3>1 · Matrices <a class="small" href="../lessons/0002-matrix-addition.html">lesson</a></h3>
+      <ul>
+        <li>Add / subtract only if <strong>same size</strong> (rows × cols). Otherwise: not defined.</li>
+        <li>Position by position: <span class="math">(A+B)<sub>ij</sub> = a<sub>ij</sub> + b<sub>ij</sub></span></li>
+        <li><span class="math">kA</span>: multiply every entry by k.</li>
+        <li><span class="math">X + A = B ⇒ X = B − A</span></li>
+        <li>Product AB: row of A · column of B. Needs cols(A) = rows(B). <span class="math">AB ≠ BA</span>.</li>
+      </ul>
+      <p class="display"><span data-m="2,-1;0,3"></span><span class="op">+</span><span data-m="4,5;-2,1"></span><span class="op">=</span><span data-m="6,4;-2,4"></span></p>
+    </section>
+
+    <section>
+      <h3>2 · Solving functions <a class="small" href="../lessons/0003-solving-functions.html">lesson</a></h3>
+      <ul>
+        <li>Evaluate: substitute <strong>with brackets</strong>: <span class="math">(−2)² = 4</span></li>
+        <li>Linear: undo operations, same on both sides. Check by substituting.</li>
+        <li>Factor <span class="math">x² + bx + c</span>: two numbers, product c, sum b.</li>
+        <li><span class="math">x² = k ⇒ x = ±√k</span></li>
+        <li>Quadratic formula: <span class="math">x = (−b ± √(b² − 4ac)) / 2a</span></li>
+        <li><span class="math">D = b² − 4ac</span>: &gt;0 two roots, =0 one, &lt;0 none.</li>
+        <li>Two lines meet: set equal, solve for x, then y.</li>
+        <li><span class="math">f(g(x))</span>: inside first.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>3 · Derivatives <a class="small" href="../lessons/0004-derivatives.html">lesson</a></h3>
+      <div class="table-wrap"><table>
+        <tbody>
+          <tr><td>c</td><td>0</td></tr>
+          <tr><td>xⁿ</td><td>n·xⁿ⁻¹</td></tr>
+          <tr><td>√x = x<sup>½</sup></td><td>1 / (2√x)</td></tr>
+          <tr><td>1/x = x⁻¹</td><td>−1/x²</td></tr>
+          <tr><td>eˣ</td><td>eˣ</td></tr>
+          <tr><td>ln x</td><td>1/x</td></tr>
+          <tr><td>sin x / cos x</td><td>cos x / −sin x</td></tr>
+          <tr><td>f·g</td><td>f′g + fg′</td></tr>
+          <tr><td>f/g</td><td>(f′g − fg′) / g²</td></tr>
+          <tr><td>f(g(x))</td><td>f′(g(x))·g′(x)</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>Slope at x = a: differentiate <strong>first</strong>, then substitute.</li>
+        <li>Stationary point: solve <span class="math">f′(x) = 0</span>, then find y = f(x).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>4 · Mean and median <a class="small" href="../lessons/0005-mean-and-median.html">lesson</a></h3>
+      <ul>
+        <li>Mean = sum ÷ n</li>
+        <li>Median: <strong>sort first</strong>; middle value at position (n + 1)/2; even n → mean of the two middle values.</li>
+        <li>Mode = most frequent. Range = max − min.</li>
+        <li>Frequency table: mean = Σ(x·f) ÷ Σf</li>
+        <li>Missing value: total = mean × n, subtract the known ones.</li>
+        <li>Outliers pull the mean, barely move the median.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>5 · Probability <a class="small" href="../lessons/0006-probability.html">lesson</a></h3>
+      <ul>
+        <li><span class="math">P(A) = favourable / total</span> (equally likely outcomes)</li>
+        <li><span class="math">P(not A) = 1 − P(A)</span></li>
+        <li>Independent AND: <span class="math">P(A)·P(B)</span></li>
+        <li>Without replacement: <span class="math">P(A)·P(B | A)</span>, so the second fraction has one fewer in the total</li>
+        <li>OR: <span class="math">P(A) + P(B) − P(A and B)</span></li>
+        <li><strong>At least one = 1 − P(none)</strong></li>
+        <li>Two dice: 36 outcomes. Sum 7 is most likely (6/36).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Exam habits</h3>
+      <ul>
+        <li>Show every step; box the final answer.</li>
+        <li>Circle negative numbers before adding.</li>
+        <li>Plug solutions back in when you have 10 seconds.</li>
+        <li>Fractions are fine; simplify if time allows.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+</div>
+</body>
+</html>

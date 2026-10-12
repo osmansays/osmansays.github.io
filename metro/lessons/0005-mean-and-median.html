@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mean and Median · Metro Prep</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/teach.js" defer></script>
+</head>
+<body>
+<div class="page">
+<nav class="topbar">
+  <div class="crumbs"><a href="../index.html">Metro Prep</a><a href="../reference/math-cheatsheet.html">Math sheet</a><a href="../reference/pseudocode-cheatsheet.html">Pseudocode sheet</a><a href="../reference/glossary.html">Glossary</a></div>
+  <span>Lesson 05 / 09</span>
+</nav>
+<main>
+  <p class="eyebrow">Lesson 05 · Section 1, question type 4 · 25 minutes</p>
+  <h1>Mean and median</h1>
+  <p class="lede">Two ways to describe the "middle" of a dataset. The arithmetic is easy; the marks are lost on forgetting to sort, or on an even number of values.</p>
+
+  <div class="q num" data-answer="29" data-fields="f′(2)">
+    <span class="qnum">Warm-up · from lesson 04</span>
+    <p class="prompt"><span class="math">f(x) = x⁴ − 3x</span>. Find <span class="math">f′(2)</span>.</p>
+    <div class="explain">f′(x) = 4x³ − 3, f′(2) = 32 − 3 = 29.</div>
+  </div>
+
+  <h2>Definitions</h2>
+  <ul>
+    <li><strong>Mean</strong> (average) = sum of values ÷ number of values.</li>
+    <li><strong>Median</strong> = the middle value <strong>after sorting</strong>. With an even count, it's the mean of the two middle values. Position of the median: <span class="math">(n + 1) / 2</span>.</li>
+    <li><strong>Mode</strong> = the most frequent value (not listed in the spec, but a free mark if asked).</li>
+    <li><strong>Range</strong> = max − min.</li>
+  </ul>
+  <p>Background: <a href="https://openstax.org/details/books/introductory-statistics-2e">OpenStax Introductory Statistics 2e</a>, section 2.5 "Measures of the Center of the Data".</p>
+
+  <div class="worked">
+    <span class="label">Worked example</span>
+    <p>Data: 4, 8, 6, 5, 3, 8 (n = 6)</p>
+    <ol>
+      <li><strong>Sort first:</strong> 3, 4, 5, 6, 8, 8</li>
+      <li>Mean = (3+4+5+6+8+8) / 6 = 34 / 6 ≈ <strong>5.67</strong></li>
+      <li>n is even, so median = mean of the 3rd and 4th values = (5 + 6) / 2 = <strong>5.5</strong></li>
+      <li>Mode = <strong>8</strong> (appears twice)</li>
+    </ol>
+  </div>
+
+  <h3>From a frequency table</h3>
+  <p>A table "value · how many times" is just a compressed list. Mean = Σ(value × frequency) ÷ Σ frequency. For the median, count through the cumulative frequencies to the middle position.</p>
+  <div class="worked">
+    <span class="label">Example</span>
+    <div class="table-wrap"><table style="width:auto"><thead><tr><th>Defects per shift</th><th>Shifts</th></tr></thead>
+    <tbody><tr><td>1</td><td>2</td></tr><tr><td>2</td><td>5</td></tr><tr><td>3</td><td>3</td></tr></tbody></table></div>
+    <p>Mean = (1·2 + 2·5 + 3·3) / 10 = 21 / 10 = <strong>2.1</strong>. Ten values, so the median is between the 5th and 6th. Values 1–2 are "1", values 3–7 are "2" → median = <strong>2</strong>.</p>
+  </div>
+
+  <h3>The missing-value trick (likely harder variant)</h3>
+  <p>If you know the mean and all but one value: <strong>total = mean × n</strong>, then subtract the known values.</p>
+
+  <div class="callout">
+    <span class="label">Why have both?</span>
+    <p>The median ignores outliers; the mean doesn't. Readings 3, 4, 5, 6, 100 have mean 23.6 but median 5. For a sensor that occasionally spikes, the median describes "normal" better.</p>
+  </div>
+
+  <h2>Practice</h2>
+  <div class="q num" data-answer="6" data-fields="mean">
+    <span class="qnum">P1</span>
+    <p class="prompt">Mean of 2, 4, 6, 8, 10?</p>
+    <div class="explain">30 / 5 = 6.</div>
+  </div>
+  <div class="q num" data-answer="5" data-fields="median">
+    <span class="qnum">P2</span>
+    <p class="prompt">Median of 7, 1, 9, 3, 5?</p>
+    <div class="explain">Sorted: 1, 3, 5, 7, 9. Middle (3rd) value = 5.</div>
+  </div>
+  <div class="q num" data-answer="8" data-fields="median">
+    <span class="qnum">P3</span>
+    <p class="prompt">Median of 12, 4, 9, 7?</p>
+    <div class="explain">Sorted: 4, 7, 9, 12. Even count → (7 + 9) / 2 = 8.</div>
+  </div>
+  <div class="q num" data-answer="14.875;14.5" data-fields="mean;median">
+    <span class="qnum">P4</span>
+    <p class="prompt">Cycle times (s): 12, 15, 11, 18, 16, 14, 20, 13. Find the mean and median.</p>
+    <div class="explain">Sum = 119, n = 8 → mean = 14.875. Sorted: 11, 12, 13, 14, 15, 16, 18, 20 → median = (14 + 15) / 2 = 14.5.</div>
+  </div>
+  <div class="q num" data-answer="8" data-fields="missing">
+    <span class="qnum">P5</span>
+    <p class="prompt">Five numbers have mean 10. Four of them are 8, 9, 11, 14. What's the fifth?</p>
+    <div class="explain">Total = 10 × 5 = 50. Known sum = 42. Missing = 8.</div>
+  </div>
+  <div class="q num" data-answer="2.5;2.5" data-fields="mean;median">
+    <span class="qnum">P6</span>
+    <p class="prompt">Frequency table: value 1 appears 1 time, value 2 appears 4 times, value 3 appears 4 times, value 4 appears 1 time. Find mean and median.</p>
+    <div class="explain">Mean = (1 + 8 + 12 + 4) / 10 = 25 / 10 = 2.5. Ten values; 5th is 2 (positions 2–5), 6th is 3 (positions 6–9) → median = (2 + 3) / 2 = 2.5.</div>
+  </div>
+  <div class="q mcq" data-answer="1">
+    <span class="qnum">P7</span>
+    <p class="prompt">A dataset gets one huge outlier added. What happens?</p>
+    <div class="opts">
+      <button class="opt">Median moves far, mean barely</button>
+      <button class="opt">Mean moves far, median barely</button>
+      <button class="opt">Both move by equal amounts</button>
+      <button class="opt">Neither moves in any way</button>
+    </div>
+    <div class="explain">The outlier enters the sum, so the mean jumps. The median shifts by at most one position.</div>
+  </div>
+
+  <div class="source">
+    <p class="small"><strong>Primary source:</strong> <a href="https://openstax.org/details/books/introductory-statistics-2e">OpenStax – Introductory Statistics 2e</a>, §2.5 Measures of the Center of the Data (free online).</p>
+  </div>
+  <div class="ask"><strong>Questions?</strong> Ask Claude, e.g. "when would an exam want the mode instead?"</div>
+
+  <div class="done-wrap"><button class="done-toggle" data-lesson="0005"></button></div>
+  <nav class="pager"><a href="0004-derivatives.html">← Derivatives</a><a href="0006-probability.html">Next: Probability →</a></nav>
+</main>
+</div>
+</body>
+</html>
